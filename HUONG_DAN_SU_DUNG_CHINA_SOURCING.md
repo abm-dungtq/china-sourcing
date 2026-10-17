@@ -80,6 +80,21 @@ Dùng khi bạn muốn nghiên cứu video bán hàng triệu view trên Douyin 
 - **Câu lệnh mẫu:**
   > *"Tải video không logo và trích xuất toàn bộ kịch bản lời thoại bán hàng từ link Douyin này để phân tích USP sản phẩm."*
 
+### Kịch bản 6 quét sản phẩm mới đang hot, lượt bán tăng nhanh và bắt trend ngách trên 1688 (`trends`)
+Dùng khi bạn đã đăng nhập 1688 và muốn săn các mã hàng mới lên kệ nhưng đã nổ đơn (`上新热销`), các sản phẩm có tốc độ bán 30 ngày tăng vọt (`飙升`), hoặc khám phá các cụm từ khóa ngách (`商机组货`) và bảng xếp hạng chính thức (`1688 排行榜`) mà đối thủ chưa kịp nhập về Việt Nam.
+- **Câu lệnh mẫu trong khung chat AI:**
+  - **Quét tổng hợp 4 chiều (`mode=all`):**
+    > *"Quét giúp tôi các mẫu đèn bàn chống cận mới ra đang hot, lượt bán tăng nhanh nhất trên 1688 và các ngách xu hướng đang lên, tính sẵn giá vốn về Việt Nam cho lô 100 chiếc."*
+  - **Chỉ lọc mẫu mới lên kệ có cải tiến tính năng/chất liệu (`mode=new-hot`):**
+    > *"Tìm trên 1688 các mẫu quạt cầm tay mini mới ra mắt (có nhãn cải tiến tính năng/thiết kế mới) đang có đơn đặt sỉ cao và báo giá về kho Việt Nam."*
+  - **Theo dõi tốc độ nổ đơn theo ngày (`--state-file`):**
+    > *"Quét lại tốc độ tăng đơn của ngách đèn bàn chống cận so với lần kiểm tra trước xem mã nào đang tăng đơn/ngày mạnh nhất."*
+- **Cơ chế phân tích 4 lớp tín hiệu thực tế từ gói tin `mtop` 1688:**
+  1. **Sản phẩm mới đang Hot (`上新热销` — `HotNewScore 0-100`):** Bóc tách trực tiếp nhãn điểm bán hàng mới `newProductSellPoint` (ví dụ: `功能上新 三档调光无频闪`, `材质上新 铝合金灯罩耐用`, `设计上新 双笔筒可拆设计`) và cờ hàng phân phối mới `fenxiaoNewOffer`.
+  2. **Lượt bán tăng nhanh (`飙升` — `VelocityIndex` & `FastRisingScore 0-100`):** Áp dụng công thức giảm chấn logarit giữa lượng đơn 30 ngày (`bookedCount`) và tổng doanh số lũy kế (`afterPrice`), kết hợp tỷ lệ khách sỉ quay lại (`turnHead.percent` — `回头率`) và nhãn giá thấp nhất 30–90 ngày (`近N天低价`). Khi dùng kèm `--state-file`, hệ thống tự động tính chênh lệch tuyệt đối **`Δ đơn/ngày`** giữa các lần quét.
+  3. **Cụm xu hướng ngách đang lên (`1688 商机组货`):** Tự động gom nhóm các ngách con đang được 1688 đẩy lưu lượng (ví dụ: `全光谱护眼学习灯`, `宿舍磁吸护眼酷毙灯`) kèm ngày phát hiện `topicDate`.
+  4. **Bảng xếp hạng ngành hàng 1688 (`1688 排行榜`):** Trích xuất trực tiếp bộ 3 đường dẫn Bảng Bán Chạy (`热销榜` — `rankType=1`), Bảng Tăng Tốc (`飙升榜` — `rankType=2`) và Bảng Hàng Mới (`新品榜` — `rankType=3`).
+
 ---
 
 ## 4. Cẩm nang tham chiếu CLI dành cho Agent (`scripts/china_sourcing.py`)
@@ -87,13 +102,23 @@ Dùng khi bạn muốn nghiên cứu video bán hàng triệu view trên Douyin 
 Phần này dành cho các AI Agent (hoặc kỹ thuật viên) khi điều phối trực tiếp script lõi `scripts/china_sourcing.py`.
 
 ```bash
-# 1. Kiểm tra trạng thái công cụ, phiên đăng nhập 1688 và biến môi trường
-python3 scripts/china_sourcing.py doctor --output runs/<run_id>/01_doctor.json
+# 1. Kiểm tra trạng thái công cụ, phiên đăng nhập 1688 và tự động vá 4 file 1688-cli (--fix)
+python3 scripts/china_sourcing.py doctor --fix --output runs/<run_id>/01_doctor.json
 
 # 2. Tự động bật trình duyệt Chrome cho người dùng đăng nhập và chờ xác nhận hoàn tất
 python3 scripts/china_sourcing.py login --platform 1688
 
-# 3. Sinh ma trận từ khóa tiếng Trung giản thể & URL tra cứu đa sàn
+# 3. Quét sản phẩm mới đang hot, lượt bán tăng nhanh & trend ngách 1688 (kèm giá vốn VNĐ & theo dõi Δ đơn/ngày)
+python3 scripts/china_sourcing.py trends \
+  --keyword "护眼台灯" "国AA级护眼灯" \
+  --mode all \
+  --max 40 \
+  --qty 100 \
+  --state-file runs/trends_state.json \
+  --output-json runs/<run_id>/03_trends.json \
+  --output-md runs/<run_id>/04_trends_report.md
+
+# 4. Sinh ma trận từ khóa tiếng Trung giản thể & URL tra cứu đa sàn
 python3 scripts/china_sourcing.py translate-keywords \
   --product "Đèn bàn học chống cận" \
   --zh "护眼台灯" "学生学习专用台灯" "国AA级护眼灯" \
@@ -101,13 +126,13 @@ python3 scripts/china_sourcing.py translate-keywords \
   --max-price-cny 35 \
   --output runs/<run_id>/02_keywords.json
 
-# 4. Giải mã chuỗi link chia sẻ từ ứng dụng Taobao, 1688, Pinduoduo, Douyin, Alibaba
-python3 scripts/china_sourcing.py parse-link "<chuỗi_chia_sẻ_hoặc_url>"
+# 5. Giải mã chuỗi link chia sẻ từ ứng dụng Taobao, 1688, Pinduoduo, Douyin, Alibaba (kèm mở link rút gọn)
+python3 scripts/china_sourcing.py parse-link --resolve "<chuỗi_chia_sẻ_hoặc_url>"
 
-# 5. Tính nhanh giá vốn về kho Việt Nam (TMĐT 30.000đ/kg & Chính ngạch >1m³)
+# 6. Tính nhanh giá vốn về kho Việt Nam (TMĐT 30.000đ/kg & Chính ngạch >1m³)
 python3 scripts/china_sourcing.py landed-cost --price-cny 16.5 --qty 100 --weight-kg 0.5 --volume-cbm 0.003
 
-# 6. Tổng hợp báo cáo Markdown, CSV và bản nháp câu hỏi WangWang
+# 7. Tổng hợp báo cáo Markdown, CSV và bản nháp câu hỏi WangWang
 python3 scripts/china_sourcing.py report \
   --input runs/<run_id>/03_raw_offers.json \
   --output-md runs/<run_id>/04_sourcing_report.md \
@@ -115,9 +140,19 @@ python3 scripts/china_sourcing.py report \
   --output-wangwang runs/<run_id>/05_wangwang_draft.md \
   --qty 100
 
-# 7. Quét tin nhắn phản hồi mới trên 1688 WangWang (chạy định kỳ 5 phút/lần)
+# 8. Gửi tin hỏi giá qua 1688 WangWang kèm khóa chống gửi trùng SHA-256 và chụp ảnh bằng chứng
+python3 scripts/china_sourcing.py inquire-wangwang \
+  --run-id "<run_id>" \
+  --offer-id "<offerId>" \
+  --message "老板你好，请问这款有现货吗？单件带包装的实际重量是多少？" \
+  --receipt runs/<run_id>/07_inquiry_receipt.json \
+  --screenshot runs/<run_id>/07_wangwang_proof_1_<offerId>.png
+
+# 9. Quét tin nhắn phản hồi mới của người thật trên 1688 WangWang (chạy định kỳ 5 phút/lần)
 python3 scripts/china_sourcing.py check-wangwang \
   --receipt runs/<run_id>/07_inquiry_receipt.json \
+  --state-file runs/<run_id>/08_wangwang_state.json \
+  --only-new \
   --output runs/<run_id>/08_wangwang_poll.json
 ```
 
@@ -129,15 +164,18 @@ Gói kỹ năng `china-sourcing` giữ cấu trúc gọn nhẹ, không phụ thu
 
 ```text
 china-sourcing/
-├── SKILL.md                                 # Chỉ thị định tuyến & quy tắc vận hành cho AI Agent
-├── README.md                                # Tài liệu hướng dẫn sử dụng toàn tập (viết theo chuẩn viet-pro)
+├── SKILL.md                                 # Chỉ thị định tuyến & quy tắc vận hành cho AI Agent (v2.1.0)
+├── README.md                                # Tài liệu giới thiệu & câu lệnh mẫu thực chiến
+├── HUONG_DAN_SU_DUNG_CHINA_SOURCING.md      # Cẩm nang hướng dẫn sử dụng toàn tập
+├── patches/
+│   └── 1688-cli/                            # Bộ 4 bản vá 1688-cli (search-mtop, seller-chat/inquire/messages)
 ├── scripts/
-│   ├── china_sourcing.py                    # CLI điều phối đa sàn, tính giá vốn & canh tin WangWang
+│   ├── china_sourcing.py                    # CLI điều phối đa sàn, quét trend 1688, tính giá vốn & canh tin WangWang
 │   └── tests/
-│       └── test_china_sourcing.py           # Bộ kiểm thử đơn vị (8/8 unit tests)
+│       └── test_china_sourcing.py           # Bộ kiểm thử đơn vị (24/24 unit tests)
 └── references/
     ├── platform-playbooks.md                # Sổ tay lệnh chuyên sâu cho 1688, Taobao, Alibaba, PDD, Douyin
-    └── abm-workflow-and-prompts.md          # Khung Prompt 06 Thành Phần & Workflow ABM v1.1 (WF-SOURCING-CN-001)
+    └── abm-workflow-and-prompts.md          # Khung Prompt 06 Thành Phần & Workflow ABM v1.0 (WF-SOURCING-CN-001)
 ```
 
 Để sử dụng trên mọi nền tảng Agent, thư mục `china-sourcing` được đồng bộ tại 5 đường dẫn chuẩn:

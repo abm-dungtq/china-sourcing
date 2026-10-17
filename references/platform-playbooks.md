@@ -57,6 +57,16 @@ python3 scripts/china_sourcing.py check-wangwang \
   --state-file "runs/<run_id>/08_wangwang_state.json" \
   --only-new \
   --output "runs/<run_id>/08_wangwang_poll.json"
+
+# Scan 1688 Hot New Products (上新), Fast-Rising Sales Velocity (飙升), and Niche Trends (商机组货 / 排行榜)
+python3 scripts/china_sourcing.py trends \
+  --keyword "<chinese_keyword_1>" "<chinese_keyword_2>" \
+  --mode all \
+  --max 40 \
+  --qty 100 \
+  --state-file "runs/trends_state.json" \
+  --output-json "runs/<run_id>/03_trends.json" \
+  --output-md "runs/<run_id>/04_trends_report.md"
 ```
 
 #### Automatic 5-Minute WangWang Polling & Logistics Pricing Rules

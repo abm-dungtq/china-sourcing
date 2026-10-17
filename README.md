@@ -48,6 +48,7 @@ Bộ kỹ năng kết nối trực tiếp 5 sàn thương mại điện tử l�
 3. **Bóc kịch bản video bán hàng triệu view trên Douyin:** Tải video Douyin không dính watermark và chuyển toàn bộ lời thoại bán hàng tiếng Trung thành văn bản để bạn lấy ý tưởng làm video affiliate hoặc bán hàng tại Việt Nam.
 4. **Giải mã link chia sẻ điện thoại đa sàn (Taobao • Tmall • Pinduoduo • Alibaba):** Dán nguyên đoạn chữ lộn xộn copy từ app điện thoại (`【淘宝】https://e.tb.cn/...`), AI tự bóc tách mã sản phẩm, khảo sát đánh giá người mua thật và tìm xưởng sỉ tương ứng trên 1688.
 5. **Đàm phán WangWang tự động & radar canh tin 5 phút/lần:** Tự động gửi thẻ sản phẩm kèm câu hỏi ép giá mẫu, hỏi MOQ in Logo OEM trên **1688 WangWang (`旺旺`)**, chụp ảnh màn hình làm bằng chứng và tự động kiểm tra tin trả lời của chủ xưởng mỗi 5 phút.
+6. **Radar quét sản phẩm mới đang hot, lượt bán tăng nhanh & bắt trend ngách 1688 (`trends`):** Tự động bóc tách tín hiệu sản phẩm mới lên kệ (`上新热销`), chấm điểm tốc độ tăng trưởng đơn hàng 30 ngày (`飙升 VelocityIndex` + theo dõi `Δ đơn/ngày`), gom cụm từ khóa ngách đang lên (`商机组货`) và trích xuất bộ 3 bảng xếp hạng chính thức 1688 (`热销榜`, `飙升榜`, `新品榜`) kèm giá vốn về kho Việt Nam.
 
 ---
 
@@ -96,7 +97,7 @@ bash scripts/install.sh
 ---
 
 <a id="cau-lenh-mau"></a>
-## 💬 5. Năm câu lệnh mẫu copy-chạy-ngay trong khung chat AI
+## 💬 5. Sáu câu lệnh mẫu copy-chạy-ngay trong khung chat AI
 
 Sau khi cài đặt, hãy mở khung chat của Claude Code, Antigravity hoặc Cursor và thử ngay một trong các câu lệnh dưới đây:
 
@@ -104,19 +105,23 @@ Sau khi cài đặt, hãy mở khung chat của Claude Code, Antigravity hoặc 
    ```text
    Tìm giúp tôi 5 xưởng sản xuất quạt cầm tay mini tích điện trên 1688, giá tại xưởng dưới 25 tệ, tính giá vốn về kho Việt Nam cho lô 200 chiếc.
    ```
-2. **Ủy quyền cho AI đi chat WangWang ép giá & canh tin 5 phút/lần:**
+2. **Quét sản phẩm mới đang hot, lượt bán tăng nhanh & bắt trend ngách 1688 (`trends`):**
+   ```text
+   Quét giúp tôi các mẫu đèn bàn chống cận mới ra đang hot, lượt bán tăng nhanh nhất trên 1688 và các ngách xu hướng đang lên kèm giá vốn về Việt Nam cho lô 100 chiếc.
+   ```
+3. **Ủy quyền cho AI đi chat WangWang ép giá & canh tin 5 phút/lần:**
    ```text
    Gửi tin hỏi giá sỉ lô 200 chiếc, lấy 2 mẫu test và hỏi điều kiện in Logo OEM cho 5 xưởng trên qua WangWang, chụp ảnh màn hình chứng minh bạn đã hỏi.
    ```
-3. **Tìm xưởng 1688 bằng hình ảnh sản phẩm có sẵn:**
+4. **Tìm xưởng 1688 bằng hình ảnh sản phẩm có sẵn:**
    ```text
    Tìm các xưởng 1688 đang sản xuất mẫu sản phẩm giống hệt bức ảnh /đường/dẫn/anh-san-pham.jpg và so sánh 5 xưởng có tỷ lệ khách mua lại cao nhất.
    ```
-4. **Dò giá sỉ 1688 từ link chia sẻ điện thoại Taobao / Pinduoduo:**
+5. **Dò giá sỉ 1688 từ link chia sẻ điện thoại Taobao / Pinduoduo:**
    ```text
    Giải mã link chia sẻ Taobao này, bóc tách thông số sản phẩm và tìm xem các xưởng gốc trên 1688 đang bỏ sỉ mặt hàng này giá bao nhiêu.
    ```
-5. **Bóc tách kịch bản video bán hàng hot trend trên Douyin:**
+6. **Bóc tách kịch bản video bán hàng hot trend trên Douyin:**
    ```text
    Tải video Douyin không logo từ link này và trích xuất toàn bộ kịch bản lời thoại bán hàng để tôi phân tích USP làm video TikTok.
    ```
