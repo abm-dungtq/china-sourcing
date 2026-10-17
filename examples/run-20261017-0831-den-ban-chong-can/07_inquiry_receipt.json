@@ -1,0 +1,54 @@
+{
+  "run_id": "run-20261017-0831-den-ban-chong-can",
+  "step": "B7_GUI_TIN_HOI_GIA_WANGWANG",
+  "account": "abm_buyer_demo",
+  "message_sent": "老板你好，请问这款护眼台灯有现货吗？单件带包装的实际重量和外箱尺寸是多少？我们先拿2个样品测质量，后续首批订购100个，请问大货最优惠底价是多少？支持定制Logo吗？",
+  "total_factories_contacted": 5,
+  "receipts": [
+    {
+      "rank": 1,
+      "offer_id": "624406159076",
+      "supplier": "深圳恒视亮电器有限公司",
+      "seller_login_id": "恒悦亮电器厂",
+      "sent_at": "2026-10-17T01:51:57.921Z",
+      "screenshot_path": "/Volumes/1/AGY/china-sourcing/examples/run-20261017-0831-den-ban-chong-can/07_wangwang_proof_1_624406159076.png",
+      "initial_reply": "官方认证超级源头工厂，【夏居乐】源头厂家，质量保证、诚信第一、当天发货！支持定制彩盒包装、LOGO、承接OEM和ODM定制单，打样周期2天内出样！"
+    },
+    {
+      "rank": 2,
+      "offer_id": "830567670780",
+      "supplier": "中山市辰视灯饰厂",
+      "seller_login_id": "视力童",
+      "sent_at": "2026-10-17T01:53:53.251Z",
+      "screenshot_path": "/Volumes/1/AGY/china-sourcing/examples/run-20261017-0831-den-ban-chong-can/07_wangwang_proof_2_830567670780.png",
+      "initial_reply": "产品都是质量保证的、库存充足、下单尽快发货 / 您好，在的"
+    },
+    {
+      "rank": 3,
+      "offer_id": "807322563406",
+      "supplier": "中山市利为朗照明电器厂",
+      "seller_login_id": "朗度照明电器",
+      "sent_at": "2026-10-17T01:54:13.034Z",
+      "screenshot_path": "/Volumes/1/AGY/china-sourcing/examples/run-20261017-0831-den-ban-chong-can/07_wangwang_proof_3_807322563406.png",
+      "initial_reply": "台灯三个色温(4000k/3000k/6000k)，插电款/充插两用款(2600/3600/6000续航)，尺寸36*30*14CM"
+    },
+    {
+      "rank": 4,
+      "offer_id": "695481230805",
+      "supplier": "汕头市宝建源科技有限公司",
+      "seller_login_id": "宝建洪源头厂家",
+      "sent_at": "2026-10-17T01:54:32.675Z",
+      "screenshot_path": "/Volumes/1/AGY/china-sourcing/examples/run-20261017-0831-den-ban-chong-can/07_wangwang_proof_4_695481230805.png",
+      "initial_reply": "官方认证超级工厂，【宝量】源头厂家，工厂直销，产品可定制包装、印logo、承接OEM定制单，量大可以沟通协商价格"
+    },
+    {
+      "rank": 5,
+      "offer_id": "858955223080",
+      "supplier": "佛山市云贝思照明有限公司",
+      "seller_login_id": "云贝思灯具",
+      "sent_at": "2026-10-17T01:54:51.783Z",
+      "screenshot_path": "/Volumes/1/AGY/china-sourcing/examples/run-20261017-0831-den-ban-chong-can/07_wangwang_proof_5_858955223080.png",
+      "initial_reply": "已读 — 您好"
+    }
+  ]
+}

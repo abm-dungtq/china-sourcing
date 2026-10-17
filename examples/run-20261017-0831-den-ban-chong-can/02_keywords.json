@@ -1,0 +1,52 @@
+{
+  "timestamp": "2026-10-17T01:30:58Z",
+  "product_name": "Đèn bàn học chống cận",
+  "english_keyword": "eye protection LED desk lamp",
+  "alibaba_search_url": "https://www.alibaba.com/trade/search?SearchText=eye+protection+LED+desk+lamp",
+  "keywords": [
+    {
+      "keyword_zh": "护眼台灯",
+      "1688_cli_search": "1688 search \"护眼台灯\" --sort best-selling --exclude-ads --price-max 35",
+      "1688_cli_factory": "1688 supplier search \"护眼台灯\" --factory-only --json",
+      "urls": {
+        "1688_search": "https://s.1688.com/selloffer/offer_search.htm?keywords=%E6%8A%A4%E7%9C%BC%E5%8F%B0%E7%81%AF",
+        "taobao_search": "https://s.taobao.com/search?q=%E6%8A%A4%E7%9C%BC%E5%8F%B0%E7%81%AF",
+        "douyin_search": "https://www.douyin.com/search/%E6%8A%A4%E7%9C%BC%E5%8F%B0%E7%81%AF?type=video",
+        "pinduoduo_jinbao": "https://jinbao.pinduoduo.com/promotion/single-promotion?keyword=%E6%8A%A4%E7%9C%BC%E5%8F%B0%E7%81%AF"
+      }
+    },
+    {
+      "keyword_zh": "学习专用护眼台灯",
+      "1688_cli_search": "1688 search \"学习专用护眼台灯\" --sort best-selling --exclude-ads --price-max 35",
+      "1688_cli_factory": "1688 supplier search \"学习专用护眼台灯\" --factory-only --json",
+      "urls": {
+        "1688_search": "https://s.1688.com/selloffer/offer_search.htm?keywords=%E5%AD%A6%E4%B9%A0%E4%B8%93%E7%94%A8%E6%8A%A4%E7%9C%BC%E5%8F%B0%E7%81%AF",
+        "taobao_search": "https://s.taobao.com/search?q=%E5%AD%A6%E4%B9%A0%E4%B8%93%E7%94%A8%E6%8A%A4%E7%9C%BC%E5%8F%B0%E7%81%AF",
+        "douyin_search": "https://www.douyin.com/search/%E5%AD%A6%E4%B9%A0%E4%B8%93%E7%94%A8%E6%8A%A4%E7%9C%BC%E5%8F%B0%E7%81%AF?type=video",
+        "pinduoduo_jinbao": "https://jinbao.pinduoduo.com/promotion/single-promotion?keyword=%E5%AD%A6%E4%B9%A0%E4%B8%93%E7%94%A8%E6%8A%A4%E7%9C%BC%E5%8F%B0%E7%81%AF"
+      }
+    },
+    {
+      "keyword_zh": "LED读写台灯",
+      "1688_cli_search": "1688 search \"LED读写台灯\" --sort best-selling --exclude-ads --price-max 35",
+      "1688_cli_factory": "1688 supplier search \"LED读写台灯\" --factory-only --json",
+      "urls": {
+        "1688_search": "https://s.1688.com/selloffer/offer_search.htm?keywords=LED%E8%AF%BB%E5%86%99%E5%8F%B0%E7%81%AF",
+        "taobao_search": "https://s.taobao.com/search?q=LED%E8%AF%BB%E5%86%99%E5%8F%B0%E7%81%AF",
+        "douyin_search": "https://www.douyin.com/search/LED%E8%AF%BB%E5%86%99%E5%8F%B0%E7%81%AF?type=video",
+        "pinduoduo_jinbao": "https://jinbao.pinduoduo.com/promotion/single-promotion?keyword=LED%E8%AF%BB%E5%86%99%E5%8F%B0%E7%81%AF"
+      }
+    },
+    {
+      "keyword_zh": "儿童国AA护眼灯",
+      "1688_cli_search": "1688 search \"儿童国AA护眼灯\" --sort best-selling --exclude-ads --price-max 35",
+      "1688_cli_factory": "1688 supplier search \"儿童国AA护眼灯\" --factory-only --json",
+      "urls": {
+        "1688_search": "https://s.1688.com/selloffer/offer_search.htm?keywords=%E5%84%BF%E7%AB%A5%E5%9B%BDAA%E6%8A%A4%E7%9C%BC%E7%81%AF",
+        "taobao_search": "https://s.taobao.com/search?q=%E5%84%BF%E7%AB%A5%E5%9B%BDAA%E6%8A%A4%E7%9C%BC%E7%81%AF",
+        "douyin_search": "https://www.douyin.com/search/%E5%84%BF%E7%AB%A5%E5%9B%BDAA%E6%8A%A4%E7%9C%BC%E7%81%AF?type=video",
+        "pinduoduo_jinbao": "https://jinbao.pinduoduo.com/promotion/single-promotion?keyword=%E5%84%BF%E7%AB%A5%E5%9B%BDAA%E6%8A%A4%E7%9C%BC%E7%81%AF"
+      }
+    }
+  ]
+}

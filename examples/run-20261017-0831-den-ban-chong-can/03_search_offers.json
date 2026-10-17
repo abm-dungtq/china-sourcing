@@ -1,0 +1,620 @@
+{
+  "timestamp": "2026-10-17T01:31:19Z",
+  "command": [
+    "1688",
+    "search",
+    "护眼台灯",
+    "--sort",
+    "best-selling",
+    "--price-max",
+    "35",
+    "--exclude-ads",
+    "--max",
+    "15"
+  ],
+  "exit_code": 0,
+  "ok": true,
+  "auto_login_triggered": false,
+  "login_event": null,
+  "data": {
+    "keyword": "护眼台灯",
+    "sort": "best-selling",
+    "filters": {
+      "priceMin": null,
+      "priceMax": 35,
+      "province": null,
+      "city": null,
+      "verified": "any",
+      "minTurnover": null,
+      "excludeAds": true
+    },
+    "totalBeforeFilter": 60,
+    "total": 15,
+    "offers": [
+      {
+        "offerId": "624406159076",
+        "title": "护眼台灯触摸调光调色护眼书桌学生宿舍充电学习儿童卧室床头灯",
+        "price": {
+          "text": "¥9.22",
+          "min": 9.22,
+          "max": 9.22
+        },
+        "supplier": {
+          "name": "深圳恒视亮电器有限公司",
+          "shopUrl": "http://shop591c67h195891.1688.com",
+          "years": 7
+        },
+        "location": {
+          "province": "广东",
+          "city": "深圳市"
+        },
+        "bizType": "生产加工",
+        "verified": {
+          "factory": true,
+          "business": false,
+          "superFactory": false
+        },
+        "tags": [
+          "包邮",
+          "退货包运费",
+          "后天达"
+        ],
+        "demand": {
+          "orderCountText": "190629",
+          "orderCount": 190629,
+          "repurchaseRateText": null,
+          "repurchaseRate": null
+        },
+        "isP4P": false,
+        "turnover": "190629",
+        "url": "https://detail.1688.com/offer/624406159076.html",
+        "image": "https://cbu01.alicdn.com/img/ibank/O1CN01BTlvYU2GxbkcSdtyR_!!2208612919082-0-cib.jpg"
+      },
+      {
+        "offerId": "695807235063",
+        "title": "led护眼夹子台灯学生学习专用阅读灯usb充电床头灯宿舍卧室小夜灯",
+        "price": {
+          "text": "¥8.79",
+          "min": 8.79,
+          "max": 8.79
+        },
+        "supplier": {
+          "name": "汕头市宝建源科技有限公司",
+          "shopUrl": "http://shop12e4j7w515845.1688.com",
+          "years": 4
+        },
+        "location": {
+          "province": "广东",
+          "city": "汕头市"
+        },
+        "bizType": "生产加工",
+        "verified": {
+          "factory": true,
+          "business": false,
+          "superFactory": false
+        },
+        "tags": [
+          "包邮",
+          "退货包运费",
+          "后天达"
+        ],
+        "demand": {
+          "orderCountText": "170687",
+          "orderCount": 170687,
+          "repurchaseRateText": null,
+          "repurchaseRate": null
+        },
+        "isP4P": false,
+        "turnover": "170687",
+        "url": "https://detail.1688.com/offer/695807235063.html",
+        "image": "https://cbu01.alicdn.com/img/ibank/O1CN01aUF0511l904a0RV2z_!!2215140294775-0-cib.jpg"
+      },
+      {
+        "offerId": "830567670780",
+        "title": "护眼led台灯书桌学生宿舍触摸调光充电学习儿童卧室床头台灯礼品",
+        "price": {
+          "text": "¥26",
+          "min": 26,
+          "max": 26
+        },
+        "supplier": {
+          "name": "中山市辰视灯饰厂",
+          "shopUrl": "http://shop50x91yq210414.1688.com",
+          "years": 3
+        },
+        "location": {
+          "province": "广东",
+          "city": "中山市"
+        },
+        "bizType": "生产加工",
+        "verified": {
+          "factory": true,
+          "business": false,
+          "superFactory": false
+        },
+        "tags": [
+          "退货包运费",
+          "先采后付",
+          "7天无理由"
+        ],
+        "demand": {
+          "orderCountText": "96259",
+          "orderCount": 96259,
+          "repurchaseRateText": null,
+          "repurchaseRate": null
+        },
+        "isP4P": false,
+        "turnover": "96259",
+        "url": "https://detail.1688.com/offer/830567670780.html",
+        "image": "https://cbu01.alicdn.com/img/ibank/O1CN01ZqN0vC1loDqYDKjrG_!!2218485564865-0-cib.jpg"
+      },
+      {
+        "offerId": "764802847255",
+        "title": "跨境专供磁吸台灯宿舍学习书桌护眼LED灯管床头充电遥控酷毙灯",
+        "price": {
+          "text": "¥8.55",
+          "min": 8.55,
+          "max": 8.55
+        },
+        "supplier": {
+          "name": "汕头市宝建源科技有限公司",
+          "shopUrl": "http://shop12e4j7w515845.1688.com",
+          "years": 4
+        },
+        "location": {
+          "province": "广东",
+          "city": "汕头市"
+        },
+        "bizType": "生产加工",
+        "verified": {
+          "factory": true,
+          "business": false,
+          "superFactory": false
+        },
+        "tags": [
+          "包邮",
+          "退货包运费",
+          "后天达"
+        ],
+        "demand": {
+          "orderCountText": "80852",
+          "orderCount": 80852,
+          "repurchaseRateText": null,
+          "repurchaseRate": null
+        },
+        "isP4P": false,
+        "turnover": "80852",
+        "url": "https://detail.1688.com/offer/764802847255.html",
+        "image": "https://cbu01.alicdn.com/img/ibank/O1CN01wxXuEv1l90B9dYccN_!!2215140294775-0-cib.jpg"
+      },
+      {
+        "offerId": "695705178243",
+        "title": "led折叠台灯护眼床头灯学生学习专用防蓝光氛围usb小夜灯阅读灯",
+        "price": {
+          "text": "¥7.31",
+          "min": 7.31,
+          "max": 7.31
+        },
+        "supplier": {
+          "name": "汕头市宝建源科技有限公司",
+          "shopUrl": "http://shop12e4j7w515845.1688.com",
+          "years": 4
+        },
+        "location": {
+          "province": "广东",
+          "city": "汕头市"
+        },
+        "bizType": "生产加工",
+        "verified": {
+          "factory": true,
+          "business": false,
+          "superFactory": false
+        },
+        "tags": [
+          "包邮",
+          "退货包运费",
+          "后天达"
+        ],
+        "demand": {
+          "orderCountText": "61131",
+          "orderCount": 61131,
+          "repurchaseRateText": null,
+          "repurchaseRate": null
+        },
+        "isP4P": false,
+        "turnover": "61131",
+        "url": "https://detail.1688.com/offer/695705178243.html",
+        "image": "https://cbu01.alicdn.com/img/ibank/O1CN01wWTGWb1l904dBQ4GG_!!2215140294775-0-cib.jpg"
+      },
+      {
+        "offerId": "894096015540",
+        "title": "源头厂家折叠台灯led儿童学生宿舍护眼读充插两用酒店礼品台灯",
+        "price": {
+          "text": "¥21.5",
+          "min": 21.5,
+          "max": 21.5
+        },
+        "supplier": {
+          "name": "浙江宁波小快电器有限公司",
+          "shopUrl": "http://shop71643u9m311i1.1688.com",
+          "years": 2
+        },
+        "location": {
+          "province": "浙江",
+          "city": "宁波市"
+        },
+        "bizType": "",
+        "verified": {
+          "factory": false,
+          "business": false,
+          "superFactory": false
+        },
+        "tags": [
+          "退货包运费",
+          "后天达",
+          "先采后付"
+        ],
+        "demand": {
+          "orderCountText": "55876",
+          "orderCount": 55876,
+          "repurchaseRateText": null,
+          "repurchaseRate": null
+        },
+        "isP4P": false,
+        "turnover": "55876",
+        "url": "https://detail.1688.com/offer/894096015540.html",
+        "image": "https://cbu01.alicdn.com/img/ibank/O1CN01BGoQj62ChnyP6hhyV_!!2219448878506-0-cib.jpg"
+      },
+      {
+        "offerId": "858955223080",
+        "title": "led可换灯泡护眼阅读台灯插电式学生宿舍书桌学习老式床头写字灯",
+        "price": {
+          "text": "¥13.9",
+          "min": 13.9,
+          "max": 13.9
+        },
+        "supplier": {
+          "name": "佛山市云贝思照明有限公司",
+          "shopUrl": "http://yunbeisi.1688.com",
+          "years": 3
+        },
+        "location": {
+          "province": "广东",
+          "city": "佛山市"
+        },
+        "bizType": "生产加工",
+        "verified": {
+          "factory": true,
+          "business": false,
+          "superFactory": false
+        },
+        "tags": [
+          "包邮",
+          "退货包运费",
+          "后天达"
+        ],
+        "demand": {
+          "orderCountText": "48542",
+          "orderCount": 48542,
+          "repurchaseRateText": null,
+          "repurchaseRate": null
+        },
+        "isP4P": false,
+        "turnover": "48542",
+        "url": "https://detail.1688.com/offer/858955223080.html",
+        "image": "https://cbu01.alicdn.com/img/ibank/O1CN01FSlP0T1ks3ZmudDtw_!!2217148974738-0-cib.jpg"
+      },
+      {
+        "offerId": "663861684358",
+        "title": "护眼台灯学习专用夹子小夜灯宿舍充电led床头阅读灯跨境学生礼品",
+        "price": {
+          "text": "¥4.71",
+          "min": 4.71,
+          "max": 4.71
+        },
+        "supplier": {
+          "name": "汕头市佳美纯电子科技有限公司",
+          "shopUrl": "http://shop12647b3y26889.1688.com",
+          "years": 7
+        },
+        "location": {
+          "province": "广东",
+          "city": "汕头市"
+        },
+        "bizType": "生产加工",
+        "verified": {
+          "factory": false,
+          "business": true,
+          "superFactory": false
+        },
+        "tags": [
+          "后天达",
+          "先采后付"
+        ],
+        "demand": {
+          "orderCountText": "25889",
+          "orderCount": 25889,
+          "repurchaseRateText": null,
+          "repurchaseRate": null
+        },
+        "isP4P": false,
+        "turnover": "25889",
+        "url": "https://detail.1688.com/offer/663861684358.html",
+        "image": "https://cbu01.alicdn.com/img/ibank/O1CN01lGrqQB1bGC6qNr7DO_!!2207562263437-0-cib.jpg"
+      },
+      {
+        "offerId": "807322563406",
+        "title": "朗度AA级学习护眼台灯儿童专用阅读灯大学生宿舍床头灯折叠护眼灯",
+        "price": {
+          "text": "¥22.71",
+          "min": 22.71,
+          "max": 22.71
+        },
+        "supplier": {
+          "name": "中山市利为朗照明电器厂",
+          "shopUrl": "http://langdulighting.1688.com",
+          "years": 4
+        },
+        "location": {
+          "province": "广东",
+          "city": "中山市"
+        },
+        "bizType": "生产加工",
+        "verified": {
+          "factory": true,
+          "business": false,
+          "superFactory": false
+        },
+        "tags": [
+          "退货包运费",
+          "先采后付",
+          "7天无理由"
+        ],
+        "demand": {
+          "orderCountText": "25571",
+          "orderCount": 25571,
+          "repurchaseRateText": null,
+          "repurchaseRate": null
+        },
+        "isP4P": false,
+        "turnover": "25571",
+        "url": "https://detail.1688.com/offer/807322563406.html",
+        "image": "https://cbu01.alicdn.com/img/ibank/O1CN01UqFTOO1MjJJiV3R68_!!2000991470-0-cib.jpg"
+      },
+      {
+        "offerId": "710115246675",
+        "title": "创意台灯学习护眼 学生宿舍led阅读灯充插两用可折叠便携小夜灯",
+        "price": {
+          "text": "¥7.5",
+          "min": 7.5,
+          "max": 7.5
+        },
+        "supplier": {
+          "name": "中山市亿梦猫照明有限公司",
+          "shopUrl": "http://shop56731nq2ju116.1688.com",
+          "years": 5
+        },
+        "location": {
+          "province": "广东",
+          "city": "中山市"
+        },
+        "bizType": "生产加工",
+        "verified": {
+          "factory": false,
+          "business": false,
+          "superFactory": false
+        },
+        "tags": [
+          "退货包运费",
+          "先采后付",
+          "7天无理由"
+        ],
+        "demand": {
+          "orderCountText": "17394",
+          "orderCount": 17394,
+          "repurchaseRateText": null,
+          "repurchaseRate": null
+        },
+        "isP4P": false,
+        "turnover": "17394",
+        "url": "https://detail.1688.com/offer/710115246675.html",
+        "image": "https://cbu01.alicdn.com/img/ibank/O1CN01ekBlkx1Dwk3EQzGax_!!2213025790281-0-cib.jpg"
+      },
+      {
+        "offerId": "725171598501",
+        "title": "充插两用护眼台灯长续航无线充电大容量学生学习阅读折叠宿舍LED",
+        "price": {
+          "text": "¥28",
+          "min": 28,
+          "max": 28
+        },
+        "supplier": {
+          "name": "中山市横栏镇朗楚电器厂",
+          "shopUrl": "http://shop937x370827672.1688.com",
+          "years": 5
+        },
+        "location": {
+          "province": "广东",
+          "city": "中山市"
+        },
+        "bizType": "生产加工",
+        "verified": {
+          "factory": false,
+          "business": false,
+          "superFactory": false
+        },
+        "tags": [
+          "包邮",
+          "先采后付"
+        ],
+        "demand": {
+          "orderCountText": "13421",
+          "orderCount": 13421,
+          "repurchaseRateText": null,
+          "repurchaseRate": null
+        },
+        "isP4P": false,
+        "turnover": "13421",
+        "url": "https://detail.1688.com/offer/725171598501.html",
+        "image": "https://cbu01.alicdn.com/img/ibank/O1CN01yGk4XB1b7x03uAodL_!!2214139283419-0-cib.jpg"
+      },
+      {
+        "offerId": "695481230805",
+        "title": "护眼led笔筒台灯学生学习专用充电阅读灯宿舍折叠桌面床头灯够亮",
+        "price": {
+          "text": "¥18.43",
+          "min": 18.43,
+          "max": 18.43
+        },
+        "supplier": {
+          "name": "汕头市宝建源科技有限公司",
+          "shopUrl": "http://shop12e4j7w515845.1688.com",
+          "years": 4
+        },
+        "location": {
+          "province": "广东",
+          "city": "汕头市"
+        },
+        "bizType": "生产加工",
+        "verified": {
+          "factory": true,
+          "business": false,
+          "superFactory": false
+        },
+        "tags": [
+          "包邮",
+          "退货包运费",
+          "后天达"
+        ],
+        "demand": {
+          "orderCountText": "10007",
+          "orderCount": 10007,
+          "repurchaseRateText": null,
+          "repurchaseRate": null
+        },
+        "isP4P": false,
+        "turnover": "10007",
+        "url": "https://detail.1688.com/offer/695481230805.html",
+        "image": "https://cbu01.alicdn.com/img/ibank/O1CN01lfAPGE1l902rnUOLI_!!2215140294775-0-cib.jpg"
+      },
+      {
+        "offerId": "695639874323",
+        "title": "创意led台灯氛围小夜灯学生学习专用护眼阅读灯卧室宿舍床头灯",
+        "price": {
+          "text": "¥9.16",
+          "min": 9.16,
+          "max": 9.16
+        },
+        "supplier": {
+          "name": "汕头市宝建源科技有限公司",
+          "shopUrl": "http://shop12e4j7w515845.1688.com",
+          "years": 4
+        },
+        "location": {
+          "province": "广东",
+          "city": "汕头市"
+        },
+        "bizType": "生产加工",
+        "verified": {
+          "factory": true,
+          "business": false,
+          "superFactory": false
+        },
+        "tags": [
+          "包邮",
+          "退货包运费",
+          "后天达"
+        ],
+        "demand": {
+          "orderCountText": "7338",
+          "orderCount": 7338,
+          "repurchaseRateText": null,
+          "repurchaseRate": null
+        },
+        "isP4P": false,
+        "turnover": "7338",
+        "url": "https://detail.1688.com/offer/695639874323.html",
+        "image": "https://cbu01.alicdn.com/img/ibank/O1CN01F1jw7j1l902yltds6_!!2215140294775-0-cib.jpg"
+      },
+      {
+        "offerId": "677643416425",
+        "title": "LED台灯护眼学生习阅读美甲颜容纹绣眉自拍补光放大镜桌面夹子灯",
+        "price": {
+          "text": "¥10.5",
+          "min": 10.5,
+          "max": 10.5
+        },
+        "supplier": {
+          "name": "东莞市捷欣电子科技有限公司",
+          "shopUrl": "http://jxdz6868.1688.com",
+          "years": 13
+        },
+        "location": {
+          "province": "广东",
+          "city": "东莞市"
+        },
+        "bizType": "生产加工",
+        "verified": {
+          "factory": true,
+          "business": false,
+          "superFactory": false
+        },
+        "tags": [
+          "退货包运费",
+          "先采后付",
+          "7天无理由"
+        ],
+        "demand": {
+          "orderCountText": "5684",
+          "orderCount": 5684,
+          "repurchaseRateText": null,
+          "repurchaseRate": null
+        },
+        "isP4P": false,
+        "turnover": "5684",
+        "url": "https://detail.1688.com/offer/677643416425.html",
+        "image": "https://cbu01.alicdn.com/img/ibank/O1CN01ESfcqZ1KKutgrJSUw_!!2078041146-0-cib.jpg"
+      },
+      {
+        "offerId": "921095480530",
+        "title": "新款学习台灯led充电夹书灯学生阅读台灯礼品USB护眼台灯阅读灯",
+        "price": {
+          "text": "¥5.5",
+          "min": 5.5,
+          "max": 5.5
+        },
+        "supplier": {
+          "name": "兰溪市开乐照明电器有限公司",
+          "shopUrl": "http://shop326608w02w724.1688.com",
+          "years": 2
+        },
+        "location": {
+          "province": "浙江",
+          "city": "金华市"
+        },
+        "bizType": "",
+        "verified": {
+          "factory": false,
+          "business": false,
+          "superFactory": false
+        },
+        "tags": [
+          "退货包运费",
+          "先采后付",
+          "7天无理由"
+        ],
+        "demand": {
+          "orderCountText": "5536",
+          "orderCount": 5536,
+          "repurchaseRateText": null,
+          "repurchaseRate": null
+        },
+        "isP4P": false,
+        "turnover": "5536",
+        "url": "https://detail.1688.com/offer/921095480530.html",
+        "image": "https://cbu01.alicdn.com/img/ibank/O1CN01yPnwJe2HRNrrKGh5Z_!!2219782879147-0-cib.jpg"
+      }
+    ]
+  },
+  "stderr": null
+}

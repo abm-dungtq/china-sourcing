@@ -1,0 +1,40 @@
+{
+  "timestamp": "2026-10-17T01:30:57Z",
+  "tools": {
+    "1688_cli": {
+      "installed": true,
+      "path": "/opt/homebrew/bin/1688",
+      "logged_in": true,
+      "identity": {
+        "memberId": "1688000001",
+        "nick": "abm_buyer_demo",
+        "loggedInAt": "2026-10-17T01:25:26.928Z",
+        "lastVerifiedAt": "2026-10-17T01:25:26.929Z"
+      },
+      "state_file": "/Users/tqd/.1688/state.json",
+      "summary": "Ready (logged in as abm_buyer_demo)"
+    },
+    "douyin_mcp_server": {
+      "installed": true,
+      "path": "/Users/tqd/.local/bin/douyin-mcp-server"
+    },
+    "chrome_profile": {
+      "installed": true,
+      "path": "/Users/tqd/.local/bin/chrome-profile"
+    },
+    "uvx": {
+      "installed": true,
+      "path": "/Users/tqd/.local/bin/uvx"
+    },
+    "npx": {
+      "installed": true,
+      "path": "/opt/homebrew/bin/npx"
+    }
+  },
+  "env_credentials": {
+    "NEXSCOPE_API_KEY": false,
+    "SILICONFLOW_API_KEY_OR_DASHSCOPE": false,
+    "TAOBAO_UNION_CONFIGURED": false,
+    "PDD_JINBAO_CONFIGURED": false
+  }
+}

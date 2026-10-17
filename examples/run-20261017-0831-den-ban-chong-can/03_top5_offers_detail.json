@@ -1,0 +1,1519 @@
+{
+  "timestamp": "2026-10-17T01:34:01Z",
+  "command": [
+    "1688",
+    "offer",
+    "624406159076",
+    "830567670780",
+    "807322563406",
+    "695481230805",
+    "858955223080",
+    "--pro",
+    "--json"
+  ],
+  "exit_code": 0,
+  "ok": true,
+  "auto_login_triggered": false,
+  "login_event": null,
+  "data": {
+    "mode": "batch",
+    "total": 5,
+    "success": 5,
+    "failed": 0,
+    "offerIds": [
+      "624406159076",
+      "830567670780",
+      "807322563406",
+      "695481230805",
+      "858955223080"
+    ],
+    "offers": [
+      {
+        "offerId": "624406159076",
+        "title": "护眼台灯触摸调光调色护眼书桌学生宿舍充电学习儿童卧室床头灯",
+        "url": "https://detail.1688.com/offer/624406159076.html",
+        "priceRange": "￥11.70-￥21.80",
+        "priceMin": 11.7,
+        "priceMax": 21.8,
+        "unitName": "个",
+        "minOrderQty": 1,
+        "mixOrderQty": 1,
+        "priceTiers": [
+          {
+            "minQty": 1,
+            "price": 9.7
+          },
+          {
+            "minQty": 1,
+            "price": 19.8
+          }
+        ],
+        "detailUrl": "https://itemcdn.tmall.com/1688offer/icoss121198748301df456c3c8bf927",
+        "attributes": [
+          {
+            "name": "品牌",
+            "value": "夏居乐"
+          },
+          {
+            "name": "附加功能",
+            "value": "摆件,拍拍灯,夜灯,学习灯,氛围灯"
+          },
+          {
+            "name": "开关方式",
+            "value": "触摸式"
+          },
+          {
+            "name": "照度",
+            "value": "国A级"
+          },
+          {
+            "name": "供电方式",
+            "value": "插座供电"
+          },
+          {
+            "name": "是否智能操控",
+            "value": "是"
+          },
+          {
+            "name": "灯罩材质",
+            "value": "塑料"
+          },
+          {
+            "name": "显色指数",
+            "value": "80—89"
+          },
+          {
+            "name": "认证",
+            "value": "欧盟ce认证"
+          },
+          {
+            "name": "货号",
+            "value": "868"
+          },
+          {
+            "name": "颜色",
+            "value": "小号款【插电款】三档白光可调亮度,小号款【插电款】三档可调光调色,小号款【充电款】三档白光可调亮度,小号款【充电款XH4800）三档可调光调色,大号款【插电款】可调光调色+线,大号款【插电款】可调光调色+线+充电头,大号款【充电款XH4000】可调光调色+线,大号款【充电款XH4000】可调光调色+线+充电头,大号款【充电款XH4800】可调光调色+线,大号款【充电款XH4800】可调光调色+线+充电头"
+          },
+          {
+            "name": "风格",
+            "value": "现代简约"
+          },
+          {
+            "name": "加工方式",
+            "value": "LOGO贴牌"
+          },
+          {
+            "name": "电压",
+            "value": "≤36V"
+          },
+          {
+            "name": "是否跨境出口专供货源",
+            "value": "是"
+          },
+          {
+            "name": "主要下游平台",
+            "value": "ebay,亚马逊,wish,速卖通,独立站,LAZADA"
+          },
+          {
+            "name": "主要销售地区",
+            "value": "非洲,欧洲,南美,东南亚,北美,东北亚,中东"
+          },
+          {
+            "name": "有可授权的自有品牌",
+            "value": "是"
+          },
+          {
+            "name": "是否一般纳税人",
+            "value": "否"
+          },
+          {
+            "name": "是否有专利",
+            "value": "否"
+          },
+          {
+            "name": "产地",
+            "value": "中国大陆"
+          },
+          {
+            "name": "功率",
+            "value": "6W(含)-10W(含)"
+          }
+        ],
+        "packageInfo": [
+          {
+            "skuId": "5012034438339",
+            "spec": "小号款【插电款】三档白光可调亮度",
+            "length": 10,
+            "width": 5.9,
+            "height": 29.5,
+            "weight": 161,
+            "volume": 1740.5
+          },
+          {
+            "skuId": "4838693736332",
+            "spec": "小号款【插电款】三档可调光调色",
+            "length": 10,
+            "width": 5.9,
+            "height": 29.5,
+            "weight": 200,
+            "volume": 1740.5
+          },
+          {
+            "skuId": "5012034438338",
+            "spec": "小号款【充电款】三档白光可调亮度",
+            "length": 10,
+            "width": 5.9,
+            "height": 29.5,
+            "weight": 188,
+            "volume": 1740.5
+          },
+          {
+            "skuId": "5621691992131",
+            "spec": "小号款【充电款XH4800）三档可调光调色",
+            "length": 10,
+            "width": 5.9,
+            "height": 29.5,
+            "weight": 220,
+            "volume": 1740.5
+          },
+          {
+            "skuId": "4933600330218",
+            "spec": "大号款【插电款】可调光调色+线",
+            "length": 12.5,
+            "width": 6,
+            "height": 33.5,
+            "weight": 300,
+            "volume": 2512.5
+          },
+          {
+            "skuId": "4933600330223",
+            "spec": "大号款【插电款】可调光调色+线+充电头",
+            "length": 12.5,
+            "width": 6,
+            "height": 33.5,
+            "weight": 300,
+            "volume": 2512.5
+          },
+          {
+            "skuId": "5621691992127",
+            "spec": "大号款【充电款XH4000】可调光调色+线",
+            "length": 12.5,
+            "width": 6,
+            "height": 33.5,
+            "weight": 300,
+            "volume": 2512.5
+          },
+          {
+            "skuId": "5621691992128",
+            "spec": "大号款【充电款XH4000】可调光调色+线+充电头",
+            "length": 12.5,
+            "width": 6,
+            "height": 33.5,
+            "weight": 336,
+            "volume": 2512.5
+          },
+          {
+            "skuId": "5621691992129",
+            "spec": "大号款【充电款XH4800】可调光调色+线",
+            "length": 12.5,
+            "width": 6,
+            "height": 33.5,
+            "weight": 300,
+            "volume": 2512.5
+          },
+          {
+            "skuId": "5621691992130",
+            "spec": "大号款【充电款XH4800】可调光调色+线+充电头",
+            "length": 12.5,
+            "width": 6,
+            "height": 33.5,
+            "weight": 349,
+            "volume": 2512.5
+          }
+        ],
+        "supplier": {
+          "name": "深圳恒视亮电器有限公司",
+          "loginId": "恒悦亮电器厂",
+          "memberId": null,
+          "userId": "2208612919082"
+        },
+        "freight": {
+          "receiveAddress": "广西壮族自治区南宁市",
+          "sendArea": null,
+          "province": null,
+          "city": null,
+          "unitWeight": 0
+        },
+        "saledCount": 14070,
+        "categoryId": "122744005",
+        "options": [
+          {
+            "prop": "颜色",
+            "values": [
+              {
+                "name": "小号款【插电款】三档白光可调亮度",
+                "imageUrl": "https://cbu01.alicdn.com/img/ibank/O1CN015amjt02Gxc4MiI7Wj_!!2208612919082-0-cib.jpg"
+              },
+              {
+                "name": "小号款【插电款】三档可调光调色",
+                "imageUrl": "https://cbu01.alicdn.com/img/ibank/O1CN01qh1dRC2Gxc73oYygT_!!2208612919082-0-cib.jpg"
+              },
+              {
+                "name": "小号款【充电款】三档白光可调亮度",
+                "imageUrl": "https://cbu01.alicdn.com/img/ibank/O1CN01jSEefE2Gxc76yRV8C_!!2208612919082-0-cib.jpg"
+              },
+              {
+                "name": "小号款【充电款XH4800）三档可调光调色",
+                "imageUrl": "https://cbu01.alicdn.com/img/ibank/O1CN01zy8vZD2Gxc75eHrMg_!!2208612919082-0-cib.jpg"
+              },
+              {
+                "name": "大号款【插电款】可调光调色+线",
+                "imageUrl": "https://cbu01.alicdn.com/img/ibank/O1CN01om5aAf2Gxc4Pd9wFK_!!2208612919082-0-cib.jpg"
+              },
+              {
+                "name": "大号款【插电款】可调光调色+线+充电头",
+                "imageUrl": "https://cbu01.alicdn.com/img/ibank/O1CN01WnJ1HB2Gxc4KYY80A_!!2208612919082-0-cib.jpg"
+              },
+              {
+                "name": "大号款【充电款XH4000】可调光调色+线",
+                "imageUrl": "https://cbu01.alicdn.com/img/ibank/O1CN01BvrA5A2Gxc6SD88Ql_!!2208612919082-0-cib.jpg"
+              },
+              {
+                "name": "大号款【充电款XH4000】可调光调色+线+充电头",
+                "imageUrl": "https://cbu01.alicdn.com/img/ibank/O1CN01LkZXdM2Gxc6Ot141Z_!!2208612919082-0-cib.jpg"
+              },
+              {
+                "name": "大号款【充电款XH4800】可调光调色+线",
+                "imageUrl": "https://cbu01.alicdn.com/img/ibank/O1CN01tt9sP82Gxc6Okez0t_!!2208612919082-0-cib.jpg"
+              },
+              {
+                "name": "大号款【充电款XH4800】可调光调色+线+充电头",
+                "imageUrl": "https://cbu01.alicdn.com/img/ibank/O1CN01SgVGKV2Gxc6SdVnoP_!!2208612919082-0-cib.jpg"
+              }
+            ]
+          }
+        ],
+        "skus": [
+          {
+            "skuId": 5621691992131,
+            "specs": "小号款【充电款XH4800）三档可调光调色",
+            "price": 14.2,
+            "multiPrice": 12.2,
+            "stock": 849782,
+            "saleCount": 0,
+            "image": "https://cbu01.alicdn.com/img/ibank/O1CN01zy8vZD2Gxc75eHrMg_!!2208612919082-0-cib.jpg"
+          },
+          {
+            "skuId": 5012034438338,
+            "specs": "小号款【充电款】三档白光可调亮度",
+            "price": 13.3,
+            "multiPrice": 11.3,
+            "stock": 856910,
+            "saleCount": 0,
+            "image": "https://cbu01.alicdn.com/img/ibank/O1CN01jSEefE2Gxc76yRV8C_!!2208612919082-0-cib.jpg"
+          },
+          {
+            "skuId": 4933600330218,
+            "specs": "大号款【插电款】可调光调色+线",
+            "price": 16.5,
+            "multiPrice": 14.5,
+            "stock": 875029,
+            "saleCount": 0,
+            "image": "https://cbu01.alicdn.com/img/ibank/O1CN01om5aAf2Gxc4Pd9wFK_!!2208612919082-0-cib.jpg"
+          },
+          {
+            "skuId": 5621691992128,
+            "specs": "大号款【充电款XH4000】可调光调色+线+充电头",
+            "price": 20.8,
+            "multiPrice": 18.8,
+            "stock": 884442,
+            "saleCount": 0,
+            "image": "https://cbu01.alicdn.com/img/ibank/O1CN01LkZXdM2Gxc6Ot141Z_!!2208612919082-0-cib.jpg"
+          },
+          {
+            "skuId": 5012034438339,
+            "specs": "小号款【插电款】三档白光可调亮度",
+            "price": 11.7,
+            "multiPrice": 9.7,
+            "stock": 821114,
+            "saleCount": 0,
+            "image": "https://cbu01.alicdn.com/img/ibank/O1CN015amjt02Gxc4MiI7Wj_!!2208612919082-0-cib.jpg"
+          },
+          {
+            "skuId": 5621691992127,
+            "specs": "大号款【充电款XH4000】可调光调色+线",
+            "price": 18.8,
+            "multiPrice": 16.8,
+            "stock": 843028,
+            "saleCount": 0,
+            "image": "https://cbu01.alicdn.com/img/ibank/O1CN01BvrA5A2Gxc6SD88Ql_!!2208612919082-0-cib.jpg"
+          },
+          {
+            "skuId": 5621691992130,
+            "specs": "大号款【充电款XH4800】可调光调色+线+充电头",
+            "price": 21.8,
+            "multiPrice": 19.8,
+            "stock": 885211,
+            "saleCount": 0,
+            "image": "https://cbu01.alicdn.com/img/ibank/O1CN01SgVGKV2Gxc6SdVnoP_!!2208612919082-0-cib.jpg"
+          },
+          {
+            "skuId": 4933600330223,
+            "specs": "大号款【插电款】可调光调色+线+充电头",
+            "price": 18.5,
+            "multiPrice": 16.5,
+            "stock": 886726,
+            "saleCount": 0,
+            "image": "https://cbu01.alicdn.com/img/ibank/O1CN01WnJ1HB2Gxc4KYY80A_!!2208612919082-0-cib.jpg"
+          },
+          {
+            "skuId": 5621691992129,
+            "specs": "大号款【充电款XH4800】可调光调色+线",
+            "price": 19.8,
+            "multiPrice": 17.8,
+            "stock": 861492,
+            "saleCount": 0,
+            "image": "https://cbu01.alicdn.com/img/ibank/O1CN01tt9sP82Gxc6Okez0t_!!2208612919082-0-cib.jpg"
+          },
+          {
+            "skuId": 4838693736332,
+            "specs": "小号款【插电款】三档可调光调色",
+            "price": 12.4,
+            "multiPrice": 10.4,
+            "stock": 873892,
+            "saleCount": 0,
+            "image": "https://cbu01.alicdn.com/img/ibank/O1CN01qh1dRC2Gxc73oYygT_!!2208612919082-0-cib.jpg"
+          }
+        ],
+        "mainImage": "https://cbu01.alicdn.com/img/ibank/O1CN01BTlvYU2GxbkcSdtyR_!!2208612919082-0-cib.jpg",
+        "images": [
+          "https://cbu01.alicdn.com/img/ibank/O1CN01BTlvYU2GxbkcSdtyR_!!2208612919082-0-cib.jpg",
+          "https://cbu01.alicdn.com/img/ibank/O1CN01xfUKQ62GxbkYO8xCZ_!!2208612919082-0-cib.jpg",
+          "https://cbu01.alicdn.com/img/ibank/O1CN019QvPjs2GxbkLmCtpC_!!2208612919082-0-cib.jpg",
+          "https://cbu01.alicdn.com/img/ibank/O1CN01hZ3Qb42GxbkMg2oiM_!!2208612919082-0-cib.jpg",
+          "https://cbu01.alicdn.com/img/ibank/O1CN01d7Qa6B2GxbkWuQOec_!!2208612919082-0-cib.jpg"
+        ]
+      },
+      {
+        "offerId": "830567670780",
+        "title": "护眼led台灯书桌学生宿舍触摸调光充电学习儿童卧室床头台灯礼品",
+        "url": "https://detail.1688.com/offer/830567670780.html",
+        "priceRange": "￥16.50-￥26.00",
+        "priceMin": 16.5,
+        "priceMax": 26,
+        "unitName": "个",
+        "minOrderQty": 1,
+        "mixOrderQty": null,
+        "priceTiers": [
+          {
+            "minQty": 1,
+            "price": 16.5
+          },
+          {
+            "minQty": 1,
+            "price": 26
+          }
+        ],
+        "detailUrl": "https://itemcdn.tmall.com/1688offer/icoss3635043947be7d3f9c2f703586",
+        "attributes": [
+          {
+            "name": "品牌",
+            "value": "保视童"
+          },
+          {
+            "name": "附加功能",
+            "value": "学习灯"
+          },
+          {
+            "name": "开关方式",
+            "value": "触摸式"
+          },
+          {
+            "name": "照度",
+            "value": "国A级"
+          },
+          {
+            "name": "供电方式",
+            "value": "USB供电"
+          },
+          {
+            "name": "是否智能操控",
+            "value": "否"
+          },
+          {
+            "name": "灯罩材质",
+            "value": "塑料"
+          },
+          {
+            "name": "显色指数",
+            "value": "80—89"
+          },
+          {
+            "name": "认证",
+            "value": "无"
+          },
+          {
+            "name": "颜色",
+            "value": "横双头-基础款-插电款+赠送USB线,横双头-基础款-2000容量-充电款+赠送USB线,横双头-时钟款-插电款+赠送USB线,横双头-时钟款-2000容量-充电款+赠送USB线,横双头-风扇时钟款-插电款+赠送USB线,横双头-风扇时钟款-2000容量-充电款+赠送USB线"
+          },
+          {
+            "name": "风格",
+            "value": "简约现代"
+          },
+          {
+            "name": "加工方式",
+            "value": "LOGO贴牌"
+          },
+          {
+            "name": "电压",
+            "value": "≤36V"
+          },
+          {
+            "name": "是否跨境出口专供货源",
+            "value": "否"
+          },
+          {
+            "name": "是否一般纳税人",
+            "value": "否"
+          },
+          {
+            "name": "是否有专利",
+            "value": "否"
+          }
+        ],
+        "packageInfo": [
+          {
+            "skuId": "5569600101652",
+            "spec": "横双头-基础款-插电款+赠送USB线",
+            "length": 34.2,
+            "width": 18.5,
+            "height": 5.7,
+            "weight": 500,
+            "volume": 3606.39
+          },
+          {
+            "skuId": "5569600101653",
+            "spec": "横双头-基础款-2000容量-充电款+赠送USB线",
+            "length": 34.2,
+            "width": 18.5,
+            "height": 5.7,
+            "weight": 500,
+            "volume": 3606.39
+          },
+          {
+            "skuId": "5569600101654",
+            "spec": "横双头-时钟款-插电款+赠送USB线",
+            "length": 34.2,
+            "width": 18.5,
+            "height": 5.7,
+            "weight": 500,
+            "volume": 3606.39
+          },
+          {
+            "skuId": "5569600101655",
+            "spec": "横双头-时钟款-2000容量-充电款+赠送USB线",
+            "length": 34.2,
+            "width": 18.5,
+            "height": 5.7,
+            "weight": 520,
+            "volume": 3606.39
+          },
+          {
+            "skuId": "5569600101656",
+            "spec": "横双头-风扇时钟款-插电款+赠送USB线",
+            "length": 34.2,
+            "width": 18.5,
+            "height": 5.7,
+            "weight": 520,
+            "volume": 3606.39
+          },
+          {
+            "skuId": "5569600101657",
+            "spec": "横双头-风扇时钟款-2000容量-充电款+赠送USB线",
+            "length": 34.2,
+            "width": 18.5,
+            "height": 5.7,
+            "weight": 520,
+            "volume": 3606.39
+          }
+        ],
+        "supplier": {
+          "name": "中山市辰视灯饰厂",
+          "loginId": "视力童",
+          "memberId": null,
+          "userId": "2218485564865"
+        },
+        "freight": {
+          "receiveAddress": "广西壮族自治区南宁市",
+          "sendArea": null,
+          "province": null,
+          "city": null,
+          "unitWeight": 0
+        },
+        "saledCount": 13180,
+        "categoryId": "122744005",
+        "options": [
+          {
+            "prop": "颜色",
+            "values": [
+              {
+                "name": "横双头-基础款-插电款+赠送USB线",
+                "imageUrl": "https://cbu01.alicdn.com/img/ibank/O1CN01KfwW5L1loDqaoRgeP_!!2218485564865-0-cib.jpg"
+              },
+              {
+                "name": "横双头-基础款-2000容量-充电款+赠送USB线",
+                "imageUrl": "https://cbu01.alicdn.com/img/ibank/O1CN01KfwW5L1loDqaoRgeP_!!2218485564865-0-cib.jpg"
+              },
+              {
+                "name": "横双头-时钟款-插电款+赠送USB线",
+                "imageUrl": "https://cbu01.alicdn.com/img/ibank/O1CN01bxULWX1loDqWx8HeH_!!2218485564865-0-cib.jpg"
+              },
+              {
+                "name": "横双头-时钟款-2000容量-充电款+赠送USB线",
+                "imageUrl": "https://cbu01.alicdn.com/img/ibank/O1CN01bxULWX1loDqWx8HeH_!!2218485564865-0-cib.jpg"
+              },
+              {
+                "name": "横双头-风扇时钟款-插电款+赠送USB线",
+                "imageUrl": "https://cbu01.alicdn.com/img/ibank/O1CN01yCZl8r1loDqWengw6_!!2218485564865-0-cib.jpg"
+              },
+              {
+                "name": "横双头-风扇时钟款-2000容量-充电款+赠送USB线",
+                "imageUrl": "https://cbu01.alicdn.com/img/ibank/O1CN01yCZl8r1loDqWengw6_!!2218485564865-0-cib.jpg"
+              }
+            ]
+          }
+        ],
+        "skus": [
+          {
+            "skuId": 5569600101656,
+            "specs": "横双头-风扇时钟款-插电款+赠送USB线",
+            "price": 21,
+            "multiPrice": null,
+            "stock": 7798,
+            "saleCount": 0,
+            "image": "https://cbu01.alicdn.com/img/ibank/O1CN01yCZl8r1loDqWengw6_!!2218485564865-0-cib.jpg"
+          },
+          {
+            "skuId": 5569600101654,
+            "specs": "横双头-时钟款-插电款+赠送USB线",
+            "price": 20,
+            "multiPrice": null,
+            "stock": 21740,
+            "saleCount": 0,
+            "image": "https://cbu01.alicdn.com/img/ibank/O1CN01bxULWX1loDqWx8HeH_!!2218485564865-0-cib.jpg"
+          },
+          {
+            "skuId": 5569600101652,
+            "specs": "横双头-基础款-插电款+赠送USB线",
+            "price": 16.5,
+            "multiPrice": null,
+            "stock": 4174,
+            "saleCount": 0,
+            "image": "https://cbu01.alicdn.com/img/ibank/O1CN01KfwW5L1loDqaoRgeP_!!2218485564865-0-cib.jpg"
+          },
+          {
+            "skuId": 5569600101653,
+            "specs": "横双头-基础款-2000容量-充电款+赠送USB线",
+            "price": 20.5,
+            "multiPrice": null,
+            "stock": 6026,
+            "saleCount": 0,
+            "image": "https://cbu01.alicdn.com/img/ibank/O1CN01KfwW5L1loDqaoRgeP_!!2218485564865-0-cib.jpg"
+          },
+          {
+            "skuId": 5569600101657,
+            "specs": "横双头-风扇时钟款-2000容量-充电款+赠送USB线",
+            "price": 26,
+            "multiPrice": null,
+            "stock": 119936,
+            "saleCount": 0,
+            "image": "https://cbu01.alicdn.com/img/ibank/O1CN01yCZl8r1loDqWengw6_!!2218485564865-0-cib.jpg"
+          },
+          {
+            "skuId": 5569600101655,
+            "specs": "横双头-时钟款-2000容量-充电款+赠送USB线",
+            "price": 24,
+            "multiPrice": null,
+            "stock": 20034,
+            "saleCount": 0,
+            "image": "https://cbu01.alicdn.com/img/ibank/O1CN01bxULWX1loDqWx8HeH_!!2218485564865-0-cib.jpg"
+          }
+        ],
+        "mainImage": "https://cbu01.alicdn.com/img/ibank/O1CN01ZqN0vC1loDqYDKjrG_!!2218485564865-0-cib.jpg",
+        "images": [
+          "https://cbu01.alicdn.com/img/ibank/O1CN01ZqN0vC1loDqYDKjrG_!!2218485564865-0-cib.jpg",
+          "https://cbu01.alicdn.com/img/ibank/O1CN01JHWDjm1loDqaoQwvM_!!2218485564865-0-cib.jpg",
+          "https://cbu01.alicdn.com/img/ibank/O1CN013RpEFS1loDqYnjFaq_!!2218485564865-0-cib.jpg",
+          "https://cbu01.alicdn.com/img/ibank/O1CN01cR6f0s1loDqWeoA1I_!!2218485564865-0-cib.jpg",
+          "https://cbu01.alicdn.com/img/ibank/O1CN013ntMsC1loDqa2uLic_!!2218485564865-0-cib.jpg"
+        ]
+      },
+      {
+        "offerId": "807322563406",
+        "title": "朗度AA级学习护眼台灯儿童专用阅读灯大学生宿舍床头灯折叠护眼灯",
+        "url": "https://detail.1688.com/offer/807322563406.html",
+        "priceRange": null,
+        "priceMin": null,
+        "priceMax": null,
+        "unitName": null,
+        "minOrderQty": null,
+        "mixOrderQty": null,
+        "priceTiers": [],
+        "detailUrl": "https://itemcdn.tmall.com/1688offer/icoss160837520257d4fcab11315807",
+        "attributes": [
+          {
+            "name": "品牌",
+            "value": "朗度"
+          },
+          {
+            "name": "附加功能",
+            "value": "学习灯"
+          },
+          {
+            "name": "开关方式",
+            "value": "触摸式"
+          },
+          {
+            "name": "照度",
+            "value": "国AA级"
+          },
+          {
+            "name": "供电方式",
+            "value": "内置锂电池"
+          },
+          {
+            "name": "是否智能操控",
+            "value": "否"
+          },
+          {
+            "name": "灯罩材质",
+            "value": "塑料"
+          },
+          {
+            "name": "显色指数",
+            "value": "80—89"
+          },
+          {
+            "name": "认证",
+            "value": "欧盟ce认证"
+          },
+          {
+            "name": "货号",
+            "value": "LD001"
+          },
+          {
+            "name": "颜色",
+            "value": "插电款【三色调光+无极调光】,充插两用款【2600续航+三色调光+无极调光】,充插两用款【3600续航+三色调光+无极调光】,充插两用款【6000续航+三色调光+无极调光】"
+          },
+          {
+            "name": "风格",
+            "value": "现代简约"
+          },
+          {
+            "name": "加工方式",
+            "value": "LOGO贴牌"
+          },
+          {
+            "name": "电压",
+            "value": "≤36V"
+          },
+          {
+            "name": "是否跨境出口专供货源",
+            "value": "否"
+          },
+          {
+            "name": "是否一般纳税人",
+            "value": "是"
+          },
+          {
+            "name": "是否有专利",
+            "value": "否"
+          },
+          {
+            "name": "产地",
+            "value": "中国大陆"
+          },
+          {
+            "name": "功率",
+            "value": "6W(含)-10W(含)"
+          },
+          {
+            "name": "插头规格",
+            "value": "其他"
+          }
+        ],
+        "packageInfo": [
+          {
+            "skuId": "5804660711716",
+            "spec": "插电款【三色调光+无极调光】",
+            "length": 36,
+            "width": 30,
+            "height": 14,
+            "weight": 440,
+            "volume": 15120
+          },
+          {
+            "skuId": "5924037287885",
+            "spec": "充插两用款【2600续航+三色调光+无极调光】",
+            "length": 36,
+            "width": 30,
+            "height": 14,
+            "weight": 480,
+            "volume": 15120
+          },
+          {
+            "skuId": "5924037287886",
+            "spec": "充插两用款【3600续航+三色调光+无极调光】",
+            "length": 36,
+            "width": 30,
+            "height": 14,
+            "weight": 515,
+            "volume": 15120
+          },
+          {
+            "skuId": "5924037287887",
+            "spec": "充插两用款【6000续航+三色调光+无极调光】",
+            "length": 36,
+            "width": 30,
+            "height": 14,
+            "weight": 550,
+            "volume": 15120
+          }
+        ],
+        "supplier": {
+          "name": "中山市利为朗照明电器厂",
+          "loginId": "朗度照明电器",
+          "memberId": null,
+          "userId": null
+        },
+        "freight": {
+          "receiveAddress": null,
+          "sendArea": null,
+          "province": null,
+          "city": null,
+          "unitWeight": null
+        },
+        "saledCount": null,
+        "categoryId": "122744005",
+        "options": [],
+        "skus": [],
+        "mainImage": "https://cbu01.alicdn.com/img/ibank/O1CN01UqFTOO1MjJJiV3R68_!!2000991470-0-cib.jpg",
+        "images": [
+          "https://cbu01.alicdn.com/img/ibank/O1CN01UqFTOO1MjJJiV3R68_!!2000991470-0-cib.jpg",
+          "https://cbu01.alicdn.com/img/ibank/O1CN012478TK1MjJK7mkvgn_!!2000991470-0-cib.jpg",
+          "https://cbu01.alicdn.com/img/ibank/O1CN01VSz4Hp1MjJK8Q8ksm_!!2000991470-0-cib.jpg",
+          "https://cbu01.alicdn.com/img/ibank/O1CN01PijTkH1MjJK8Q6oFB_!!2000991470-0-cib.jpg",
+          "https://cbu01.alicdn.com/img/ibank/O1CN01mV0Vy31MjJK3yZqbH_!!2000991470-0-cib.jpg"
+        ]
+      },
+      {
+        "offerId": "695481230805",
+        "title": "护眼led笔筒台灯学生学习专用充电阅读灯宿舍折叠桌面床头灯够亮",
+        "url": "https://detail.1688.com/offer/695481230805.html",
+        "priceRange": "￥17.96-￥26.70",
+        "priceMin": 17.96,
+        "priceMax": 26.7,
+        "unitName": "个",
+        "minOrderQty": 1,
+        "mixOrderQty": 1000,
+        "priceTiers": [
+          {
+            "minQty": 1,
+            "price": 17.96
+          },
+          {
+            "minQty": 1,
+            "price": 26.7
+          }
+        ],
+        "detailUrl": "https://itemcdn.tmall.com/1688offer/icoss765683873548baf882a17e021",
+        "attributes": [
+          {
+            "name": "品牌",
+            "value": "宝量"
+          },
+          {
+            "name": "附加功能",
+            "value": "夜灯,学习灯,氛围灯"
+          },
+          {
+            "name": "开关方式",
+            "value": "触摸式"
+          },
+          {
+            "name": "照度",
+            "value": "国A级"
+          },
+          {
+            "name": "供电方式",
+            "value": "内置锂电池"
+          },
+          {
+            "name": "是否智能操控",
+            "value": "是"
+          },
+          {
+            "name": "灯罩材质",
+            "value": "塑料"
+          },
+          {
+            "name": "显色指数",
+            "value": "≥90"
+          },
+          {
+            "name": "认证",
+            "value": "CE认证"
+          },
+          {
+            "name": "货号",
+            "value": "1319"
+          },
+          {
+            "name": "颜色",
+            "value": "插电护眼款【可调光调色】送线,插电护眼款【可调光调色】送线+充电头,升级款【XH2000/可调光调色】送线,升级款【XH2000/可调光调色】送线+充电头,学霸款【XH3200/可调光调色】送线,学霸款【XH3200/可调光调色】送线+充电头,优质顶配款【XH4800/可调光调色】送线,优质顶配款【XH4800/可调光调色】送线+充电头"
+          },
+          {
+            "name": "风格",
+            "value": "现代简约"
+          },
+          {
+            "name": "加工方式",
+            "value": "LOGO贴牌"
+          },
+          {
+            "name": "电压",
+            "value": "≤36V"
+          },
+          {
+            "name": "是否跨境出口专供货源",
+            "value": "是"
+          },
+          {
+            "name": "主要下游平台",
+            "value": "ebay,亚马逊,wish,速卖通,独立站,LAZADA"
+          },
+          {
+            "name": "主要销售地区",
+            "value": "非洲,欧洲,南美,东南亚,北美,东北亚,中东"
+          },
+          {
+            "name": "有可授权的自有品牌",
+            "value": "是"
+          },
+          {
+            "name": "是否一般纳税人",
+            "value": "是"
+          },
+          {
+            "name": "是否有专利",
+            "value": "否"
+          },
+          {
+            "name": "台灯",
+            "value": "台灯学生专用护眼"
+          },
+          {
+            "name": "小台灯",
+            "value": "台灯充插两用"
+          },
+          {
+            "name": "产地",
+            "value": "中国大陆"
+          },
+          {
+            "name": "护眼灯",
+            "value": "台灯护眼"
+          },
+          {
+            "name": "功率",
+            "value": "5W-12W"
+          }
+        ],
+        "packageInfo": [
+          {
+            "skuId": "5228611783440",
+            "spec": "插电护眼款【可调光调色】送线",
+            "length": 37,
+            "width": 13,
+            "height": 7.5,
+            "weight": 500,
+            "volume": 3607.5
+          },
+          {
+            "skuId": "5228611783441",
+            "spec": "插电护眼款【可调光调色】送线+充电头",
+            "length": 37,
+            "width": 13,
+            "height": 7.5,
+            "weight": 520,
+            "volume": 3607.5
+          },
+          {
+            "skuId": "5228611783434",
+            "spec": "升级款【XH2000/可调光调色】送线",
+            "length": 37,
+            "width": 13,
+            "height": 7.5,
+            "weight": 550,
+            "volume": 3607.5
+          },
+          {
+            "skuId": "5228611783435",
+            "spec": "升级款【XH2000/可调光调色】送线+充电头",
+            "length": 37,
+            "width": 13,
+            "height": 7.5,
+            "weight": 570,
+            "volume": 3607.5
+          },
+          {
+            "skuId": "5228611783436",
+            "spec": "学霸款【XH3200/可调光调色】送线",
+            "length": 37,
+            "width": 13,
+            "height": 7.5,
+            "weight": 550,
+            "volume": 3607.5
+          },
+          {
+            "skuId": "5228611783437",
+            "spec": "学霸款【XH3200/可调光调色】送线+充电头",
+            "length": 37,
+            "width": 13,
+            "height": 7.5,
+            "weight": 570,
+            "volume": 3607.5
+          },
+          {
+            "skuId": "5228611783438",
+            "spec": "优质顶配款【XH4800/可调光调色】送线",
+            "length": 37,
+            "width": 13,
+            "height": 7.5,
+            "weight": 550,
+            "volume": 3607.5
+          },
+          {
+            "skuId": "5228611783439",
+            "spec": "优质顶配款【XH4800/可调光调色】送线+充电头",
+            "length": 37,
+            "width": 13,
+            "height": 7.5,
+            "weight": 570,
+            "volume": 3607.5
+          }
+        ],
+        "supplier": {
+          "name": "汕头市宝建源科技有限公司",
+          "loginId": "宝建洪源头厂家",
+          "memberId": null,
+          "userId": "2215140294775"
+        },
+        "freight": {
+          "receiveAddress": "广西壮族自治区南宁市",
+          "sendArea": null,
+          "province": null,
+          "city": null,
+          "unitWeight": 0
+        },
+        "saledCount": 14300,
+        "categoryId": "122744005",
+        "options": [
+          {
+            "prop": "颜色",
+            "values": [
+              {
+                "name": "插电护眼款【可调光调色】送线",
+                "imageUrl": "https://cbu01.alicdn.com/img/ibank/O1CN01ZiPp4P1l902m7kEQG_!!2215140294775-0-cib.jpg"
+              },
+              {
+                "name": "插电护眼款【可调光调色】送线+充电头",
+                "imageUrl": "https://cbu01.alicdn.com/img/ibank/O1CN01LpNpVL1l902w0pYy8_!!2215140294775-0-cib.jpg"
+              },
+              {
+                "name": "升级款【XH2000/可调光调色】送线",
+                "imageUrl": "https://cbu01.alicdn.com/img/ibank/O1CN01gRGrGk1l902w0ujNE_!!2215140294775-0-cib.jpg"
+              },
+              {
+                "name": "升级款【XH2000/可调光调色】送线+充电头",
+                "imageUrl": "https://cbu01.alicdn.com/img/ibank/O1CN01IRGiYW1l902lNSR16_!!2215140294775-0-cib.jpg"
+              },
+              {
+                "name": "学霸款【XH3200/可调光调色】送线",
+                "imageUrl": "https://cbu01.alicdn.com/img/ibank/O1CN01KfJdcO1l902oDeYHg_!!2215140294775-0-cib.jpg"
+              },
+              {
+                "name": "学霸款【XH3200/可调光调色】送线+充电头",
+                "imageUrl": "https://cbu01.alicdn.com/img/ibank/O1CN015D89wd1l902u3XINo_!!2215140294775-0-cib.jpg"
+              },
+              {
+                "name": "优质顶配款【XH4800/可调光调色】送线",
+                "imageUrl": "https://cbu01.alicdn.com/img/ibank/O1CN01MdQRe91l902u3Xtw3_!!2215140294775-0-cib.jpg"
+              },
+              {
+                "name": "优质顶配款【XH4800/可调光调色】送线+充电头",
+                "imageUrl": "https://cbu01.alicdn.com/img/ibank/O1CN01QdLLLv1l902w127CZ_!!2215140294775-0-cib.jpg"
+              }
+            ]
+          }
+        ],
+        "skus": [
+          {
+            "skuId": 5228611783434,
+            "specs": "升级款【XH2000/可调光调色】送线",
+            "price": 20.43,
+            "multiPrice": 20.43,
+            "stock": 477568,
+            "saleCount": 0,
+            "image": "https://cbu01.alicdn.com/img/ibank/O1CN01gRGrGk1l902w0ujNE_!!2215140294775-0-cib.jpg"
+          },
+          {
+            "skuId": 5228611783440,
+            "specs": "插电护眼款【可调光调色】送线",
+            "price": 17.96,
+            "multiPrice": 17.96,
+            "stock": 450506,
+            "saleCount": 0,
+            "image": "https://cbu01.alicdn.com/img/ibank/O1CN01ZiPp4P1l902m7kEQG_!!2215140294775-0-cib.jpg"
+          },
+          {
+            "skuId": 5228611783436,
+            "specs": "学霸款【XH3200/可调光调色】送线",
+            "price": 22.33,
+            "multiPrice": 22.33,
+            "stock": 445432,
+            "saleCount": 0,
+            "image": "https://cbu01.alicdn.com/img/ibank/O1CN01KfJdcO1l902oDeYHg_!!2215140294775-0-cib.jpg"
+          },
+          {
+            "skuId": 5228611783439,
+            "specs": "优质顶配款【XH4800/可调光调色】送线+充电头",
+            "price": 26.7,
+            "multiPrice": 26.7,
+            "stock": 498694,
+            "saleCount": 0,
+            "image": "https://cbu01.alicdn.com/img/ibank/O1CN01QdLLLv1l902w127CZ_!!2215140294775-0-cib.jpg"
+          },
+          {
+            "skuId": 5228611783441,
+            "specs": "插电护眼款【可调光调色】送线+充电头",
+            "price": 20.43,
+            "multiPrice": 20.43,
+            "stock": 499135,
+            "saleCount": 0,
+            "image": "https://cbu01.alicdn.com/img/ibank/O1CN01LpNpVL1l902w0pYy8_!!2215140294775-0-cib.jpg"
+          },
+          {
+            "skuId": 5228611783438,
+            "specs": "优质顶配款【XH4800/可调光调色】送线",
+            "price": 24.23,
+            "multiPrice": 24.23,
+            "stock": 497501,
+            "saleCount": 0,
+            "image": "https://cbu01.alicdn.com/img/ibank/O1CN01MdQRe91l902u3Xtw3_!!2215140294775-0-cib.jpg"
+          },
+          {
+            "skuId": 5228611783435,
+            "specs": "升级款【XH2000/可调光调色】送线+充电头",
+            "price": 22.9,
+            "multiPrice": 22.9,
+            "stock": 498261,
+            "saleCount": 0,
+            "image": "https://cbu01.alicdn.com/img/ibank/O1CN01IRGiYW1l902lNSR16_!!2215140294775-0-cib.jpg"
+          },
+          {
+            "skuId": 5228611783437,
+            "specs": "学霸款【XH3200/可调光调色】送线+充电头",
+            "price": 24.8,
+            "multiPrice": 24.8,
+            "stock": 499292,
+            "saleCount": 0,
+            "image": "https://cbu01.alicdn.com/img/ibank/O1CN015D89wd1l902u3XINo_!!2215140294775-0-cib.jpg"
+          }
+        ],
+        "mainImage": "https://cbu01.alicdn.com/img/ibank/O1CN01lfAPGE1l902rnUOLI_!!2215140294775-0-cib.jpg",
+        "images": [
+          "https://cbu01.alicdn.com/img/ibank/O1CN01lfAPGE1l902rnUOLI_!!2215140294775-0-cib.jpg",
+          "https://cbu01.alicdn.com/img/ibank/O1CN01ggsocS1l901J5PS5k_!!2215140294775-0-cib.jpg",
+          "https://cbu01.alicdn.com/img/ibank/O1CN01xDzTx61l904OzN4sL_!!2215140294775-0-cib.jpg",
+          "https://cbu01.alicdn.com/img/ibank/O1CN010OkjVr1l901SSj7e1_!!2215140294775-0-cib.jpg",
+          "https://cbu01.alicdn.com/img/ibank/O1CN01lFcG7K1l901McwYs9_!!2215140294775-0-cib.jpg"
+        ]
+      },
+      {
+        "offerId": "858955223080",
+        "title": "led可换灯泡护眼阅读台灯插电式学生宿舍书桌学习老式床头写字灯",
+        "url": "https://detail.1688.com/offer/858955223080.html",
+        "priceRange": "￥11.90-￥17.90",
+        "priceMin": 11.9,
+        "priceMax": 17.9,
+        "unitName": "个",
+        "minOrderQty": 1,
+        "mixOrderQty": 500,
+        "priceTiers": [
+          {
+            "minQty": 1,
+            "price": 11.9
+          },
+          {
+            "minQty": 1,
+            "price": 17.9
+          }
+        ],
+        "detailUrl": "https://itemcdn.tmall.com/1688offer/icoss1709340425df7e7763f229d0dd",
+        "attributes": [
+          {
+            "name": "3C证书编号",
+            "value": "2019171001002563"
+          }
+        ],
+        "packageInfo": [
+          {
+            "skuId": "",
+            "spec": "",
+            "length": 17,
+            "width": 17,
+            "height": 21,
+            "weight": 650,
+            "volume": 6069
+          }
+        ],
+        "supplier": {
+          "name": "佛山市云贝思照明有限公司",
+          "loginId": "云贝思灯具",
+          "memberId": null,
+          "userId": "2217148974738"
+        },
+        "freight": {
+          "receiveAddress": "广西壮族自治区南宁市",
+          "sendArea": null,
+          "province": null,
+          "city": null,
+          "unitWeight": 0.65
+        },
+        "saledCount": 12203,
+        "categoryId": "122744005",
+        "options": [
+          {
+            "prop": "颜色",
+            "values": [
+              {
+                "name": "粉色",
+                "imageUrl": "https://cbu01.alicdn.com/img/ibank/O1CN0173ITmL1ks3ZlA9x9W_!!2217148974738-0-cib.jpg"
+              },
+              {
+                "name": "蓝色",
+                "imageUrl": "https://cbu01.alicdn.com/img/ibank/O1CN01FSlP0T1ks3ZmudDtw_!!2217148974738-0-cib.jpg"
+              },
+              {
+                "name": "绿色",
+                "imageUrl": "https://cbu01.alicdn.com/img/ibank/O1CN01l1q5YK1ks3ZdKpgGD_!!2217148974738-0-cib.jpg"
+              },
+              {
+                "name": "紫色",
+                "imageUrl": "https://cbu01.alicdn.com/img/ibank/O1CN01nXaDEy1ks3Zl7eGwm_!!2217148974738-0-cib.jpg"
+              }
+            ]
+          },
+          {
+            "prop": "尺寸",
+            "values": [
+              {
+                "name": "5瓦白光",
+                "imageUrl": null
+              },
+              {
+                "name": "5瓦三色",
+                "imageUrl": null
+              },
+              {
+                "name": "7瓦白光",
+                "imageUrl": null
+              },
+              {
+                "name": "7瓦三色",
+                "imageUrl": null
+              },
+              {
+                "name": "9瓦白光",
+                "imageUrl": null
+              },
+              {
+                "name": "9瓦三色",
+                "imageUrl": null
+              },
+              {
+                "name": "无灯泡",
+                "imageUrl": null
+              }
+            ]
+          }
+        ],
+        "skus": [
+          {
+            "skuId": 5671895840151,
+            "specs": "粉色&gt;5瓦白光",
+            "price": 13.9,
+            "multiPrice": 13.9,
+            "stock": 7803,
+            "saleCount": 0,
+            "image": "https://cbu01.alicdn.com/img/ibank/O1CN0173ITmL1ks3ZlA9x9W_!!2217148974738-0-cib.jpg"
+          },
+          {
+            "skuId": 5671895840177,
+            "specs": "紫色&gt;9瓦三色",
+            "price": 17.9,
+            "multiPrice": 17.9,
+            "stock": 9403,
+            "saleCount": 0,
+            "image": "https://cbu01.alicdn.com/img/ibank/O1CN01nXaDEy1ks3Zl7eGwm_!!2217148974738-0-cib.jpg"
+          },
+          {
+            "skuId": 5671895840153,
+            "specs": "粉色&gt;7瓦白光",
+            "price": 14.9,
+            "multiPrice": 14.9,
+            "stock": 9448,
+            "saleCount": 0,
+            "image": "https://cbu01.alicdn.com/img/ibank/O1CN0173ITmL1ks3ZlA9x9W_!!2217148974738-0-cib.jpg"
+          },
+          {
+            "skuId": 5671895840162,
+            "specs": "蓝色&gt;9瓦白光",
+            "price": 15.9,
+            "multiPrice": 15.9,
+            "stock": 6629,
+            "saleCount": 0,
+            "image": "https://cbu01.alicdn.com/img/ibank/O1CN01FSlP0T1ks3ZmudDtw_!!2217148974738-0-cib.jpg"
+          },
+          {
+            "skuId": 5671895840175,
+            "specs": "紫色&gt;7瓦三色",
+            "price": 16.9,
+            "multiPrice": 16.9,
+            "stock": 9774,
+            "saleCount": 0,
+            "image": "https://cbu01.alicdn.com/img/ibank/O1CN01nXaDEy1ks3Zl7eGwm_!!2217148974738-0-cib.jpg"
+          },
+          {
+            "skuId": 5671895840155,
+            "specs": "粉色&gt;9瓦白光",
+            "price": 15.9,
+            "multiPrice": 15.9,
+            "stock": 8673,
+            "saleCount": 0,
+            "image": "https://cbu01.alicdn.com/img/ibank/O1CN0173ITmL1ks3ZlA9x9W_!!2217148974738-0-cib.jpg"
+          },
+          {
+            "skuId": 5671895840160,
+            "specs": "蓝色&gt;7瓦白光",
+            "price": 14.9,
+            "multiPrice": 14.9,
+            "stock": 8404,
+            "saleCount": 0,
+            "image": "https://cbu01.alicdn.com/img/ibank/O1CN01FSlP0T1ks3ZmudDtw_!!2217148974738-0-cib.jpg"
+          },
+          {
+            "skuId": 5671895840173,
+            "specs": "紫色&gt;5瓦三色",
+            "price": 15.9,
+            "multiPrice": 15.9,
+            "stock": 9706,
+            "saleCount": 0,
+            "image": "https://cbu01.alicdn.com/img/ibank/O1CN01nXaDEy1ks3Zl7eGwm_!!2217148974738-0-cib.jpg"
+          },
+          {
+            "skuId": 5671895840158,
+            "specs": "蓝色&gt;5瓦白光",
+            "price": 13.9,
+            "multiPrice": 13.9,
+            "stock": 4074,
+            "saleCount": 0,
+            "image": "https://cbu01.alicdn.com/img/ibank/O1CN01FSlP0T1ks3ZmudDtw_!!2217148974738-0-cib.jpg"
+          },
+          {
+            "skuId": 5671895840164,
+            "specs": "蓝色&gt;无灯泡",
+            "price": 11.9,
+            "multiPrice": 11.9,
+            "stock": 6881,
+            "saleCount": 0,
+            "image": "https://cbu01.alicdn.com/img/ibank/O1CN01FSlP0T1ks3ZmudDtw_!!2217148974738-0-cib.jpg"
+          },
+          {
+            "skuId": 5671895840165,
+            "specs": "绿色&gt;5瓦白光",
+            "price": 13.9,
+            "multiPrice": 13.9,
+            "stock": 8789,
+            "saleCount": 0,
+            "image": "https://cbu01.alicdn.com/img/ibank/O1CN01l1q5YK1ks3ZdKpgGD_!!2217148974738-0-cib.jpg"
+          },
+          {
+            "skuId": 5671895840169,
+            "specs": "绿色&gt;9瓦白光",
+            "price": 15.9,
+            "multiPrice": 15.9,
+            "stock": 9043,
+            "saleCount": 0,
+            "image": "https://cbu01.alicdn.com/img/ibank/O1CN01l1q5YK1ks3ZdKpgGD_!!2217148974738-0-cib.jpg"
+          },
+          {
+            "skuId": 5671895840178,
+            "specs": "紫色&gt;无灯泡",
+            "price": 11.9,
+            "multiPrice": 11.9,
+            "stock": 9158,
+            "saleCount": 0,
+            "image": "https://cbu01.alicdn.com/img/ibank/O1CN01nXaDEy1ks3Zl7eGwm_!!2217148974738-0-cib.jpg"
+          },
+          {
+            "skuId": 5671895840167,
+            "specs": "绿色&gt;7瓦白光",
+            "price": 14.9,
+            "multiPrice": 14.9,
+            "stock": 9606,
+            "saleCount": 0,
+            "image": "https://cbu01.alicdn.com/img/ibank/O1CN01l1q5YK1ks3ZdKpgGD_!!2217148974738-0-cib.jpg"
+          },
+          {
+            "skuId": 5671895840176,
+            "specs": "紫色&gt;9瓦白光",
+            "price": 15.9,
+            "multiPrice": 15.9,
+            "stock": 9075,
+            "saleCount": 0,
+            "image": "https://cbu01.alicdn.com/img/ibank/O1CN01nXaDEy1ks3Zl7eGwm_!!2217148974738-0-cib.jpg"
+          },
+          {
+            "skuId": 5671895840171,
+            "specs": "绿色&gt;无灯泡",
+            "price": 11.9,
+            "multiPrice": 11.9,
+            "stock": 9255,
+            "saleCount": 0,
+            "image": "https://cbu01.alicdn.com/img/ibank/O1CN01l1q5YK1ks3ZdKpgGD_!!2217148974738-0-cib.jpg"
+          },
+          {
+            "skuId": 5671895840152,
+            "specs": "粉色&gt;5瓦三色",
+            "price": 15.9,
+            "multiPrice": 15.9,
+            "stock": 9655,
+            "saleCount": 0,
+            "image": "https://cbu01.alicdn.com/img/ibank/O1CN0173ITmL1ks3ZlA9x9W_!!2217148974738-0-cib.jpg"
+          },
+          {
+            "skuId": 5671895840174,
+            "specs": "紫色&gt;7瓦白光",
+            "price": 14.9,
+            "multiPrice": 14.9,
+            "stock": 9636,
+            "saleCount": 0,
+            "image": "https://cbu01.alicdn.com/img/ibank/O1CN01nXaDEy1ks3Zl7eGwm_!!2217148974738-0-cib.jpg"
+          },
+          {
+            "skuId": 5671895840154,
+            "specs": "粉色&gt;7瓦三色",
+            "price": 16.9,
+            "multiPrice": 16.9,
+            "stock": 9669,
+            "saleCount": 0,
+            "image": "https://cbu01.alicdn.com/img/ibank/O1CN0173ITmL1ks3ZlA9x9W_!!2217148974738-0-cib.jpg"
+          },
+          {
+            "skuId": 5671895840172,
+            "specs": "紫色&gt;5瓦白光",
+            "price": 13.9,
+            "multiPrice": 13.9,
+            "stock": 9009,
+            "saleCount": 0,
+            "image": "https://cbu01.alicdn.com/img/ibank/O1CN01nXaDEy1ks3Zl7eGwm_!!2217148974738-0-cib.jpg"
+          },
+          {
+            "skuId": 5671895840156,
+            "specs": "粉色&gt;9瓦三色",
+            "price": 17.9,
+            "multiPrice": 17.9,
+            "stock": 9334,
+            "saleCount": 0,
+            "image": "https://cbu01.alicdn.com/img/ibank/O1CN0173ITmL1ks3ZlA9x9W_!!2217148974738-0-cib.jpg"
+          },
+          {
+            "skuId": 5671895840157,
+            "specs": "粉色&gt;无灯泡",
+            "price": 11.9,
+            "multiPrice": 11.9,
+            "stock": 8807,
+            "saleCount": 0,
+            "image": "https://cbu01.alicdn.com/img/ibank/O1CN0173ITmL1ks3ZlA9x9W_!!2217148974738-0-cib.jpg"
+          },
+          {
+            "skuId": 5671895840166,
+            "specs": "绿色&gt;5瓦三色",
+            "price": 15.9,
+            "multiPrice": 15.9,
+            "stock": 9686,
+            "saleCount": 0,
+            "image": "https://cbu01.alicdn.com/img/ibank/O1CN01l1q5YK1ks3ZdKpgGD_!!2217148974738-0-cib.jpg"
+          },
+          {
+            "skuId": 5671895840168,
+            "specs": "绿色&gt;7瓦三色",
+            "price": 16.9,
+            "multiPrice": 16.9,
+            "stock": 9696,
+            "saleCount": 0,
+            "image": "https://cbu01.alicdn.com/img/ibank/O1CN01l1q5YK1ks3ZdKpgGD_!!2217148974738-0-cib.jpg"
+          },
+          {
+            "skuId": 5671895840170,
+            "specs": "绿色&gt;9瓦三色",
+            "price": 17.9,
+            "multiPrice": 17.9,
+            "stock": 9482,
+            "saleCount": 0,
+            "image": "https://cbu01.alicdn.com/img/ibank/O1CN01l1q5YK1ks3ZdKpgGD_!!2217148974738-0-cib.jpg"
+          },
+          {
+            "skuId": 5671895840161,
+            "specs": "蓝色&gt;7瓦三色",
+            "price": 16.9,
+            "multiPrice": 16.9,
+            "stock": 9221,
+            "saleCount": 0,
+            "image": "https://cbu01.alicdn.com/img/ibank/O1CN01FSlP0T1ks3ZmudDtw_!!2217148974738-0-cib.jpg"
+          },
+          {
+            "skuId": 5671895840159,
+            "specs": "蓝色&gt;5瓦三色",
+            "price": 15.9,
+            "multiPrice": 15.9,
+            "stock": 8643,
+            "saleCount": 0,
+            "image": "https://cbu01.alicdn.com/img/ibank/O1CN01FSlP0T1ks3ZmudDtw_!!2217148974738-0-cib.jpg"
+          },
+          {
+            "skuId": 5671895840163,
+            "specs": "蓝色&gt;9瓦三色",
+            "price": 17.9,
+            "multiPrice": 17.9,
+            "stock": 8260,
+            "saleCount": 0,
+            "image": "https://cbu01.alicdn.com/img/ibank/O1CN01FSlP0T1ks3ZmudDtw_!!2217148974738-0-cib.jpg"
+          }
+        ],
+        "mainImage": "https://cbu01.alicdn.com/img/ibank/O1CN01FSlP0T1ks3ZmudDtw_!!2217148974738-0-cib.jpg",
+        "images": [
+          "https://cbu01.alicdn.com/img/ibank/O1CN01FSlP0T1ks3ZmudDtw_!!2217148974738-0-cib.jpg",
+          "https://cbu01.alicdn.com/img/ibank/O1CN01l1q5YK1ks3ZdKpgGD_!!2217148974738-0-cib.jpg",
+          "https://cbu01.alicdn.com/img/ibank/O1CN01nXaDEy1ks3Zl7eGwm_!!2217148974738-0-cib.jpg",
+          "https://cbu01.alicdn.com/img/ibank/O1CN0173ITmL1ks3ZlA9x9W_!!2217148974738-0-cib.jpg",
+          "https://cbu01.alicdn.com/img/ibank/O1CN01FnvslS1ks3ZhfyfdE_!!2217148974738-0-cib.jpg"
+        ]
+      }
+    ],
+    "failures": []
+  },
+  "stderr": "[1/5] collecting offerId 624406159076\n[2/5] collecting offerId 830567670780\n[3/5] collecting offerId 807322563406\n[4/5] collecting offerId 695481230805\n[5/5] collecting offerId 858955223080"
+}

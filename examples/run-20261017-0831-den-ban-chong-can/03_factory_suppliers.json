@@ -1,0 +1,1772 @@
+{
+  "timestamp": "2026-10-17T01:31:29Z",
+  "command": [
+    "1688",
+    "supplier",
+    "search",
+    "护眼台灯",
+    "--factory-only",
+    "--max",
+    "10"
+  ],
+  "exit_code": 0,
+  "ok": true,
+  "auto_login_triggered": false,
+  "login_event": null,
+  "data": {
+    "queries": [
+      "护眼台灯"
+    ],
+    "source": {
+      "kind": "company-search",
+      "endpoint": "companySearchBusinessService",
+      "offerAggregation": false
+    },
+    "filters": {
+      "factoryOnly": true,
+      "province": null,
+      "city": null,
+      "minYears": null,
+      "minRepeatRate": null,
+      "minResponseRate": null
+    },
+    "maxPerQuery": 10,
+    "enrichTop": 0,
+    "totalBeforeFilter": 14,
+    "total": 10,
+    "enrichedCount": 0,
+    "items": [
+      {
+        "sourceKeyword": "护眼台灯",
+        "sourceRank": 1,
+        "globalRank": 1,
+        "supplier": {
+          "companyName": "中山市普毅照明有限公司",
+          "loginId": "桂中灯饰898",
+          "memberId": "b2b-38169088350a2c8",
+          "enterpriseId": "a-b2b-38169088350a2c8",
+          "realUserId": "3816908835",
+          "companyId": "653163601278",
+          "shopUrl": "https://shop1n4u763p59656.1688.com",
+          "factoryCardUrl": "https://sale.1688.com/factory/card.html?memberId=b2b-38169088350a2c8",
+          "domainUri": "shop1n4u763p59656.1688.com",
+          "location": {
+            "province": "广东",
+            "city": "中山",
+            "address": "古镇镇曹二均都沙工业区曹安南路7-19号桂中照明（三楼）",
+            "latitude": 22.6239,
+            "longitude": 113.215
+          },
+          "productionService": "LED球泡灯;野营/露营灯;LED玉米灯",
+          "businessMode": "1",
+          "tp": {
+            "memberLevel": "PM",
+            "serviceYears": 9,
+            "tpNum": 1
+          },
+          "factory": {
+            "isFactory": true,
+            "factoryTag": "产地工厂",
+            "factoryLevel": "铜牌工厂",
+            "shiliFactory": true,
+            "shiliCompany": false,
+            "superFactory": false,
+            "businessInspection": false,
+            "factoryInspection": true,
+            "qiJianCompany": true,
+            "safePurchase": false,
+            "trust": true
+          },
+          "service": {
+            "compositeScore": 4.5,
+            "wwResponseRate": 0.71,
+            "repeatRate": 0.49,
+            "complianceRate": 1
+          },
+          "demand": {
+            "payOrderCount3m": 10027,
+            "payAmount3m": 81410897,
+            "fuzzyPayAmount3m": "81万+",
+            "saleQuantity3m": 9935,
+            "memberBookedCount": 0
+          },
+          "tags": [
+            "LED球泡灯",
+            "野营/露营灯",
+            "LED玉米灯",
+            "产地工厂",
+            "铜牌工厂",
+            "PM"
+          ],
+          "offersPreview": [
+            {
+              "offerId": "1080780896990",
+              "title": "充电挂钩灯宿舍磁吸灯学习护眼台灯大学生寝室床头夜灯卧室酷毙灯",
+              "url": "https://detail.1688.com/offer/1080780896990.html",
+              "price": {
+                "text": "¥21.99",
+                "value": 21.99
+              },
+              "unit": "个",
+              "image": "https://cbu01.alicdn.com/img/ibank/O1CN01530DzIYkjSE2XrKe_!!3816908835-0-cib.220x220.jpg",
+              "bookedCount": 2,
+              "saleQuantity": 237,
+              "quantitySumMonth": 0,
+              "brief": "品牌:振牛 是否可调光:否 加工方式:LOGO贴牌 续航时间:4-6H 是否智能操控:否 开关方式:遥控式 电压:≤36VV 风格:现代简约 主要下游平台:亚马逊、速卖通、独立站 规格:一鸣惊人充电灯260数显B款带挂钩、一鸣惊人充电灯260数显C款带挂钩+遥控器、一鸣惊人充电灯320数显B款带挂钩、一鸣惊人充电灯320数显C款带挂钩+遥控器、一鸣惊人充电灯420数显B款带挂钩、一鸣惊人充电灯420数显C款带挂钩+遥控器、10000型充电米白长条灯、20000型充电米白长条灯、50000型充电米白长条灯 是否跨境出口专供货源:是 外形尺寸:32cmmm 计量单位:个 货号:1个起批一鸣惊人 有可授权的自有品牌:是 供电方式:电池 主要销售地区:非洲、南美、东南亚、北美 产地:广东 尺寸:18cm 材质:ABS"
+            },
+            {
+              "offerId": "836105101198",
+              "title": "led小台灯护眼学习大学生宿舍折叠台灯 便携床上充电长续航小夜灯",
+              "url": "https://detail.1688.com/offer/836105101198.html",
+              "price": {
+                "text": "¥41.99",
+                "value": 41.99
+              },
+              "unit": "个",
+              "image": "https://cbu01.alicdn.com/img/ibank/O1CN01Lx5kMPZMw5E1chua_!!3816908835-0-cib.220x220.jpg",
+              "bookedCount": 156,
+              "saleQuantity": 237,
+              "quantitySumMonth": 4,
+              "brief": "续航时间:2-6H 是否有专利:否 加工方式:LOGO贴牌 安装方式:折叠收拾 是否智能操控:否 开关方式:触摸式 色温:三色变光 电压:≤36V 灯罩材质:塑料 风格:现代简约 颜色:【8000毫安款】折叠护眼台灯+充电线、【12000毫安款】折叠护眼台灯+充电线、【20000毫安款】折叠护眼台灯+充电线、【30000毫安款】折叠护眼台灯+充电线、【8000毫安款】折叠护眼台灯+充电线+底夹、【12000毫安款】折叠护眼台灯+充电线+底夹、【20000毫安款】折叠护眼台灯+充电线+底夹、【30000毫安款】折叠护眼台灯+充电线+底夹 附加功能:夜灯、学习灯 有可授权的自有品牌:是 供电方式:USB供电 主要销售地区:非洲、南美、东南亚、东北亚 调光功能:三挡调光 产地:中国大陆 灯头接口:TypeC 是否IP授权:否 适用场景:学生宿舍书桌 认证:无 功率:16W(含)-20W(含) 主要下游平台:亚马逊、速卖通、LAZADA 显色指数:≥95 是否跨境出口专供货源:是 计量单位:个 重量:6500 货号:折叠台灯 是否一般纳税人:是 照度:基础照明 尺寸:三色变光+时间数字显示"
+            },
+            {
+              "offerId": "1082875431836",
+              "title": "led小夜灯卧室睡眠灯usb充电节能灯护眼家用床头充电学生宿舍夜灯",
+              "url": "https://detail.1688.com/offer/1082875431836.html",
+              "price": {
+                "text": "¥9.39",
+                "value": 9.39
+              },
+              "unit": "个",
+              "image": "https://cbu01.alicdn.com/img/ibank/O1CN01VY2h8jUDIGI2XrKe_!!3816908835-0-cib.220x220.jpg",
+              "bookedCount": 2,
+              "saleQuantity": 321,
+              "quantitySumMonth": 321,
+              "brief": "续航时间:2-4H 是否有专利:否 光源功率:15W 光源类型:LED 是否智能操控:是 色温:3500K 电压:≤36VV、≤36VV 灯罩材质:合成树脂 风格:现代简约 附加功能:夜灯 外形尺寸:8*8*11cmmm 有可授权的自有品牌:是 供电方式:内置电池 主要销售地区:非洲、南美、东南亚 加印LOGO:可以 是否IP授权:否 适用场景:卧室 造型:几何立体 认证:无 开关类型:触摸式 流明:5600lm null:null 灯光颜色:圆筒小夜灯【无遥控】、圆筒小夜灯【遥控款】、圆梦氛围小夜灯【无遥控】、圆梦氛围小夜灯【遥控款】、圆梦氛围小夜灯+时钟显示LED屏+遥控（2000mAh)、圆梦氛围小夜灯+时钟显示LED屏+遥控（4000mAh) 主要下游平台:亚马逊、速卖通、独立站 是否跨境出口专供货源:是 计量单位:个 货号:触控小夜灯 是否一般纳税人:是 平均使用寿命:3年h 适用送礼场合:广告促销"
+            },
+            {
+              "offerId": "858645828635",
+              "title": "led创意小夜灯 浪漫烛光灯餐厅酒吧桌面氛围灯蜡烛台灯扫手感应灯",
+              "url": "https://detail.1688.com/offer/858645828635.html",
+              "price": {
+                "text": "¥39.72",
+                "value": 39.72
+              },
+              "unit": "件",
+              "image": "https://cbu01.alicdn.com/img/ibank/O1CN01x0QoX12F8UFwxuj4c_!!3816908835-0-cib.220x220.jpg",
+              "bookedCount": 143,
+              "saleQuantity": 343,
+              "quantitySumMonth": 8,
+              "brief": "是否有专利:否 光源功率:无极调光,TypeC充电口—135*86mm 是否智能操控:见描述 电压:≤36V 风格:现代简约 附加功能:氛围灯 外形尺寸:135*86mm 供电方式:插座供电 有可授权的自有品牌:是 主要销售地区:非洲、欧洲、南美、东南亚、北美、东北亚 加印LOGO:可以 认证:无 开关类型:感应式 灯光颜色:【手扫感应款】魔法蜡烛灯2400 主要下游平台:ebay、亚马逊、wish、速卖通、独立站、LAZADA 是否跨境出口专供货源:是 货号:手扫感应小夜灯 是否一般纳税人:否 平均使用寿命:36000 适用送礼场合:颁奖纪念"
+            },
+            {
+              "offerId": "1028716593070",
+              "title": "灯泡led节能灯一级能效家用超亮恒流驱动e27螺口新款塑包铝球泡灯",
+              "url": "https://detail.1688.com/offer/1028716593070.html",
+              "price": {
+                "text": "¥3.18",
+                "value": 3.18
+              },
+              "unit": "个",
+              "image": "https://cbu01.alicdn.com/img/ibank/O1CN01IjhKIm2F8UL7gMfct_!!3816908835-0-cib.220x220.jpg",
+              "bookedCount": 26,
+              "saleQuantity": 1180,
+              "quantitySumMonth": 950,
+              "brief": "品牌:振牛 光通量:5000 是否有专利:否 是否智能操控:否 灯丝类型:2835 寿命:5年 灯罩材质:PC 灯体材质:塑包铝 型号:南瓜球泡灯 3C证书编号:2022011001484891 防护等级:ip20 有可授权的自有品牌:是 供电方式:插座供电 遥控方式:不可遥控 主要销售地区:非洲、南美、东南亚、北美 能效等级:1级 附加功能:一级能效节能 产地:广东中山市 是不是足功率:足功率 LED灯珠品牌:木林森 认证:无 主应用场景:家居 功率:5W【白光】一级能效高显南瓜灯、5W【中性光】一级能效高显南瓜灯、5W【暖光】一级能效高显南瓜灯、10W【白光】一级能效高显南瓜灯、10W【中性光】一级能效高显南瓜灯、10W【暖光】一级能效高显南瓜��、15W【白光】一级能效高显南瓜灯、15W【中性光】一级能效高显南瓜灯、15W【暖光】一级能效高显南瓜灯、20W【白光】一级能效高显南瓜灯、20W【中性光】一级能效高显南瓜灯、20W【暖光】一级能效高显南瓜灯、30W【白光】一级能效高显南瓜灯、30W【中性光】一级能效高显南瓜灯、30W【暖光】一级能效高显南瓜灯、40W【白光】一级能效高显南瓜灯、40W【中性光】一级能效高显南瓜灯、40W【暖光】一级能效高显南瓜灯、50W【白光】一级能效高显南瓜灯、50W【中性光】一级能效高显南瓜灯、50W【暖光】一级能效高显南瓜灯、60W【白光】一级能效高显南瓜灯、60W【中性光】一级能效高显南瓜灯、60W【暖光】一级能效高显南瓜灯 灯头规格:E27 光谱类型:LED 主要下游平台:亚马逊、速卖通、独立站、LAZADA 显色指数:80-90 是否跨境出口专供货源:是 计量单位:个 重量:咨询客服 货号:活动链接-严选 输入电压:220 质保期:3年 是否一般纳税人:否 外形尺寸(Φ*H):60*120 系列:高富帅球泡 是否进口:否 可否调光:否"
+            }
+          ]
+        },
+        "score": 85,
+        "scoreBreakdown": [
+          {
+            "name": "company-search-demand",
+            "points": 25,
+            "reason": "10027 orders in 3m"
+          },
+          {
+            "name": "supplier-tenure",
+            "points": 15,
+            "reason": "9 years"
+          },
+          {
+            "name": "factory-trust",
+            "points": 15,
+            "reason": "产地工厂"
+          },
+          {
+            "name": "service-rates",
+            "points": 11,
+            "reason": "repeat 49%, response 71%"
+          },
+          {
+            "name": "composite-score",
+            "points": 9,
+            "reason": "score 4.5"
+          },
+          {
+            "name": "offer-preview-depth",
+            "points": 10,
+            "reason": "5 company-search offer previews"
+          }
+        ]
+      },
+      {
+        "sourceKeyword": "护眼台灯",
+        "sourceRank": 4,
+        "globalRank": 2,
+        "supplier": {
+          "companyName": "深圳市智宇电器有限公司",
+          "loginId": "深圳市智宇电器有限公司",
+          "memberId": "b2b-2200728764744fc70a",
+          "enterpriseId": "a-b2b-2200728764744fc70a",
+          "realUserId": "2200728764744",
+          "companyId": "761444314493",
+          "shopUrl": "https://shop9342vr7529p30.1688.com",
+          "factoryCardUrl": "https://sale.1688.com/factory/card.html?memberId=b2b-2200728764744fc70a",
+          "domainUri": "shop9342vr7529p30.1688.com",
+          "location": {
+            "province": "广东",
+            "city": "深圳",
+            "address": "深圳市龙华区观澜街道大富社区观澜平安路60号4栋1407",
+            "latitude": 22.6627,
+            "longitude": 114.02
+          },
+          "productionService": "接线插座;阅读台灯;小夜灯",
+          "businessMode": "1",
+          "tp": {
+            "memberLevel": "PM",
+            "serviceYears": 7,
+            "tpNum": 1
+          },
+          "factory": {
+            "isFactory": true,
+            "factoryTag": null,
+            "factoryLevel": "无牌工厂",
+            "shiliFactory": false,
+            "shiliCompany": false,
+            "superFactory": false,
+            "businessInspection": false,
+            "factoryInspection": false,
+            "qiJianCompany": false,
+            "safePurchase": false,
+            "trust": true
+          },
+          "service": {
+            "compositeScore": 4.5,
+            "wwResponseRate": 0.41,
+            "repeatRate": 0.48,
+            "complianceRate": 1
+          },
+          "demand": {
+            "payOrderCount3m": 4882,
+            "payAmount3m": 19444261,
+            "fuzzyPayAmount3m": "19万+",
+            "saleQuantity3m": 4987,
+            "memberBookedCount": 0
+          },
+          "tags": [
+            "接线插座",
+            "阅读台灯",
+            "小夜灯",
+            "无牌工厂",
+            "PM"
+          ],
+          "offersPreview": [
+            {
+              "offerId": "983637492909",
+              "title": "轻奢创意智能语音控制台灯卧室床头灯带插座婴儿喂奶护眼小夜灯",
+              "url": "https://detail.1688.com/offer/983637492909.html",
+              "price": {
+                "text": "¥26.8",
+                "value": 26.8
+              },
+              "unit": "个",
+              "image": "https://cbu01.alicdn.com/img/ibank/O1CN01cktMOh1kuo1xf1P4L_!!2200728764744-0-cib.220x220.jpg",
+              "bookedCount": 37,
+              "saleQuantity": 42,
+              "quantitySumMonth": 4,
+              "brief": "品牌:中性 是否有专利:否 加工方式:LOGO贴牌 认证:无 是否智能操控:否 开关方式:按钮式 电压:≤36V 灯罩材质:塑料 风格:轻奢 功率:5W及以下 颜色:语音款、遥控+语音、时钟+语音、时钟+遥控+语音 主要下游平台:亚马逊、速卖通、LAZADA 附加功能:学习灯、氛围灯 显色指数:80—89 是否跨境出口专供货源:是 计量单位:个 货号:V9 有可授权的自有品牌:否 供电方式:插座供电 主要销售地区:欧洲、东南亚 产地:中国大陆 是否一般纳税人:否 照度:基础照明 尺寸:0.8米电源线、1.8米电源线、2.8米电源线"
+            },
+            {
+              "offerId": "920993421993",
+              "title": "语音控制灯带插座声控台灯遥控三色床头灯学习护眼学习护眼台灯",
+              "url": "https://detail.1688.com/offer/920993421993.html",
+              "price": {
+                "text": "¥26.8",
+                "value": 26.8
+              },
+              "unit": "个",
+              "image": "https://cbu01.alicdn.com/img/ibank/O1CN01edZICf1kunzPCFGvA_!!2200728764744-0-cib.220x220.jpg",
+              "bookedCount": 147,
+              "saleQuantity": 864,
+              "quantitySumMonth": 61,
+              "brief": "品牌:中性 是否有专利:否 加工方式:LOGO贴牌 认证:无 是否智能操控:是 开关方式:声控式 电压:≤36V 灯罩材质:塑料 风格:现代简约 颜色:语音款、语音+时钟款、遥控+语音款、遥控+语音+时钟款 显色指数:80—89 是否跨境出口专供货源:否 计量单位:个 货号:V9 供电方式:插座供电 是否一般纳税人:否 照度:基础照明 尺寸:0.8米电源线、1.8米电源线、2.8米电源线"
+            },
+            {
+              "offerId": "894221379333",
+              "title": "USB插座LED台灯学生学习阅读书写书桌宿舍卧室床头灯护眼台灯",
+              "url": "https://detail.1688.com/offer/894221379333.html",
+              "price": {
+                "text": "¥26.8",
+                "value": 26.8
+              },
+              "unit": "个",
+              "image": "https://cbu01.alicdn.com/img/ibank/O1CN01Ce0rJ21kunyRyk8Fi_!!2200728764744-0-cib.220x220.jpg",
+              "bookedCount": 223,
+              "saleQuantity": 313,
+              "quantitySumMonth": 57,
+              "brief": "品牌:中性 是否有专利:否 加工方式:LOGO贴牌 认证:ccc、ccc 是否智能操控:否 开关方式:按钮式 电压:220V 灯罩材质:塑料 风格:欧式 颜色:T1,台灯十四孔带usb,4.8米、T1,台灯十四孔,0.8米、T1,台灯,十四孔,1.8米、T1,台灯十四孔,2.8米、T1,台灯十四孔,3.8米、T1,台灯十四孔,4.8米、T1,台灯十四孔带usb,0.8米、T1,台灯十四孔带usb,1.8米、T1,台灯十四孔带usb,2.8米、T1,台灯十四孔带usb,3.8米 显色指数:≤70 是否跨境出口专供货源:否 3C证书编号:2018180201007033、2018180201007033 计量单位:个 货号:T1 供电方式:插座供电 是否一般纳税人:是 照度:基础照明"
+            },
+            {
+              "offerId": "888191619489",
+              "title": "护眼台灯学习带插座一体阅读灯学生宿舍儿童防近视卧室床头灯",
+              "url": "https://detail.1688.com/offer/888191619489.html",
+              "price": {
+                "text": "¥16.9",
+                "value": 16.9
+              },
+              "unit": "个",
+              "image": "https://cbu01.alicdn.com/img/ibank/O1CN01TupdKX1kunyBoZVnR_!!2200728764744-0-cib.220x220.jpg",
+              "bookedCount": 5246,
+              "saleQuantity": 5534,
+              "quantitySumMonth": 322,
+              "brief": "品牌:轻骏 是否有专利:是 专利类型:外观设计专利 是否智能操控:否 开关方式:触摸式 灯罩材质:其它 电压:≤36V 显色指数:≥90 颜色:插电款：三色光+无极调光+3插孔+2USB,4.8米,带遥控、插电款：三色光+无极调光【插电线】、插电款：三色光+4插孔,0.8米、插电款：三色光+4插孔,1.8米、插电款：三色光+4插孔,2.8米、插电款：三色光+4插孔,4.8米、插电款：三色光+3插孔+2USB,0.8米、插电款：三色光+3插孔+2USB,1.8米、插电款：三色光+3插孔+2USB,2.8米、插电款：三色光+3插孔+2USB,4.8米、插电款：三色光+无极调光+3插孔+2USB,0.8米,带遥控、插电款：三色光+无极调光+3插孔+2USB,1.8米,带遥控、插电款：三色光+无极调光+3插孔+2USB,2.8米,带遥控、充插两用：三色光+无极调光【2000毫安】配充电线、充插两用：三色光+无极调光【4000毫安】配充电线 是否跨境出口专供货源:否 供电方式:插座供电 是否一般纳税人:是 附加功能:其它 照度:基础照明"
+            },
+            {
+              "offerId": "856538438845",
+              "title": "卧室睡眠灯智能远程遥控无线台灯充电时钟婴儿可调光护眼小夜灯",
+              "url": "https://detail.1688.com/offer/856538438845.html",
+              "price": {
+                "text": "¥11",
+                "value": 11
+              },
+              "unit": "个",
+              "image": "https://cbu01.alicdn.com/img/ibank/O1CN01lcsQg41kunwvxzB7m_!!2200728764744-0-cib.220x220.jpg",
+              "bookedCount": 360,
+              "saleQuantity": 955,
+              "quantitySumMonth": 58,
+              "brief": "品牌:中性 是否有专利:否 加工方式:LOGO贴牌 认证:无 是否智能操控:否 开关方式:触摸式 电压:≤36V 灯罩材质:塑料 风格:现代简约 颜色:插电款、充电款【2000毫安】、充电款【4000毫安】、充电款【6000毫安】、充电款+遥控【2000毫安】、充电款+遥控【4000毫安】、充电款+遥控【6000毫安】、充电款+时钟【2000毫安】、充电款+时钟【4000毫安】、充电款+时钟【6000毫安】、充电款+时钟+遥控【2000毫安】、充电款+时钟+遥控【4000毫安】、充电款+时钟+遥控【6000毫安】 附加功能:夜灯、学习灯 显色指数:≥90 是否跨境出口专供货源:是 计量单位:个 货号:M9 供电方式:内置电池 是否一般纳税人:否 照度:基础照明"
+            }
+          ]
+        },
+        "score": 72,
+        "scoreBreakdown": [
+          {
+            "name": "company-search-demand",
+            "points": 20,
+            "reason": "4882 orders in 3m"
+          },
+          {
+            "name": "supplier-tenure",
+            "points": 15,
+            "reason": "7 years"
+          },
+          {
+            "name": "factory-trust",
+            "points": 10,
+            "reason": "无牌工厂"
+          },
+          {
+            "name": "service-rates",
+            "points": 8,
+            "reason": "repeat 48%, response 41%"
+          },
+          {
+            "name": "composite-score",
+            "points": 9,
+            "reason": "score 4.5"
+          },
+          {
+            "name": "offer-preview-depth",
+            "points": 10,
+            "reason": "5 company-search offer previews"
+          }
+        ]
+      },
+      {
+        "sourceKeyword": "护眼台灯",
+        "sourceRank": 11,
+        "globalRank": 3,
+        "supplier": {
+          "companyName": "中山市卓时照明有限公司",
+          "loginId": "中山市卓时照明有限公司",
+          "memberId": "b2b-2217187696304b9c33",
+          "enterpriseId": "a-b2b-2217187696304b9c33",
+          "realUserId": "2217187696304",
+          "companyId": "778909115339",
+          "shopUrl": "https://shop618ix26047414.1688.com",
+          "factoryCardUrl": "https://sale.1688.com/factory/card.html?memberId=b2b-2217187696304b9c33",
+          "domainUri": "shop618ix26047414.1688.com",
+          "location": {
+            "province": "广东",
+            "city": "中山",
+            "address": null,
+            "latitude": 22.718,
+            "longitude": 113.303
+          },
+          "productionService": "阅读台灯;智能夜灯;小夜灯",
+          "businessMode": "1",
+          "tp": {
+            "memberLevel": "PM",
+            "serviceYears": 3,
+            "tpNum": 1
+          },
+          "factory": {
+            "isFactory": true,
+            "factoryTag": null,
+            "factoryLevel": "无牌工厂",
+            "shiliFactory": false,
+            "shiliCompany": false,
+            "superFactory": false,
+            "businessInspection": false,
+            "factoryInspection": false,
+            "qiJianCompany": false,
+            "safePurchase": false,
+            "trust": true
+          },
+          "service": {
+            "compositeScore": 5,
+            "wwResponseRate": 0.98,
+            "repeatRate": 0.32,
+            "complianceRate": 1
+          },
+          "demand": {
+            "payOrderCount3m": 4709,
+            "payAmount3m": 38324859,
+            "fuzzyPayAmount3m": "38万+",
+            "saleQuantity3m": 4629,
+            "memberBookedCount": 0
+          },
+          "tags": [
+            "阅读台灯",
+            "智能夜灯",
+            "小夜灯",
+            "无牌工厂",
+            "PM"
+          ],
+          "offersPreview": [
+            {
+              "offerId": "1059420200385",
+              "title": "LED充电磁吸酷毙灯台灯学习护眼专用灯宿舍大学生书桌壁挂阅读灯",
+              "url": "https://detail.1688.com/offer/1059420200385.html",
+              "price": {
+                "text": "¥19.5",
+                "value": 19.5
+              },
+              "unit": "个",
+              "image": "https://cbu01.alicdn.com/img/ibank/O1CN01dZjVNF1wRHwfHAz4O_!!2217187696304-0-cib.220x220.jpg",
+              "bookedCount": 106,
+              "saleQuantity": 121,
+              "quantitySumMonth": 11,
+              "brief": "品牌:logo 是否有专利:否 灯具是否带光源:是 加工方式:LOGO贴牌 是否智能操控:否 开关方式:触摸式 灯罩材质:PC 电压:5V 风格:现代简约 颜色:【插电款】调光调色+触摸开关、【充电款】调光调色+触摸开关、【充电时钟款】时钟显示+定时+触摸开关 附加功能:学习灯 光源类型:led灯 供电方式:内置电池 产地:中国大陆 材质:铝合金 认证:无 功率:7W 显色指数:≥95 是否跨境出口专供货源:否 货号:1279 是否一般纳税人:否 照度:国A级"
+            },
+            {
+              "offerId": "1041026610042",
+              "title": "台灯护眼学习专用充电阅读书桌防近视儿童大学生读书写作业无影灯",
+              "url": "https://detail.1688.com/offer/1041026610042.html",
+              "price": {
+                "text": "¥80",
+                "value": 80
+              },
+              "unit": "个",
+              "image": "https://cbu01.alicdn.com/img/ibank/O1CN01flD2K31wRHvMLr4Y7_!!2217187696304-0-cib.220x220.jpg",
+              "bookedCount": 143,
+              "saleQuantity": 215,
+              "quantitySumMonth": 28,
+              "brief": "品牌:中性 是否有专利:否 加工方式:LOGO贴牌 认证:无 是否智能操控:否 开关方式:触摸式 色温:4000K 电压:≤36V 灯罩材质:金属 风格:现代简约 功率:18W 颜色:【尊享插电款】18w护眼灯-国标AA级+无极调光+无蓝光/频闪+专业读写模式、【旗舰充电款4400毫安】18w护眼灯-国标AA级+无极调光+无蓝光/频闪+专业读写模式 附加功能:学习灯 显色指数:≥95 是否跨境出口专供货源:否 计量单位:个 重量:2000g 货号:V17 供电方式:插座供电 光源类型:led灯 产地:中国大陆 是否一般纳税人:否 照度:国AA级"
+            },
+            {
+              "offerId": "1040127422887",
+              "title": "台灯学习灯充插两用小学生桌面儿童宿舍学生床头护眼阅读学习台灯",
+              "url": "https://detail.1688.com/offer/1040127422887.html",
+              "price": {
+                "text": "¥30",
+                "value": 30
+              },
+              "unit": "个",
+              "image": "https://cbu01.alicdn.com/img/ibank/O1CN017J8csY1wRHvp4el64_!!2217187696304-0-cib.220x220.jpg",
+              "bookedCount": 622,
+              "saleQuantity": 852,
+              "quantitySumMonth": 131,
+              "brief": "品牌:logo贴牌 是否有专利:否 加工方式:LOGO贴牌 光源:LED灯珠 是否智能操控:否 开关方式:触摸式 灯罩材质:塑料 电压:≤36V 风格:现代简约 颜色:【插电款】插电使用+调光调色+USB线、【充插两用款】3000毫安+调光调色+USB线、【充插两用款】4000毫安+时钟显示+调光调色+USB线 附加功能:学习灯 供电方式:USB供电 产地:中国大陆 灯具是否带光源:是 是否IP授权:否 材质:ABS 认证:无 功率:7W 显色指数:≥95 是否跨境出口专供货源:否 重量:1000g 货号:7701 是否一般纳税人:否 照度:国A级"
+            },
+            {
+              "offerId": "1036232940429",
+              "title": "新款LED台灯护眼学习用大学生宿舍儿童书桌写作业阅读灯充电台灯",
+              "url": "https://detail.1688.com/offer/1036232940429.html",
+              "price": {
+                "text": "¥27",
+                "value": 27
+              },
+              "unit": "个",
+              "image": "https://cbu01.alicdn.com/img/ibank/O1CN01u39UpR1wRHvpZuUZ3_!!2217187696304-0-cib.220x220.jpg",
+              "bookedCount": 702,
+              "saleQuantity": 1863,
+              "quantitySumMonth": 445,
+              "brief": "品牌:logo贴牌 是否有专利:否 加工方式:LOGO贴牌 认证:无 是否智能操控:否 开关方式:触摸式 电压:≤36V 灯罩材质:塑料 风格:现代简约 功率:7W 颜色:【插电款】调光调色+USB数据线、【充电款】3000毫安+调光调色+USB数据线、【充电时钟款】4000毫安+时钟显示+调光调色+USB数据线、【插电款】调光调色+USB数据线+充电头、【充电款】3000毫安+调光调色+USB数据线+充电头、【充电时钟款】4000毫安+时钟显示+调光调色+USB数据线+充电头 附加功能:学习灯 显色指数:≥95 是否跨境出口专供货源:否 计量单位:个 货号:7701 供电方式:USB供电 产地:中国大陆 是否一般纳税人:否 照度:国A级"
+            },
+            {
+              "offerId": "1027083580410",
+              "title": "台灯学习护眼儿童专业学生宿舍书桌大路灯灯全光谱防近视可夹式台",
+              "url": "https://detail.1688.com/offer/1027083580410.html",
+              "price": {
+                "text": "¥58",
+                "value": 58
+              },
+              "unit": "个",
+              "image": "https://cbu01.alicdn.com/img/ibank/O1CN016P4SLZ1wRHvhTzPkn_!!2217187696304-0-cib.220x220.jpg",
+              "bookedCount": 2195,
+              "saleQuantity": 3000,
+              "quantitySumMonth": 492,
+              "brief": "品牌:中性 是否有专利:否 加工方式:LOGO贴牌 是否智能操控:否 光源类型:led灯 灯具是否带光源:是 开关方式:触摸式 材质:铝 灯罩材质:金属 电压:≤36V 风格:现代简约 颜色:【夹子款】60CM长灯头+时钟显示+调光调色+定时、【底座款】60CM长灯头+时钟显示+调光调色+定时 附加功能:学习灯 供电方式:插座供电 产地:中国大陆 认证:无 功率:12W 显色指数:≥95 是否跨境出口专供货源:否 货号:1388 是否一般纳税人:是 照度:国A级"
+            }
+          ]
+        },
+        "score": 69,
+        "scoreBreakdown": [
+          {
+            "name": "company-search-demand",
+            "points": 20,
+            "reason": "4709 orders in 3m"
+          },
+          {
+            "name": "supplier-tenure",
+            "points": 9,
+            "reason": "3 years"
+          },
+          {
+            "name": "factory-trust",
+            "points": 10,
+            "reason": "无牌工厂"
+          },
+          {
+            "name": "service-rates",
+            "points": 10,
+            "reason": "repeat 32%, response 98%"
+          },
+          {
+            "name": "composite-score",
+            "points": 10,
+            "reason": "score 5"
+          },
+          {
+            "name": "offer-preview-depth",
+            "points": 10,
+            "reason": "5 company-search offer previews"
+          }
+        ]
+      },
+      {
+        "sourceKeyword": "护眼台灯",
+        "sourceRank": 7,
+        "globalRank": 4,
+        "supplier": {
+          "companyName": "深圳市宝安区美佳格灯饰厂",
+          "loginId": "美佳格灯饰厂",
+          "memberId": "b2b-220983866992139daf",
+          "enterpriseId": "a-b2b-220983866992139daf",
+          "realUserId": "2209838669921",
+          "companyId": "642348466273",
+          "shopUrl": "https://shop1313825335140.1688.com",
+          "factoryCardUrl": "https://sale.1688.com/factory/card.html?memberId=b2b-220983866992139daf",
+          "domainUri": "shop1313825335140.1688.com",
+          "location": {
+            "province": "广东",
+            "city": "深圳",
+            "address": "司马浦镇",
+            "latitude": 22.7547,
+            "longitude": 113.847
+          },
+          "productionService": "阅读台灯;酷毙灯",
+          "businessMode": "1",
+          "tp": {
+            "memberLevel": "PM",
+            "serviceYears": 6,
+            "tpNum": 1
+          },
+          "factory": {
+            "isFactory": true,
+            "factoryTag": null,
+            "factoryLevel": "无牌工厂",
+            "shiliFactory": false,
+            "shiliCompany": false,
+            "superFactory": false,
+            "businessInspection": false,
+            "factoryInspection": false,
+            "qiJianCompany": false,
+            "safePurchase": false,
+            "trust": true
+          },
+          "service": {
+            "compositeScore": 3.5,
+            "wwResponseRate": 0.72,
+            "repeatRate": 0.46,
+            "complianceRate": null
+          },
+          "demand": {
+            "payOrderCount3m": 126,
+            "payAmount3m": 2009589,
+            "fuzzyPayAmount3m": "2万+",
+            "saleQuantity3m": 120,
+            "memberBookedCount": 0
+          },
+          "tags": [
+            "阅读台灯",
+            "酷毙灯",
+            "无牌工厂",
+            "PM"
+          ],
+          "offersPreview": [
+            {
+              "offerId": "1078769745753",
+              "title": "led护眼夹子台灯学生学习专用阅读灯usb充电床头灯宿舍卧室小夜灯",
+              "url": "https://detail.1688.com/offer/1078769745753.html",
+              "price": {
+                "text": "¥8.98",
+                "value": 8.98
+              },
+              "unit": "个",
+              "image": "https://cbu01.alicdn.com/img/ibank/O1CN012BPeJA9CJOC1chua_!!2209838669921-0-cib.220x220.jpg",
+              "bookedCount": 0,
+              "saleQuantity": 0,
+              "quantitySumMonth": 0,
+              "brief": "品牌:欧麦达 是否有专利:否 适用场景:学习使用 加工方式:LOGO贴牌 是否智能操控:是 开关方式:触摸式 色温:3000-6000 电压:5V 灯罩材质:塑料 风格:现代简约 功率:2W-10W 颜色:插电款【只能插电使用】单色温三档调光+线、插电款【只能插电使用】单色温三档调光+线+充电头、充电款【充插两用/单色温】三档调光+线、充电款【充插两用/单色温】三档调光+线+充电头、充电款【充插两用/双色温】无极调光+线、充电款【充插两用/双色温】无极调光+线+充电头、方夹款【只能插电使用】单色温三档调光+线、方夹款【只能插电使用】单色温三档调光+线+充电头、方夹款【充插两用/单色温】三档调光+线、方夹款【充插两用/单色温】三档调光+线+充电头、方夹款【充插两用/双色温】无极调光+线、方夹款【充插两用/双色温】无极调光+线+充电头 主要下游平台:亚马逊、速卖通、wish、LAZADA、独立站 附加功能:三档调光、夜灯、可调色 显色指数:≥90 是否跨境出口专供货源:是 计量单位:个 供电方式:内置锂电池 主要销售地区:北美、东北亚、非洲、中东、东南亚、南美 调光功能:支持 产地:中国大陆 是否一般纳税人:是 照度:基础照明"
+            },
+            {
+              "offerId": "1077730154162",
+              "title": "学生书桌学习护眼夹子阅读台灯led桌面充电床头灯氛围跨境礼品灯",
+              "url": "https://detail.1688.com/offer/1077730154162.html",
+              "price": {
+                "text": "¥8.98",
+                "value": 8.98
+              },
+              "unit": "个",
+              "image": "https://cbu01.alicdn.com/img/ibank/O1CN01wVC4ptWvuHE1chua_!!2209838669921-0-cib.220x220.jpg",
+              "bookedCount": 12,
+              "saleQuantity": 475,
+              "quantitySumMonth": 465,
+              "brief": "品牌:欧麦达 是否有专利:否 加工方式:LOGO贴牌 安装方式:直接使用 是否智能操控:否 开关方式:触摸式 色温:3000-6000 电压:5V 灯罩材质:PVC 风格:现代简约 颜色:方夹插电款【插电使用】白光/三档亮度+充电线、方夹款【充插两用】白光/三档亮度+充电线、方夹款【充插两用】三档色温无极调光+线、插电款【插电使用】白光/三档亮度+充电线、充电款【充插两用】白光/三档亮度+充电线、充电款【充插两用】三档色温无极调光+线、双笔筒款【插电款-触摸三档】送线、双笔筒款【充插两用款-无极调光】送线、笔筒款【充插两用】送线 附加功能:夜灯、三档调光、可调色 有可授权的自有品牌:是 供电方式:USB供电 主要销售地区:欧洲、南美、东南亚、北美、东北亚、中东 调光功能:支持 产地:中国大陆 是否IP授权:否 适用场景:学习使用 认证:CE认证 功率:3W 主要下游平台:ebay、亚马逊、wish、速卖通 显色指数:≥90 是否跨境出口专供货源:是 计量单位:个 重量:200 是否一般纳税人:否 照度:基础照明"
+            },
+            {
+              "offerId": "856040776904",
+              "title": "led护眼台灯智能数显学习学生专用床头灯宿舍充电卧室床头阅读灯",
+              "url": "https://detail.1688.com/offer/856040776904.html",
+              "price": {
+                "text": "¥40.8",
+                "value": 40.8
+              },
+              "unit": "个",
+              "image": "https://cbu01.alicdn.com/img/ibank/O1CN01NLPCKn1l90DFiMIXe_!!2215140294775-0-cib.220x220.jpg",
+              "bookedCount": 3,
+              "saleQuantity": 3,
+              "quantitySumMonth": 1,
+              "brief": "品牌:宝量 是否有专利:否 加工方式:LOGO贴牌 认证:欧盟ce认证 证书编号:UNIA24031421EC-11 是否智能操控:是 开关方式:触摸式 灯罩材质:塑料 电压:≤36V 风格:现代简约 颜色:圆底插电款-无时钟【插电使用】调光调色＋数据线、圆底插电款-无时钟【插电使用】调光调色＋数据线＋充电头、方底款-插电款-无时钟【插电使用】调光调色＋数据线、方底标-插电款-无时钟【插电使用】调光调色＋数据线＋充电头、圆底充电款-无时钟【充插两用/三色调光】番茄定时＋数据线、圆底充电款-无时钟【充插两用/三色调光】番茄定时＋数据线＋充电头、圆底时钟款【充插两用/三色调光】番茄定时＋数据线、圆底时钟款【充插两用/三色调光】番茄定时＋数据线＋充电头、方底款-豪华充电款-无时钟【充插两用/三色调光】番茄定时＋数据线、方底款-豪华充电款-无时钟【充插两用/三色调光】番茄定时＋数据线＋充电头、方底款-至尊时钟款【充插两用/三色调光】番茄定时＋数据线、方底款-至尊时钟款【充插两用/三色调光】番茄定时＋数据线＋充电头 主要下游平台:ebay、亚马逊、wish、速卖通、LAZADA 附加功能:夜灯、学习灯 显色指数:≥95 是否跨境出口专供货源:是 计量单位:个 货号:1516A 有可授权的自有品牌:是 供电方式:内置锂电池 主要销售地区:非洲、欧洲、南美、东南亚、北美、东北亚、中东 是否一般纳税人:否 照度:国AA级"
+            },
+            {
+              "offerId": "856036672911",
+              "title": "源头厂家LED台灯宿舍阅读灯学生学习护眼床头灯卧室氛围小夜灯",
+              "url": "https://detail.1688.com/offer/856036672911.html",
+              "price": {
+                "text": "¥8.8",
+                "value": 8.8
+              },
+              "unit": "个",
+              "image": "https://cbu01.alicdn.com/img/ibank/O1CN017QQzjD2FME7qqZwEC_!!2217197598865-0-cib.220x220.jpg",
+              "bookedCount": 1,
+              "saleQuantity": 5,
+              "quantitySumMonth": 0,
+              "brief": "品牌:宝量 是否有专利:否 加工方式:LOGO贴牌 认证:欧盟ce认证 是否智能操控:是 开关方式:触摸式 电压:≤36V 灯罩材质:塑料 风格:现代简约 颜色:插电款【无电池/只能插电使用】＋数据线、插电款【无电池/只能插电使用】线＋充电头、白色【充电款3600XH】＋充电线、白色【充电款3600XH】线＋充电头、白色【充插两用4800XH】＋充电线、白色【充插两用4800XH】线＋充电头 主要下游平台:速卖通 附加功能:学习灯 显色指数:≥90 是否跨境出口专供货源:是 计量单位:个 货号:1322 有可授权的自有品牌:是 供电方式:内置锂电池 主要销售地区:南美 是否一般纳税人:是 照度:国A级"
+            },
+            {
+              "offerId": "855765636319",
+              "title": "led折叠台灯氛围小台灯学生学习专用护眼usb床头灯卧室宿舍阅读灯",
+              "url": "https://detail.1688.com/offer/855765636319.html",
+              "price": {
+                "text": "¥11.5",
+                "value": 11.5
+              },
+              "unit": "个",
+              "image": "https://cbu01.alicdn.com/img/ibank/O1CN01Uhd2Ot1l9036MFFmc_!!2215140294775-0-cib.220x220.jpg",
+              "bookedCount": 3,
+              "saleQuantity": 3,
+              "quantitySumMonth": 2,
+              "brief": "品牌:宝量 是否有专利:否 加工方式:LOGO贴牌 认证:欧盟ce认证 是否智能操控:是 开关方式:触摸式 电压:≤36V 灯罩材质:塑料 风格:现代简约 颜色:白色【充插两用3600XH】单色温三档调亮＋线、白色【充插两用3600XH】单色温三档调亮＋线＋充电头、白色【充插两用4000XH】三色温无极调光＋线、白色【充插两用4000XH】三色温无极调光＋线＋充电头 主要下游平台:速卖通 附加功能:学习灯 显色指数:70—79 是否跨境出口专供货源:是 计量单位:个 货号:1278 有可授权的自有品牌:是 供电方式:内置锂电池 主要销售地区:南美 是否一般纳税人:是 照度:国A级"
+            }
+          ]
+        },
+        "score": 68,
+        "scoreBreakdown": [
+          {
+            "name": "company-search-demand",
+            "points": 15,
+            "reason": "126 orders in 3m"
+          },
+          {
+            "name": "supplier-tenure",
+            "points": 15,
+            "reason": "6 years"
+          },
+          {
+            "name": "factory-trust",
+            "points": 10,
+            "reason": "无牌工厂"
+          },
+          {
+            "name": "service-rates",
+            "points": 11,
+            "reason": "repeat 46%, response 72%"
+          },
+          {
+            "name": "composite-score",
+            "points": 7,
+            "reason": "score 3.5"
+          },
+          {
+            "name": "offer-preview-depth",
+            "points": 10,
+            "reason": "5 company-search offer previews"
+          }
+        ]
+      },
+      {
+        "sourceKeyword": "护眼台灯",
+        "sourceRank": 13,
+        "globalRank": 5,
+        "supplier": {
+          "companyName": "惠商云仓(山东)供应链管理服务有限公司",
+          "loginId": "惠商云仓有限公司",
+          "memberId": "b2b-42416664070c190",
+          "enterpriseId": "a-b2b-42416664070c190",
+          "realUserId": "4241666407",
+          "companyId": "582685077628",
+          "shopUrl": "https://shop4584i45dg9911.1688.com",
+          "factoryCardUrl": "https://sale.1688.com/factory/card.html?memberId=b2b-42416664070c190",
+          "domainUri": "shop4584i45dg9911.1688.com",
+          "location": {
+            "province": "山东",
+            "city": "临沂",
+            "address": "陶然路与启阳路交汇向西200米",
+            "latitude": 34.2683,
+            "longitude": 117.201
+          },
+          "productionService": "手电筒;阅读台灯;电子灭蚊器",
+          "businessMode": "2",
+          "tp": {
+            "memberLevel": "PM",
+            "serviceYears": 8,
+            "tpNum": 1
+          },
+          "factory": {
+            "isFactory": true,
+            "factoryTag": null,
+            "factoryLevel": "无牌工厂",
+            "shiliFactory": false,
+            "shiliCompany": false,
+            "superFactory": false,
+            "businessInspection": false,
+            "factoryInspection": false,
+            "qiJianCompany": false,
+            "safePurchase": false,
+            "trust": true
+          },
+          "service": {
+            "compositeScore": 4,
+            "wwResponseRate": 0.45,
+            "repeatRate": 0.5,
+            "complianceRate": null
+          },
+          "demand": {
+            "payOrderCount3m": 589,
+            "payAmount3m": 8951988,
+            "fuzzyPayAmount3m": "8万+",
+            "saleQuantity3m": 636,
+            "memberBookedCount": 0
+          },
+          "tags": [
+            "手电筒",
+            "阅读台灯",
+            "电子灭蚊器",
+            "无牌工厂",
+            "PM"
+          ],
+          "offersPreview": [
+            {
+              "offerId": "830966226144",
+              "title": "久量护眼台灯学习专用防近视国aa级全光谱学生儿童书桌写字阅读灯",
+              "url": "https://detail.1688.com/offer/830966226144.html",
+              "price": {
+                "text": "¥125",
+                "value": 125
+              },
+              "unit": "个",
+              "image": "https://cbu01.alicdn.com/img/ibank/O1CN01nSC2Ca1xCSa0lbn4L_!!4241666407-0-cib.220x220.jpg",
+              "bookedCount": 1,
+              "saleQuantity": 2,
+              "quantitySumMonth": 0,
+              "brief": "颜色:6083B插电款、1064A充电款/6000毫安 附加功能:学习灯 显色指数:≥95 是否有专利:否 计量单位:个 供电方式:插座供电 是否智能操控:否 是否一般纳税人:是 开关方式:触摸式 电压:220V 照度:国AA级"
+            },
+            {
+              "offerId": "830808257107",
+              "title": "久量6058充插电两用LED触控工作国A级学生锂电池台灯白黄调光护眼",
+              "url": "https://detail.1688.com/offer/830808257107.html",
+              "price": {
+                "text": "¥33.9",
+                "value": 33.9
+              },
+              "unit": "个",
+              "image": "https://cbu01.alicdn.com/img/ibank/O1CN01TKZdMr1xCSaEdbPA2_!!4241666407-0-cib.220x220.jpg",
+              "bookedCount": 27,
+              "saleQuantity": 36,
+              "quantitySumMonth": 0,
+              "brief": "品牌:久量 是否有专利:否 加工方式:- 是否智能操控:否 开关方式:触摸式 电压:≤36V 灯罩材质:塑料 风格:现代简约 颜色:蓝色、白色 显色指数:80—89 是否跨境出口专供货源:否 计量单位:个 货号:DP-6058 供电方式:内置锂电池 是否一般纳税人:是 照度:基础照明"
+            },
+            {
+              "offerId": "830745083540",
+              "title": "久量LED-X3护眼灯学习新国标AA级学生儿童书桌床头作业写字阅读灯",
+              "url": "https://detail.1688.com/offer/830745083540.html",
+              "price": {
+                "text": "¥54",
+                "value": 54
+              },
+              "unit": "个",
+              "image": "https://cbu01.alicdn.com/img/ibank/O1CN01hIhtIK1xCSa3goHNl_!!4241666407-0-cib.220x220.jpg",
+              "bookedCount": 3,
+              "saleQuantity": 6,
+              "quantitySumMonth": 0,
+              "brief": "颜色:浅灰色 附加功能:学习灯 显色指数:80—89 是否有专利:否 计量单位:个 供电方式:插座供电 是否智能操控:否 是否一般纳税人:是 开关方式:触摸式 电压:220V 照度:国AA级"
+            },
+            {
+              "offerId": "828680430252",
+              "title": "久量LED小台灯6084充电插电款学生学习护眼宿舍住校长续航台灯",
+              "url": "https://detail.1688.com/offer/828680430252.html",
+              "price": {
+                "text": "¥23.9",
+                "value": 23.9
+              },
+              "unit": "个",
+              "image": "https://cbu01.alicdn.com/img/ibank/O1CN01p4zaUz1xCSZxjpfcu_!!4241666407-0-cib.220x220.jpg",
+              "bookedCount": 10,
+              "saleQuantity": 38,
+              "quantitySumMonth": 3,
+              "brief": "品牌:久量 是否有专利:否 是否智能操控:是 开关方式:触摸式 灯罩材质:塑料 电压:≤36V 风格:现代简约 颜色:浅蓝色、浅灰色 附加功能:学习灯 显色指数:70—79 是否跨境出口专供货源:否 计量单位:个 货号:6084 供电方式:USB供电 是否一般纳税人:是 照度:基础照明"
+            },
+            {
+              "offerId": "739944756912",
+              "title": "久量台灯LED-6071学习护眼书桌小学生宿舍床头充电插电卧室阅读灯",
+              "url": "https://detail.1688.com/offer/739944756912.html",
+              "price": {
+                "text": "¥43.9",
+                "value": 43.9
+              },
+              "unit": "个",
+              "image": "https://cbu01.alicdn.com/img/ibank/O1CN01BfNG931xCSTKYnaZt_!!4241666407-0-cib.220x220.jpg",
+              "bookedCount": 22,
+              "saleQuantity": 101,
+              "quantitySumMonth": 0,
+              "brief": "品牌:久量 是否有专利:否 认证:无 是否智能操控:否 开关方式:触摸式 灯罩材质:ABS 电压:≤36V 风格:现代简约 显色指数:80—89 颜色:白色【4000毫安锂电池+tpye-c充电线】白、蓝色【4000毫安锂电池+tpye-c充电线】蓝 附加功能:学习灯 货号:6071 供电方式:内置锂电池 是否一般纳税人:是 照度:基础照明"
+            }
+          ]
+        },
+        "score": 67,
+        "scoreBreakdown": [
+          {
+            "name": "company-search-demand",
+            "points": 15,
+            "reason": "589 orders in 3m"
+          },
+          {
+            "name": "supplier-tenure",
+            "points": 15,
+            "reason": "8 years"
+          },
+          {
+            "name": "factory-trust",
+            "points": 10,
+            "reason": "无牌工厂"
+          },
+          {
+            "name": "service-rates",
+            "points": 9,
+            "reason": "repeat 50%, response 45%"
+          },
+          {
+            "name": "composite-score",
+            "points": 8,
+            "reason": "score 4"
+          },
+          {
+            "name": "offer-preview-depth",
+            "points": 10,
+            "reason": "5 company-search offer previews"
+          }
+        ]
+      },
+      {
+        "sourceKeyword": "护眼台灯",
+        "sourceRank": 3,
+        "globalRank": 6,
+        "supplier": {
+          "companyName": "中山市优视康照明科技有限公司",
+          "loginId": "优视康照明",
+          "memberId": "b2b-220793115796168b05",
+          "enterpriseId": "a-b2b-220793115796168b05",
+          "realUserId": "2207931157961",
+          "companyId": "653516050033",
+          "shopUrl": "https://zsyskzm.1688.com",
+          "factoryCardUrl": "https://sale.1688.com/factory/card.html?memberId=b2b-220793115796168b05",
+          "domainUri": "zsyskzm.1688.com",
+          "location": {
+            "province": "广东",
+            "city": "中山",
+            "address": "横栏镇宝裕村跃进路508号三楼",
+            "latitude": 22.534,
+            "longitude": 113.236
+          },
+          "productionService": "阅读台灯;落地灯;吸顶灯",
+          "businessMode": "1",
+          "tp": {
+            "memberLevel": "PM",
+            "serviceYears": 7,
+            "tpNum": 1
+          },
+          "factory": {
+            "isFactory": true,
+            "factoryTag": "产地工厂",
+            "factoryLevel": "无牌工厂",
+            "shiliFactory": false,
+            "shiliCompany": false,
+            "superFactory": false,
+            "businessInspection": false,
+            "factoryInspection": false,
+            "qiJianCompany": false,
+            "safePurchase": false,
+            "trust": true
+          },
+          "service": {
+            "compositeScore": 4,
+            "wwResponseRate": 0.79,
+            "repeatRate": 0.9,
+            "complianceRate": null
+          },
+          "demand": {
+            "payOrderCount3m": 12,
+            "payAmount3m": 6544600,
+            "fuzzyPayAmount3m": "6万+",
+            "saleQuantity3m": 10,
+            "memberBookedCount": 0
+          },
+          "tags": [
+            "阅读台灯",
+            "落地灯",
+            "吸顶灯",
+            "产地工厂",
+            "无牌工厂",
+            "PM"
+          ],
+          "offersPreview": [
+            {
+              "offerId": "1087224768293",
+              "title": "优视光护眼桌面大路灯台灯全光谱太阳光谱灯 J17明光宝桌境灯",
+              "url": "https://detail.1688.com/offer/1087224768293.html",
+              "price": {
+                "text": "¥1290",
+                "value": 1290
+              },
+              "unit": "个",
+              "image": "https://cbu01.alicdn.com/img/ibank/O1CN01A3X1WnVlucB32pKq_!!2207931157961-0-cib.220x220.jpg",
+              "bookedCount": 0,
+              "saleQuantity": 0,
+              "quantitySumMonth": 0,
+              "brief": "品牌:优视光 是否有专利:否 加工方式:LOGO贴牌 安装方式:组装 是否智能操控:否 开关方式:触摸式 色温:4000K（±200K） 电压:≤36V 灯罩材质:铝 风格:现代简约 功率:31W(含)-40W(含) 颜色:J17明光宝、J17明光宝Pro 附加功能:学习灯 显色指数:≥95 计量单位:个 货号:明光宝 供电方式:插座供电 产地:中国大陆 是否一般纳税人:否 照度:国AA级"
+            },
+            {
+              "offerId": "1085118238669",
+              "title": "优视光护眼桌面大路灯台灯学习全光谱太阳光谱灯J5日不落桌境灯",
+              "url": "https://detail.1688.com/offer/1085118238669.html",
+              "price": {
+                "text": "¥1980",
+                "value": 1980
+              },
+              "unit": "个",
+              "image": "https://cbu01.alicdn.com/img/ibank/O1CN01iEcayzqvz9L1WPfQ_!!2207931157961-0-cib.220x220.jpg",
+              "bookedCount": 0,
+              "saleQuantity": 0,
+              "quantitySumMonth": 0,
+              "brief": "品牌:优视光 是否有专利:否 加工方式:LOGO贴牌 安装方式:组装安装 是否智能操控:否 开关方式:触摸式 灯罩材质:其它 电压:≤36V 色温:4000K（±200K） 风格:现代简约 颜色:白色 附加功能:语音、定时、触摸调光 供电方式:插座供电 产地:中国大陆 适用场景:儿童房,书房 功率:48W 显色指数:≥95 是否跨境出口专供货源:否 重量:7 货号:日不落 是否一般纳税人:是 照度:国AA级"
+            },
+            {
+              "offerId": "1066370756185",
+              "title": "优视光护眼桌面小路灯台灯学习全光谱太阳光谱灯 L16启明桌境灯",
+              "url": "https://detail.1688.com/offer/1066370756185.html",
+              "price": {
+                "text": "¥960",
+                "value": 960
+              },
+              "unit": "个",
+              "image": "https://cbu01.alicdn.com/img/ibank/O1CN01V2VJ5F28gCELsBU4z_!!2207931157961-0-cib.220x220.jpg",
+              "bookedCount": 0,
+              "saleQuantity": 0,
+              "quantitySumMonth": 0,
+              "brief": "品牌:优视光 是否有专利:否 加工方式:LOGO贴牌 是否智能操控:否 开关方式:触摸式 电压:≤36V 灯罩材质:铝 风格:现代简约 功率:31W(含)-40W(含) 颜色:L16启明桌境灯 附加功能:学习灯 显色指数:≥95 计量单位:个 供电方式:插座供电 产地:中国大陆 是否一般纳税人:否 照度:国AA级"
+            },
+            {
+              "offerId": "1063591535461",
+              "title": "优视光护眼桌面小路灯台灯学习全光谱太阳光谱灯L15家家亮桌境灯",
+              "url": "https://detail.1688.com/offer/1063591535461.html",
+              "price": {
+                "text": "¥890",
+                "value": 890
+              },
+              "unit": "个",
+              "image": "https://cbu01.alicdn.com/img/ibank/O1CN01K7pRpH28gCEQQQ5Oj_!!2207931157961-0-cib.220x220.jpg",
+              "bookedCount": 0,
+              "saleQuantity": 0,
+              "quantitySumMonth": 0,
+              "brief": "品牌:优视光 是否有专利:否 加工方式:LOGO贴牌 是否智能操控:否 开关方式:触摸式 电压:≤36V 灯罩材质:铝 风格:现代简约 功率:31W(含)-40W(含) 颜色:家家亮 附加功能:氛围灯 显色指数:≥95 计量单位:个 供电方式:插座供电 产地:中国大陆 是否一般纳税人:否 照度:国AA级"
+            },
+            {
+              "offerId": "1063425269589",
+              "title": "优视光全光谱客厅灯护眼灯 类太阳光谱平板灯 现代大气简约主灯",
+              "url": "https://detail.1688.com/offer/1063425269589.html",
+              "price": {
+                "text": "¥4480",
+                "value": 4480
+              },
+              "unit": "个",
+              "image": "https://cbu01.alicdn.com/img/ibank/O1CN01UpRimU28gCEKI8VDZ_!!2207931157961-0-cib.220x220.jpg",
+              "bookedCount": 0,
+              "saleQuantity": 0,
+              "quantitySumMonth": 0,
+              "brief": "品牌:other/其他 是否有专利:否 认证:无 智能类型:天猫精灵 光源功率:200瓦浮欣-全光谱、200瓦漫语-全光谱、宁静200瓦全光谱、暖阳200瓦全光谱、悦己200瓦全光谱、云锦200瓦全光谱、沐光雅境,200瓦全光谱、沐光雅境,200瓦太阳光谱、暖阳晖悦,200瓦太阳光谱、阳光合韵,200瓦全光谱、阳光合韵200瓦太阳光谱、沐阳雅居200瓦全光谱、沐阳雅居200瓦太阳光谱、暖阳晖悦,200瓦全光谱、沐光雅境200瓦全光谱、沐光雅境200瓦太阳光谱、暖阳晖悦200瓦全光谱、暖阳晖悦200瓦太阳光谱、阳光合韵240瓦全光谱、阳光合韵240瓦太阳光谱、沐光雅境,240瓦全光谱、沐光雅境,240瓦太阳光谱、暖阳晖悦,240瓦全光谱、暖阳晖悦,240瓦太阳光谱 光源类型:LED光源 是否配送上门:不配送上门 灯罩材质:亚克力 电压:其它 null:null 风格:极简现代风 灯身辅材质:ABS 显色指数:≥95 照射面积:15㎡,-30㎡ 计量单位:个 是否可提供安装服务:否 货号:客厅灯 产地:广东中山 灯身材质:铁 适用空间:客厅"
+            }
+          ]
+        },
+        "score": 65,
+        "scoreBreakdown": [
+          {
+            "name": "company-search-demand",
+            "points": 8,
+            "reason": "12 orders in 3m"
+          },
+          {
+            "name": "supplier-tenure",
+            "points": 15,
+            "reason": "7 years"
+          },
+          {
+            "name": "factory-trust",
+            "points": 10,
+            "reason": "产地工厂"
+          },
+          {
+            "name": "service-rates",
+            "points": 14,
+            "reason": "repeat 90%, response 79%"
+          },
+          {
+            "name": "composite-score",
+            "points": 8,
+            "reason": "score 4"
+          },
+          {
+            "name": "offer-preview-depth",
+            "points": 10,
+            "reason": "5 company-search offer previews"
+          }
+        ]
+      },
+      {
+        "sourceKeyword": "护眼台灯",
+        "sourceRank": 8,
+        "globalRank": 7,
+        "supplier": {
+          "companyName": "南昌云照科技有限公司",
+          "loginId": "云照科技",
+          "memberId": "b2b-2082287087",
+          "enterpriseId": "a-b2b-2082287087",
+          "realUserId": "2082287087",
+          "companyId": "706744382803",
+          "shopUrl": "https://yunzhao.1688.com",
+          "factoryCardUrl": "https://sale.1688.com/factory/card.html?memberId=b2b-2082287087",
+          "domainUri": "yunzhao.1688.com",
+          "location": {
+            "province": "江西",
+            "city": "南昌",
+            "address": "北京东路新桃路169号",
+            "latitude": 28.6073,
+            "longitude": 115.959
+          },
+          "productionService": "阅读台灯",
+          "businessMode": "1",
+          "tp": {
+            "memberLevel": "PM",
+            "serviceYears": 12,
+            "tpNum": 1
+          },
+          "factory": {
+            "isFactory": true,
+            "factoryTag": null,
+            "factoryLevel": "无牌工厂",
+            "shiliFactory": false,
+            "shiliCompany": false,
+            "superFactory": false,
+            "businessInspection": false,
+            "factoryInspection": false,
+            "qiJianCompany": false,
+            "safePurchase": false,
+            "trust": true
+          },
+          "service": {
+            "compositeScore": 4,
+            "wwResponseRate": 0.49,
+            "repeatRate": 0.25,
+            "complianceRate": null
+          },
+          "demand": {
+            "payOrderCount3m": 156,
+            "payAmount3m": 4394638,
+            "fuzzyPayAmount3m": "4万+",
+            "saleQuantity3m": 154,
+            "memberBookedCount": 0
+          },
+          "tags": [
+            "阅读台灯",
+            "无牌工厂",
+            "PM"
+          ],
+          "offersPreview": [
+            {
+              "offerId": "1013588965458",
+              "title": "视谱稀土护眼灯全光谱儿童学习专用卧室书桌学生阅读台灯防近视",
+              "url": "https://detail.1688.com/offer/1013588965458.html",
+              "price": {
+                "text": "¥339",
+                "value": 339
+              },
+              "unit": "件",
+              "image": "https://cbu01.alicdn.com/img/ibank/O1CN01edrul422Du3fVXOha_!!2082287087-0-cib.220x220.jpg",
+              "bookedCount": 5,
+              "saleQuantity": 5,
+              "quantitySumMonth": 0,
+              "brief": "品牌:SEOUFRDZ 是否有专利:是 专利类型:实用新型专利 是否智能操控:是 开关方式:触摸式 专利号:ZL,2022,2,2139602.8 电压:≤36V 灯罩材质:金属 风格:现代简约 功率:21W(含)-30W(含) 颜色:80CM白色触控（控轴版）、80CM白色遥控（控轴版）、80CM黑色触控（控轴版）、80CM黑色遥控（控轴版）、60CM白色触控（控轴版）、60CM黑色触控（控轴版） 附加功能:学习灯 显色指数:≥95 计量单位:件 货号:EL-206 供电方式:插座供电 产地:中国大陆 是否一般纳税人:是 照度:国AA级"
+            },
+            {
+              "offerId": "844193338508",
+              "title": "视谱儿童大学生学习专用阅读护眼书桌宿舍国AA级小孩子写作业台灯",
+              "url": "https://detail.1688.com/offer/844193338508.html",
+              "price": {
+                "text": "¥209",
+                "value": 209
+              },
+              "unit": "套",
+              "image": "https://cbu01.alicdn.com/img/ibank/O1CN01trhesF22Du4MtzUfK_!!2082287087-0-cib.220x220.jpg",
+              "bookedCount": 186,
+              "saleQuantity": 240,
+              "quantitySumMonth": 10,
+              "brief": "品牌:SEOUFRDZ 是否有专利:是 是否智能操控:是 开关方式:触摸式 电压:≤36V 灯罩材质:金属 风格:现代简约 颜色:60cm白色夹子款、60cm黑色夹子款、60cm白色底座款、60cm黑色底座款 附加功能:学习灯 显色指数:≥95 计量单位:套 货号:EL-206 供电方式:插座供电 是否一般纳税人:是 照度:国AA级 尺寸:触控开关、遥控+触控开关"
+            },
+            {
+              "offerId": "800187550819",
+              "title": "视谱儿童学生学习专用书桌卧室宿舍led国AA级电脑工作护眼台灯",
+              "url": "https://detail.1688.com/offer/800187550819.html",
+              "price": {
+                "text": "¥239",
+                "value": 239
+              },
+              "unit": "套",
+              "image": "https://cbu01.alicdn.com/img/ibank/O1CN01FUB6um22Du4MqSWsZ_!!2082287087-0-cib.220x220.jpg",
+              "bookedCount": 63,
+              "saleQuantity": 265,
+              "quantitySumMonth": 0,
+              "brief": "品牌:SEOUFRDZ 是否有专利:是 专利类型:外观设计专利 是否智能操控:是 开关方式:遥控式 专利号:CN202330736055.9 电压:≤36V 灯罩材质:金属 风格:现代简约 颜色:白色触控底座款、白色遥控底座款、白色触控夹子款、白色遥控夹子款 附加功能:学习灯 显色指数:≥95 计量单位:套 货号:EL-206 供电方式:插座供电 是否一般纳税人:是 照度:国AA级"
+            },
+            {
+              "offerId": "747396526891",
+              "title": "源头工厂LED工作学习电脑夹子灯屏幕电竞灯宿舍儿童书桌护眼台灯",
+              "url": "https://detail.1688.com/offer/747396526891.html",
+              "price": {
+                "text": "¥138",
+                "value": 138
+              },
+              "unit": "套",
+              "image": "https://cbu01.alicdn.com/img/ibank/O1CN01PSzdTA22Du4OceApC_!!2082287087-0-cib.220x220.jpg",
+              "bookedCount": 60,
+              "saleQuantity": 966,
+              "quantitySumMonth": 8,
+              "brief": "品牌:视谱SEOUFRDZ 是否有专利:是 加工方式:LOGO贴牌 认证:欧盟ce认证 专利类型:外观设计专利 是否智能操控:是 开关方式:触摸式 专利号:202330682401X 电压:≤36V 灯罩材质:金属 风格:现代简约 颜色:白色插电款、黑色插电款、白色遥控款、黑色遥控款 附加功能:学习灯 显色指数:≥95 是否跨境出口专供货源:是 计量单位:套 货号:ET-103A 有可授权的自有品牌:是 供电方式:插座供电 主要销售地区:欧洲、南美、东南亚、北美、东北亚、中东 是否一般纳税人:否 照度:国AA级"
+            },
+            {
+              "offerId": "721173400024",
+              "title": "源头工厂LED护眼学习宿舍床头学生儿童阅读工作夹子夹式台灯",
+              "url": "https://detail.1688.com/offer/721173400024.html",
+              "price": {
+                "text": "¥75",
+                "value": 75
+              },
+              "unit": "个",
+              "image": "https://cbu01.alicdn.com/img/ibank/O1CN01SOFqL722DtlMLYdT1_!!2082287087-0-cib.220x220.jpg",
+              "bookedCount": 111,
+              "saleQuantity": 6502,
+              "quantitySumMonth": 1,
+              "brief": "品牌:SEOUFRDZ 是否有专利:否 是否智能操控:否 开关方式:按钮式 电压:≤36V 灯罩材质:金属 风格:现代简约 颜色:白色、黑色 附加功能:学习灯 显色指数:≥95 计量单位:个 货号:CT-J203A 供电方式:USB供电 是否一般纳税人:是 照度:国AA级"
+            }
+          ]
+        },
+        "score": 65,
+        "scoreBreakdown": [
+          {
+            "name": "company-search-demand",
+            "points": 15,
+            "reason": "156 orders in 3m"
+          },
+          {
+            "name": "supplier-tenure",
+            "points": 15,
+            "reason": "12 years"
+          },
+          {
+            "name": "factory-trust",
+            "points": 10,
+            "reason": "无牌工厂"
+          },
+          {
+            "name": "service-rates",
+            "points": 7,
+            "reason": "repeat 25%, response 49%"
+          },
+          {
+            "name": "composite-score",
+            "points": 8,
+            "reason": "score 4"
+          },
+          {
+            "name": "offer-preview-depth",
+            "points": 10,
+            "reason": "5 company-search offer previews"
+          }
+        ]
+      },
+      {
+        "sourceKeyword": "护眼台灯",
+        "sourceRank": 14,
+        "globalRank": 8,
+        "supplier": {
+          "companyName": "义乌市权桦电子厂",
+          "loginId": "海森电子厂",
+          "memberId": "b2b-2817428367f8bb7",
+          "enterpriseId": "a-b2b-2817428367f8bb7",
+          "realUserId": "2817428367",
+          "companyId": "552525147086",
+          "shopUrl": "https://shop1457973972875.1688.com",
+          "factoryCardUrl": "https://sale.1688.com/factory/card.html?memberId=b2b-2817428367f8bb7",
+          "domainUri": "shop1457973972875.1688.com",
+          "location": {
+            "province": "浙江",
+            "city": "金华",
+            "address": "义乌市福田街道下兆村184号",
+            "latitude": 29.3204,
+            "longitude": 120.15
+          },
+          "productionService": "阅读台灯;手电筒;充电打火机",
+          "businessMode": "1",
+          "tp": {
+            "memberLevel": "PM",
+            "serviceYears": 11,
+            "tpNum": 1
+          },
+          "factory": {
+            "isFactory": true,
+            "factoryTag": null,
+            "factoryLevel": "无牌工厂",
+            "shiliFactory": false,
+            "shiliCompany": false,
+            "superFactory": false,
+            "businessInspection": false,
+            "factoryInspection": false,
+            "qiJianCompany": false,
+            "safePurchase": false,
+            "trust": true
+          },
+          "service": {
+            "compositeScore": 4,
+            "wwResponseRate": 0.7,
+            "repeatRate": 0.71,
+            "complianceRate": 1
+          },
+          "demand": {
+            "payOrderCount3m": 99,
+            "payAmount3m": 1030325,
+            "fuzzyPayAmount3m": "1万+",
+            "saleQuantity3m": 95,
+            "memberBookedCount": 0
+          },
+          "tags": [
+            "阅读台灯",
+            "手电筒",
+            "充电打火机",
+            "无牌工厂",
+            "PM"
+          ],
+          "offersPreview": [
+            {
+              "offerId": "785888941946",
+              "title": "LED台灯护眼学生习阅读美甲美容自拍补光放大镜桌面夹子灯批发",
+              "url": "https://detail.1688.com/offer/785888941946.html",
+              "price": {
+                "text": "¥16",
+                "value": 16
+              },
+              "unit": "个",
+              "image": "https://cbu01.alicdn.com/img/ibank/O1CN014j0yOD2Bg8phQKMQD_!!2817428367-0-cib.220x220.jpg",
+              "bookedCount": 18,
+              "saleQuantity": 3917,
+              "quantitySumMonth": 0,
+              "brief": "是否有专利:否 加工方式:来图定制 认证:无 是否智能操控:否 开关方式:按钮式 电压:≤36V 灯罩材质:塑料 风格:现代简约 颜色:黑色 主要下游平台:ebay、亚马逊、wish、速卖通、独立站、LAZADA 附加功能:夜灯、学习灯 显色指数:≥95 是否跨境出口专供货源:是 计量单位:个 货号:QH8806B（电池款） 有可授权的自有品牌:否 供电方式:USB供电 主要销售地区:非洲、欧洲、南美、东南亚、北美、东北亚、中东 是否一般纳税人:否 照度:基础照明 尺寸:8.2*4.6*29.2cm"
+            },
+            {
+              "offerId": "785883952302",
+              "title": "夹式LED台灯护眼学习保护视力电池插电学生宿舍书桌阅读床头灯",
+              "url": "https://detail.1688.com/offer/785883952302.html",
+              "price": {
+                "text": "¥16",
+                "value": 16
+              },
+              "unit": "个",
+              "image": "https://cbu01.alicdn.com/img/ibank/O1CN01XgrEmQ2Bg8pVbrKAK_!!2817428367-0-cib.220x220.jpg",
+              "bookedCount": 24,
+              "saleQuantity": 4633,
+              "quantitySumMonth": 0,
+              "brief": "是否有专利:否 加工方式:来图定制 认证:无 是否智能操控:否 开关方式:按钮式 电压:≤36V 灯罩材质:塑料 风格:现代简约 颜色:黑色 主要下游平台:ebay、亚马逊、wish、速卖通、独立站、LAZADA 附加功能:夜灯、学习灯、氛围灯 显色指数:≥95 是否跨境出口专供货源:是 计量单位:个 货号:QH8805B（电池款） 有可授权的自有品牌:否 供电方式:USB供电 主要销售地区:非洲、欧洲、南美、东南亚、北美、东北亚、中东 是否一般纳税人:否 照度:基础照明 尺寸:8.2*4.6*20.5"
+            },
+            {
+              "offerId": "785818922477",
+              "title": "厂家批发LED充电两用调光式台灯usb充电灯 学习阅读护眼礼品灯",
+              "url": "https://detail.1688.com/offer/785818922477.html",
+              "price": {
+                "text": "¥19",
+                "value": 19
+              },
+              "unit": "个",
+              "image": "https://cbu01.alicdn.com/img/ibank/O1CN01z5D06d2Bg8pfIAvzm_!!2817428367-0-cib.220x220.jpg",
+              "bookedCount": 22,
+              "saleQuantity": 5965,
+              "quantitySumMonth": 0,
+              "brief": "是否有专利:否 加工方式:来图定制 认证:无 是否智能操控:否 开关方式:按钮式 电压:≤36V 灯罩材质:塑料 风格:现代简约 颜色:黑色 主要下游平台:ebay、亚马逊、wish、速卖通、独立站、LAZADA 附加功能:夜灯、学习灯、氛围灯 显色指数:≥95 是否跨境出口专供货源:是 计量单位:个 货号:QH8806A（充电款） 有可授权的自有品牌:否 供电方式:内置锂电池 主要销售地区:非洲、欧洲、南美、东南亚、北美、东北亚、中东 是否一般纳税人:否 照度:基础照明 尺寸:8.2*4.6*29.2cm"
+            },
+            {
+              "offerId": "785794095009",
+              "title": "夹子灯led护眼小台灯学生书桌阅读充电夹式台灯宿舍床头灯礼品",
+              "url": "https://detail.1688.com/offer/785794095009.html",
+              "price": {
+                "text": "¥16",
+                "value": 16
+              },
+              "unit": "个",
+              "image": "https://cbu01.alicdn.com/img/ibank/O1CN01FILLq52Bg8pfB7gQX_!!2817428367-0-cib.220x220.jpg",
+              "bookedCount": 12,
+              "saleQuantity": 4084,
+              "quantitySumMonth": 0,
+              "brief": "是否有专利:否 加工方式:来图定制 认证:无 是否智能操控:否 开关方式:按钮式 灯罩材质:塑料 电压:≤36V 风格:现代简约 颜色:黑色 主要下游平台:ebay、亚马逊、wish、速卖通、独立站、LAZADA 附加功能:夜灯、学习灯 显色指数:≥95 是否跨境出口专供货源:是 计量单位:个 货号:QH8807,充电款 有可授权的自有品牌:否 供电方式:内置锂电池 主要销售地区:非洲、欧洲、南美、东南亚、北美、东北亚、中东 是否一般纳税人:否 照度:基础照明 尺寸:10*5*24"
+            },
+            {
+              "offerId": "672368330768",
+              "title": "插充两用LED台灯柔光无频闪护眼灯 学生学习可折叠书灯卧室床头灯",
+              "url": "https://detail.1688.com/offer/672368330768.html",
+              "price": {
+                "text": "¥13",
+                "value": 13
+              },
+              "unit": "个",
+              "image": "https://cbu01.alicdn.com/img/ibank/O1CN01M92sCE2Bg8pdl9TNW_!!2817428367-0-cib.220x220.jpg",
+              "bookedCount": 7,
+              "saleQuantity": 168,
+              "quantitySumMonth": 0,
+              "brief": "品牌:other/其他 是否有专利:否 加工方式:LOGO贴牌 认证:无 是否智能操控:是 开关方式:触摸式 灯罩材质:塑料 电压:≤36V 风格:现代简约 颜色:QH8803A、QH8803B 主要下游平台:ebay、wish、速卖通、独立站、LAZADA 附加功能:夜灯、学习灯、氛围灯 显色指数:≥95 是否跨境出口专供货源:是 计量单位:个 货号:QH8803 供电方式:内置锂电池 主要销售地区:非洲、欧洲、南美、东南亚、北美、东北亚、中东 是否一般纳税人:是 照度:国AA级"
+            }
+          ]
+        },
+        "score": 64,
+        "scoreBreakdown": [
+          {
+            "name": "company-search-demand",
+            "points": 8,
+            "reason": "99 orders in 3m"
+          },
+          {
+            "name": "supplier-tenure",
+            "points": 15,
+            "reason": "11 years"
+          },
+          {
+            "name": "factory-trust",
+            "points": 10,
+            "reason": "无牌工厂"
+          },
+          {
+            "name": "service-rates",
+            "points": 13,
+            "reason": "repeat 71%, response 70%"
+          },
+          {
+            "name": "composite-score",
+            "points": 8,
+            "reason": "score 4"
+          },
+          {
+            "name": "offer-preview-depth",
+            "points": 10,
+            "reason": "5 company-search offer previews"
+          }
+        ]
+      },
+      {
+        "sourceKeyword": "护眼台灯",
+        "sourceRank": 2,
+        "globalRank": 9,
+        "supplier": {
+          "companyName": "中山市星达视灯饰厂",
+          "loginId": "中山市星达视灯饰厂",
+          "memberId": "b2b-22141394318326a3dc",
+          "enterpriseId": "a-b2b-22141394318326a3dc",
+          "realUserId": "2214139431832",
+          "companyId": "801193245071",
+          "shopUrl": "https://shop9gl63y2802844.1688.com",
+          "factoryCardUrl": "https://sale.1688.com/factory/card.html?memberId=b2b-22141394318326a3dc",
+          "domainUri": "shop9gl63y2802844.1688.com",
+          "location": {
+            "province": "广东",
+            "city": "中山",
+            "address": "古镇曹三宝源4巷19号",
+            "latitude": 22.6265,
+            "longitude": 113.202
+          },
+          "productionService": "阅读台灯;装饰台灯;落地灯",
+          "businessMode": "1",
+          "tp": {
+            "memberLevel": "PM",
+            "serviceYears": 5,
+            "tpNum": 1
+          },
+          "factory": {
+            "isFactory": true,
+            "factoryTag": "产地工厂",
+            "factoryLevel": "无牌工厂",
+            "shiliFactory": false,
+            "shiliCompany": false,
+            "superFactory": false,
+            "businessInspection": false,
+            "factoryInspection": false,
+            "qiJianCompany": false,
+            "safePurchase": false,
+            "trust": true
+          },
+          "service": {
+            "compositeScore": 4,
+            "wwResponseRate": 0.82,
+            "repeatRate": 0.49,
+            "complianceRate": null
+          },
+          "demand": {
+            "payOrderCount3m": 33,
+            "payAmount3m": 3020975,
+            "fuzzyPayAmount3m": "3万+",
+            "saleQuantity3m": 31,
+            "memberBookedCount": 0
+          },
+          "tags": [
+            "阅读台灯",
+            "装饰台灯",
+            "落地灯",
+            "产地工厂",
+            "无牌工厂",
+            "PM"
+          ],
+          "offersPreview": [
+            {
+              "offerId": "954655794991",
+              "title": "学生儿童阅读护眼台 触碰式调控台灯现代简约宿舍书房护眼台灯",
+              "url": "https://detail.1688.com/offer/954655794991.html",
+              "price": {
+                "text": "¥99",
+                "value": 99
+              },
+              "unit": "个",
+              "image": "https://cbu01.alicdn.com/img/ibank/O1CN01W5ZLS31PP6fV0EtBy_!!2214139431832-0-cib.220x220.jpg",
+              "bookedCount": 0,
+              "saleQuantity": 0,
+              "quantitySumMonth": 0,
+              "brief": "品牌:星达视 是否有专利:否 加工方式:LOGO贴牌 是否智能操控:否 开关方式:触摸式 电压:220V 灯罩材质:ABS 风格:现代简约 颜色:灰色 附加功能:学习灯 显色指数:≥95 3C证书编号:2024011001700949 是否跨境出口专供货源:否 计量单位:个 货号:899台灯 供电方式:插座供电 是否一般纳税人:否 照度:基础照明 尺寸:45*17*17cm"
+            },
+            {
+              "offerId": "919514684147",
+              "title": "台灯办公学习卧室房学生宿舍折叠护眼阅读灯触摸式调光led台灯",
+              "url": "https://detail.1688.com/offer/919514684147.html",
+              "price": {
+                "text": "¥8",
+                "value": 8
+              },
+              "unit": "个",
+              "image": "https://cbu01.alicdn.com/img/ibank/O1CN018y8oTT1PP6e0rHuhQ_!!2214139431832-0-cib.220x220.jpg",
+              "bookedCount": 2,
+              "saleQuantity": 350,
+              "quantitySumMonth": 0,
+              "brief": "是否有专利:否 加工方式:LOGO贴牌 认证:无 是否智能操控:否 开关方式:触摸式 色温:3000-6000K 灯罩材质:ABS 电压:5W、5W 风格:现代简约 颜色:白色 附加功能:学习灯 显色指数:70—79 是否跨境出口专供货源:是 计量单位:个 货号:T60台灯 供电方式:充电款 是否一般纳税人:是 照度:均匀度≤8 尺寸:25cm*8cm*13cm"
+            },
+            {
+              "offerId": "918176971850",
+              "title": "LED护眼阅读台灯插电式可折叠宿舍书房学习灯桌面触摸式台灯",
+              "url": "https://detail.1688.com/offer/918176971850.html",
+              "price": {
+                "text": "¥88",
+                "value": 88
+              },
+              "unit": "个",
+              "image": "https://cbu01.alicdn.com/img/ibank/O1CN01jQRaiM1PP6e2XZthN_!!2214139431832-0-cib.220x220.jpg",
+              "bookedCount": 0,
+              "saleQuantity": 0,
+              "quantitySumMonth": 0,
+              "brief": "品牌:星达视 是否有专利:是 加工方式:LOGO贴牌 色温:4000K 认证:无 是否智能操控:否 开关方式:触摸式 专利号:2024011001745088 电压:220V 灯罩材质:ABS 风格:现代简约 颜色:深灰色 附加功能:学习灯 显色指数:≥95 3C证书编号:2024011001700949 是否跨境出口专供货源:否 计量单位:个 货号:869台灯 供电方式:插座供电 是否一般纳税人:是 照度:其它 尺寸:45cm*17cm*17cm"
+            },
+            {
+              "offerId": "910588980707",
+              "title": "触摸式护眼LED台灯无频闪智能台灯宿舍桌面阅读护眼灯可调光批发",
+              "url": "https://detail.1688.com/offer/910588980707.html",
+              "price": {
+                "text": "¥115",
+                "value": 115
+              },
+              "unit": "个",
+              "image": "https://cbu01.alicdn.com/img/ibank/O1CN01wpXv741PP6dl3Ux2H_!!2214139431832-0-cib.220x220.jpg",
+              "bookedCount": 0,
+              "saleQuantity": 0,
+              "quantitySumMonth": 0,
+              "brief": "品牌:星达视 是否有专利:否 加工方式:LOGO贴牌 认证:无 是否智能操控:否 开关方式:触摸式 灯罩材质:ABS 电压:220V 风格:现代简约 颜色:白色 附加功能:学习灯 显色指数:≥95 3C证书编号:2020011001281683 是否跨境出口专供货源:否 计量单位:个 货号:D33 供电方式:插座供电 是否一般纳税人:是 照度:国AA级 尺寸:16cm*17cm*49cm"
+            },
+            {
+              "offerId": "909376763380",
+              "title": "折叠阅读台灯护眼写字灯LED全光谱阅学生宿舍触摸式调光台灯",
+              "url": "https://detail.1688.com/offer/909376763380.html",
+              "price": {
+                "text": "¥165",
+                "value": 165
+              },
+              "unit": "套",
+              "image": "https://cbu01.alicdn.com/img/ibank/O1CN01yqcB9X1PP6djkFhfu_!!2214139431832-0-cib.220x220.jpg",
+              "bookedCount": 1,
+              "saleQuantity": 1,
+              "quantitySumMonth": 0,
+              "brief": "品牌:星达视 是否有专利:否 加工方式:LOGO贴牌 是否智能操控:否 开关方式:触摸式 灯罩材质:ABS 电压:220V 风格:现代简约 颜色:灰色 附加功能:学习灯 显色指数:≥95 3C证书编号:2020011001281683 是否跨境出口专供货源:否 计量单位:套 货号:T18 供电方式:插座供电 是否一般纳税人:是 照度:国AA级 尺寸:18cm*19cm*47cm"
+            }
+          ]
+        },
+        "score": 63,
+        "scoreBreakdown": [
+          {
+            "name": "company-search-demand",
+            "points": 8,
+            "reason": "33 orders in 3m"
+          },
+          {
+            "name": "supplier-tenure",
+            "points": 15,
+            "reason": "5 years"
+          },
+          {
+            "name": "factory-trust",
+            "points": 10,
+            "reason": "产地工厂"
+          },
+          {
+            "name": "service-rates",
+            "points": 12,
+            "reason": "repeat 49%, response 82%"
+          },
+          {
+            "name": "composite-score",
+            "points": 8,
+            "reason": "score 4"
+          },
+          {
+            "name": "offer-preview-depth",
+            "points": 10,
+            "reason": "5 company-search offer previews"
+          }
+        ]
+      },
+      {
+        "sourceKeyword": "护眼台灯",
+        "sourceRank": 9,
+        "globalRank": 10,
+        "supplier": {
+          "companyName": "佛山市南海晨尚灯具商行",
+          "loginId": "dundundeng",
+          "memberId": "b2b-221332278667137f7f",
+          "enterpriseId": "a-b2b-221332278667137f7f",
+          "realUserId": "2213322786671",
+          "companyId": "669768849015",
+          "shopUrl": "https://shop09187de4277q0.1688.com",
+          "factoryCardUrl": "https://sale.1688.com/factory/card.html?memberId=b2b-221332278667137f7f",
+          "domainUri": "shop09187de4277q0.1688.com",
+          "location": {
+            "province": "广东",
+            "city": "佛山",
+            "address": "南海第一工业区88号",
+            "latitude": 23.1067,
+            "longitude": 112.924
+          },
+          "productionService": "阅读台灯;植物生长灯;美甲机",
+          "businessMode": "1",
+          "tp": {
+            "memberLevel": "PM",
+            "serviceYears": 5,
+            "tpNum": 1
+          },
+          "factory": {
+            "isFactory": true,
+            "factoryTag": null,
+            "factoryLevel": "无牌工厂",
+            "shiliFactory": false,
+            "shiliCompany": false,
+            "superFactory": false,
+            "businessInspection": false,
+            "factoryInspection": false,
+            "qiJianCompany": false,
+            "safePurchase": false,
+            "trust": true
+          },
+          "service": {
+            "compositeScore": 4,
+            "wwResponseRate": 0.92,
+            "repeatRate": 0.54,
+            "complianceRate": 0.8
+          },
+          "demand": {
+            "payOrderCount3m": 15,
+            "payAmount3m": 1277715,
+            "fuzzyPayAmount3m": "1万+",
+            "saleQuantity3m": 14,
+            "memberBookedCount": 0
+          },
+          "tags": [
+            "阅读台灯",
+            "植物生长灯",
+            "美甲机",
+            "无牌工厂",
+            "PM"
+          ],
+          "offersPreview": [
+            {
+              "offerId": "873475599767",
+              "title": "LED护眼台灯七彩触控情感台灯可调光LED护眼灯灯壁可弯曲护眼台灯",
+              "url": "https://detail.1688.com/offer/873475599767.html",
+              "price": {
+                "text": "¥57",
+                "value": 57
+              },
+              "unit": "米",
+              "image": "https://cbu01.alicdn.com/img/ibank/O1CN015ZoVPd1z9NBLfGGcD_!!2213322786671-0-cib.220x220.jpg",
+              "bookedCount": 2,
+              "saleQuantity": 2,
+              "quantitySumMonth": 2,
+              "brief": "品牌:TONGTU 是否有专利:否 加工方式:LOGO贴牌 认证:欧盟ce认证 是否智能操控:是 开关方式:触摸式 灯罩材质:塑料 电压:≤36V 风格:现代简约 颜色:白色usb插电 附加功能:氛围灯、夜灯 显色指数:80—89 是否跨境出口专供货源:否 计量单位:米 货号:FX003B 供电方式:USB供电 是否一般纳税人:否 照度:基础照明"
+            },
+            {
+              "offerId": "714402338265",
+              "title": "跨境护眼led学习夹子台灯学生阅读补光灯usb迷你书夹灯纹绣冷光灯",
+              "url": "https://detail.1688.com/offer/714402338265.html",
+              "price": {
+                "text": "¥21",
+                "value": 21
+              },
+              "unit": "个",
+              "image": "https://cbu01.alicdn.com/img/ibank/O1CN01GzYpnL1z9MzHzS4pV_!!2213322786671-0-cib.220x220.jpg",
+              "bookedCount": 1,
+              "saleQuantity": 5,
+              "quantitySumMonth": 0,
+              "brief": "是否有专利:是 加工方式:来样定制 认证:欧盟ce认证 专利类型:实用新型专利 证书编号:BSTDG1601675641EC-1 是否智能操控:否 开关方式:按钮式 灯罩材质:塑料 电压:≤36V 风格:美式 供货方式:可订货生产 颜色:黑色、白色、银色 主要下游平台:速卖通、亚马逊、wish、ebay、LAZADA、独立站 附加功能:夜灯、学习灯 显色指数:80—89 是否跨境出口专供货源:是 计量单位:个 货号:001c 供电方式:USB供电 主要销售地区:欧洲、北美、南美、东南亚、东北亚、中东 是否一般纳税人:是 照度:国AA级 尺寸:白光5w、暖白双色8w"
+            },
+            {
+              "offerId": "714110371804",
+              "title": "LED学习夹子台灯护眼阅读工作直播补光美颜美甲美容自拍USB单灯",
+              "url": "https://detail.1688.com/offer/714110371804.html",
+              "price": {
+                "text": "¥11",
+                "value": 11
+              },
+              "unit": "个",
+              "image": "https://cbu01.alicdn.com/img/ibank/O1CN01QbNBhd1z9Mz9v0dDA_!!2213322786671-0-cib.220x220.jpg",
+              "bookedCount": 6,
+              "saleQuantity": 1200,
+              "quantitySumMonth": 0,
+              "brief": "是否有专利:是 加工方式:来样定制 认证:欧盟ce认证 专利类型:实用新型专利 证书编号:BSTDG1601675641EC-1 是否智能操控:是 开关方式:按钮式 灯罩材质:塑料 电压:≤36V 风格:现代简约 颜色:塑料夹子款黑色、塑料夹子款白色、金属夹子黑色、金属夹子款白色 主要下游平台:ebay、亚马逊、wish、速卖通、独立站、LAZADA 附加功能:音乐、夜灯、学习灯 显色指数:80—89 是否跨境出口专供货源:是 计量单位:个 货号:011S 供电方式:USB供电 主要销售地区:非洲、欧洲、南美、东南亚、北美、东北亚、中东 是否一般纳税人:是 照度:国AA级"
+            },
+            {
+              "offerId": "674333732727",
+              "title": "跨境电商现代创意双节棍折叠led护眼台灯usb宿舍阅读学习读书台灯",
+              "url": "https://detail.1688.com/offer/674333732727.html",
+              "price": {
+                "text": "¥40",
+                "value": 40
+              },
+              "unit": "米",
+              "image": "https://cbu01.alicdn.com/img/ibank/O1CN018DCM0Y1z9MucV4fJU_!!2213322786671-0-cib.220x220.jpg",
+              "bookedCount": 5,
+              "saleQuantity": 18,
+              "quantitySumMonth": 0,
+              "brief": "品牌:tongtu 是否有专利:否 加工方式:来图定制 认证:欧盟ce认证 证书编号:BSTDG1601675641EC-1 是否智能操控:否 开关方式:按钮式 电压:≤36V 灯罩材质:金属 风格:现代简约 颜色:红色、金色、白色、蓝色、黑色 主要下游平台:ebay、亚马逊、wish、速卖通、独立站、LAZADA 显色指数:≥90 是否跨境出口专供货源:是 计量单位:米 货号:FX-001 供电方式:USB供电 主要销售地区:非洲、欧洲、南美、东南亚、北美、东北亚、中东 是否一般纳税人:是 照度:国AA级"
+            },
+            {
+              "offerId": "673779986714",
+              "title": "亚马逊新款护眼台灯带日历台灯手机无线充电可折叠学习工作LED灯",
+              "url": "https://detail.1688.com/offer/673779986714.html",
+              "price": {
+                "text": "¥48",
+                "value": 48
+              },
+              "unit": "个",
+              "image": "https://cbu01.alicdn.com/img/ibank/O1CN01hSq2Lh1z9MuP9nsjo_!!2213322786671-0-cib.220x220.jpg",
+              "bookedCount": 2,
+              "saleQuantity": 5,
+              "quantitySumMonth": 0,
+              "brief": "是否有专利:否 加工方式:LOGO贴牌 认证:欧盟ce认证 证书编号:BSTDG1601675641EC-1 是否智能操控:是 开关方式:触摸式 灯罩材质:塑料 电压:≤36V 风格:现代简约 显色指数:≥90 颜色:白色-不带屏、白色-带显示屏、白色不带屏带无线充、白色带显示屏带无线充 主要下游平台:ebay、亚马逊、wish、速卖通、独立站、LAZADA 是否跨境出口专供货源:是 货号:015c 供电方式:USB供电 主要销售地区:非洲、欧洲、南美、东南亚、北美、东北亚、中东 是否一般纳税人:是 照度:国AA级"
+            }
+          ]
+        },
+        "score": 63,
+        "scoreBreakdown": [
+          {
+            "name": "company-search-demand",
+            "points": 8,
+            "reason": "15 orders in 3m"
+          },
+          {
+            "name": "supplier-tenure",
+            "points": 15,
+            "reason": "5 years"
+          },
+          {
+            "name": "factory-trust",
+            "points": 10,
+            "reason": "无牌工厂"
+          },
+          {
+            "name": "service-rates",
+            "points": 12,
+            "reason": "repeat 54%, response 92%"
+          },
+          {
+            "name": "composite-score",
+            "points": 8,
+            "reason": "score 4"
+          },
+          {
+            "name": "offer-preview-depth",
+            "points": 10,
+            "reason": "5 company-search offer previews"
+          }
+        ]
+      }
+    ]
+  },
+  "stderr": null
+}

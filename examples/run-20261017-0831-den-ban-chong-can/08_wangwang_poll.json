@@ -1,0 +1,609 @@
+{
+  "timestamp": "2026-10-17T02:26:03Z",
+  "poll_interval_minutes": 5,
+  "checked_count": 5,
+  "conversations": [
+    {
+      "rank": 1,
+      "offer_id": "624406159076",
+      "supplier": "深圳恒视亮电器有限公司",
+      "seller_login_id": "恒悦亮电器厂",
+      "ok": true,
+      "total_messages": 5,
+      "seller_replies_count": 3,
+      "seller_replies": [
+        {
+          "sender": "恒悦亮电器厂",
+          "time": "2026-10-17 09:51:41",
+          "isMine": false,
+          "content": "[卡片消息]",
+          "read": false,
+          "kind": "other",
+          "messageId": "4357649649108.PNM"
+        },
+        {
+          "sender": "恒悦亮电器厂",
+          "time": "2026-10-17 09:53:48",
+          "isMine": false,
+          "content": "您好，在的亲，客服现在比较繁忙，稍等一会马上来回复你的问题！",
+          "read": false,
+          "kind": "other",
+          "messageId": "4357661537403.PNM"
+        },
+        {
+          "sender": "恒悦亮电器厂",
+          "time": "2026-10-17 09:54:48",
+          "isMine": false,
+          "content": "商家长时间没有回复，平台已通知商家，请耐心等待",
+          "read": false,
+          "kind": "text",
+          "messageId": "4357657640931.PNM"
+        }
+      ],
+      "all_messages": [
+        {
+          "sender": "恒悦亮电器厂",
+          "time": "2026-10-17 09:51:41",
+          "isMine": false,
+          "content": "[卡片消息]",
+          "read": false,
+          "kind": "other",
+          "messageId": "4357649649108.PNM"
+        },
+        {
+          "sender": "abm_buyer_demo",
+          "time": "2026-10-17 09:51:48",
+          "isMine": true,
+          "content": "https://detail.1688.com/offer/624406159076.html",
+          "read": true,
+          "kind": "offerCard",
+          "card": {
+            "title": null,
+            "price": null,
+            "image": null,
+            "url": "https://detail.1688.com/offer/624406159076.html"
+          },
+          "messageId": "4349362860986.PNM"
+        },
+        {
+          "sender": "abm_buyer_demo",
+          "time": "2026-10-17 09:51:57",
+          "isMine": true,
+          "content": "老板你好，请问这款护眼台灯有现货吗？单件带包装的实际重量和外箱尺寸是多少？我们先拿2个样品测质量，后续首批订购100个，请问大货最优惠底价是多少？支持定制Logo吗？",
+          "read": true,
+          "kind": "text",
+          "messageId": "4345716282112.PNM"
+        },
+        {
+          "sender": "恒悦亮电器厂",
+          "time": "2026-10-17 09:53:48",
+          "isMine": false,
+          "content": "您好，在的亲，客服现在比较繁忙，稍等一会马上来回复你的问题！",
+          "read": false,
+          "kind": "other",
+          "messageId": "4357661537403.PNM"
+        },
+        {
+          "sender": "恒悦亮电器厂",
+          "time": "2026-10-17 09:54:48",
+          "isMine": false,
+          "content": "商家长时间没有回复，平台已通知商家，请耐心等待",
+          "read": false,
+          "kind": "text",
+          "messageId": "4357657640931.PNM"
+        }
+      ]
+    },
+    {
+      "rank": 2,
+      "offer_id": "830567670780",
+      "supplier": "中山市辰视灯饰厂",
+      "seller_login_id": "视力童",
+      "ok": true,
+      "total_messages": 9,
+      "seller_replies_count": 7,
+      "seller_replies": [
+        {
+          "sender": "视力童",
+          "time": "2026-10-17 09:53:37",
+          "isMine": false,
+          "content": "[卡片消息]",
+          "read": false,
+          "kind": "other",
+          "messageId": "4355325323346.PNM"
+        },
+        {
+          "sender": "视力童",
+          "time": "2026-10-17 09:53:44",
+          "isMine": false,
+          "content": "产品都是质量保证的、库存充足、下单尽快发货、",
+          "read": false,
+          "kind": "autoReply",
+          "messageId": "4345706275296.PNM"
+        },
+        {
+          "sender": "视力童",
+          "time": "2026-10-17 09:53:46",
+          "isMine": false,
+          "content": "您好，在的",
+          "read": false,
+          "kind": "other",
+          "messageId": "4355331074463.PNM"
+        },
+        {
+          "sender": "视力童",
+          "time": "2026-10-17 09:55:15",
+          "isMine": false,
+          "content": "由于当前是节假日期间，卖家可能无法马上回复，平台已通知商家尽快响应，请耐心等待。",
+          "read": false,
+          "kind": "text",
+          "messageId": "4345704391973.PNM"
+        },
+        {
+          "sender": "视力童",
+          "time": "2026-10-17 10:06:42",
+          "isMine": false,
+          "content": "单色logo",
+          "read": false,
+          "kind": "text",
+          "messageId": "4349386893218.PNM"
+        },
+        {
+          "sender": "视力童",
+          "time": "2026-10-17 10:06:45",
+          "isMine": false,
+          "content": "可以",
+          "read": false,
+          "kind": "text",
+          "messageId": "4345732397033.PNM"
+        },
+        {
+          "sender": "视力童",
+          "time": "2026-10-17 10:06:48",
+          "isMine": false,
+          "content": "有货的",
+          "read": false,
+          "kind": "text",
+          "messageId": "4355337472833.PNM"
+        }
+      ],
+      "all_messages": [
+        {
+          "sender": "视力童",
+          "time": "2026-10-17 09:53:37",
+          "isMine": false,
+          "content": "[卡片消息]",
+          "read": false,
+          "kind": "other",
+          "messageId": "4355325323346.PNM"
+        },
+        {
+          "sender": "abm_buyer_demo",
+          "time": "2026-10-17 09:53:44",
+          "isMine": true,
+          "content": "https://detail.1688.com/offer/830567670780.html",
+          "read": true,
+          "kind": "offerCard",
+          "card": {
+            "title": "护眼led台灯书桌学生宿舍触摸调光充电学习儿童卧室床头台灯礼品",
+            "price": "¥16.5",
+            "image": "https://cbu01.alicdn.com/img/ibank/O1CN01ZqN0vC1loDqYDKjrG_!!2218485564865-0-cib.jpg",
+            "url": "https://detail.1688.com/offer/830567670780.html"
+          },
+          "messageId": "4349362919649.PNM"
+        },
+        {
+          "sender": "视力童",
+          "time": "2026-10-17 09:53:44",
+          "isMine": false,
+          "content": "产品都是质量保证的、库存充足、下单尽快发货、",
+          "read": false,
+          "kind": "autoReply",
+          "messageId": "4345706275296.PNM"
+        },
+        {
+          "sender": "视力童",
+          "time": "2026-10-17 09:53:46",
+          "isMine": false,
+          "content": "您好，在的",
+          "read": false,
+          "kind": "other",
+          "messageId": "4355331074463.PNM"
+        },
+        {
+          "sender": "abm_buyer_demo",
+          "time": "2026-10-17 09:53:53",
+          "isMine": true,
+          "content": "老板你好，请问这款护眼台灯有现货吗？单件带包装的实际重量和外箱尺寸是多少？我们先拿2个样品测质量，后续首批订购100个，请问大货最优惠底价是多少？支持定制Logo吗？",
+          "read": true,
+          "kind": "text",
+          "messageId": "4349364963504.PNM"
+        },
+        {
+          "sender": "视力童",
+          "time": "2026-10-17 09:55:15",
+          "isMine": false,
+          "content": "由于当前是节假日期间，卖家可能无法马上回复，平台已通知商家尽快响应，请耐心等待。",
+          "read": false,
+          "kind": "text",
+          "messageId": "4345704391973.PNM"
+        },
+        {
+          "sender": "视力童",
+          "time": "2026-10-17 10:06:42",
+          "isMine": false,
+          "content": "单色logo",
+          "read": false,
+          "kind": "text",
+          "messageId": "4349386893218.PNM"
+        },
+        {
+          "sender": "视力童",
+          "time": "2026-10-17 10:06:45",
+          "isMine": false,
+          "content": "可以",
+          "read": false,
+          "kind": "text",
+          "messageId": "4345732397033.PNM"
+        },
+        {
+          "sender": "视力童",
+          "time": "2026-10-17 10:06:48",
+          "isMine": false,
+          "content": "有货的",
+          "read": false,
+          "kind": "text",
+          "messageId": "4355337472833.PNM"
+        }
+      ]
+    },
+    {
+      "rank": 3,
+      "offer_id": "807322563406",
+      "supplier": "中山市利为朗照明电器厂",
+      "seller_login_id": "朗度照明电器",
+      "ok": true,
+      "total_messages": 6,
+      "seller_replies_count": 4,
+      "seller_replies": [
+        {
+          "sender": "朗度照明电器",
+          "time": "2026-10-17 09:53:57",
+          "isMine": false,
+          "content": "[卡片消息]",
+          "read": false,
+          "kind": "other",
+          "messageId": "4349370877384.PNM"
+        },
+        {
+          "sender": "朗度照明电器",
+          "time": "2026-10-17 09:54:04",
+          "isMine": false,
+          "content": "台灯三个色温\n一档自然光4000k（读书写作使用）\n二档暖光3000k（睡前阅读）\n三档白光6000k（工作办公学习使用）\n插电款（需插着电用）\n充插两用款（可充满电后拔电使用也可插电使用）\n2600续航 充满后能使用1-2小时左右\n3600续航 充满后能使用2-3小时左右\n6000续航 充满后能使用3-6小时左右\n长按是调亮度，短按是调色光\n尺寸36*30*14CM\n安装看详情页或者咨客服获取",
+          "read": false,
+          "kind": "autoReply",
+          "messageId": "4357659546121.PNM"
+        },
+        {
+          "sender": "朗度照明电器",
+          "time": "2026-10-17 09:56:04",
+          "isMine": false,
+          "content": "如3分钟内未得到回复，客服一定是有急事忙去了，请耐心等待下。谢谢您的理解~",
+          "read": false,
+          "kind": "other",
+          "messageId": "4349376541804.PNM"
+        },
+        {
+          "sender": "朗度照明电器",
+          "time": "2026-10-17 09:57:04",
+          "isMine": false,
+          "content": "商家长时间没有回复，平台已通知商家，请耐心等待",
+          "read": false,
+          "kind": "text",
+          "messageId": "4357647734786.PNM"
+        }
+      ],
+      "all_messages": [
+        {
+          "sender": "朗度照明电器",
+          "time": "2026-10-17 09:53:57",
+          "isMine": false,
+          "content": "[卡片消息]",
+          "read": false,
+          "kind": "other",
+          "messageId": "4349370877384.PNM"
+        },
+        {
+          "sender": "abm_buyer_demo",
+          "time": "2026-10-17 09:54:04",
+          "isMine": true,
+          "content": "https://detail.1688.com/offer/807322563406.html",
+          "read": true,
+          "kind": "offerCard",
+          "card": {
+            "title": "朗度AA级学习护眼台灯儿童专用阅读灯大学生宿舍床头灯折叠护眼灯",
+            "price": "¥14.9",
+            "image": "https://cbu01.alicdn.com/img/ibank/O1CN01UqFTOO1MjJJiV3R68_!!2000991470-0-cib.jpg",
+            "url": "https://detail.1688.com/offer/807322563406.html"
+          },
+          "messageId": "4345724026555.PNM"
+        },
+        {
+          "sender": "朗度照明电器",
+          "time": "2026-10-17 09:54:04",
+          "isMine": false,
+          "content": "台灯三个色温\n一档自然光4000k（读书写作使用）\n二档暖光3000k（睡前阅读）\n三档白光6000k（工作办公学习使用）\n插电款（需插着电用）\n充插两用款（可充满电后拔电使用也可插电使用）\n2600续航 充满后能使用1-2小时左右\n3600续航 充满后能使用2-3小时左右\n6000续航 充满后能使用3-6小时左右\n长按是调亮度，短按是调色光\n尺寸36*30*14CM\n安装看详情页或者咨客服获取",
+          "read": false,
+          "kind": "autoReply",
+          "messageId": "4357659546121.PNM"
+        },
+        {
+          "sender": "abm_buyer_demo",
+          "time": "2026-10-17 09:54:13",
+          "isMine": true,
+          "content": "老板你好，请问这款护眼台灯有现货吗？单件带包装的实际重量和外箱尺寸是多少？我们先拿2个样品测质量，后续首批订购100个，请问大货最优惠底价是多少？支持定制Logo吗？",
+          "read": true,
+          "kind": "text",
+          "messageId": "4357653783726.PNM"
+        },
+        {
+          "sender": "朗度照明电器",
+          "time": "2026-10-17 09:56:04",
+          "isMine": false,
+          "content": "如3分钟内未得到回复，客服一定是有急事忙去了，请耐心等待下。谢谢您的理解~",
+          "read": false,
+          "kind": "other",
+          "messageId": "4349376541804.PNM"
+        },
+        {
+          "sender": "朗度照明电器",
+          "time": "2026-10-17 09:57:04",
+          "isMine": false,
+          "content": "商家长时间没有回复，平台已通知商家，请耐心等待",
+          "read": false,
+          "kind": "text",
+          "messageId": "4357647734786.PNM"
+        }
+      ]
+    },
+    {
+      "rank": 4,
+      "offer_id": "695481230805",
+      "supplier": "汕头市宝建源科技有限公司",
+      "seller_login_id": "宝建洪源头厂家",
+      "ok": true,
+      "total_messages": 9,
+      "seller_replies_count": 6,
+      "seller_replies": [
+        {
+          "sender": "宝建洪源头厂家",
+          "time": "2026-10-17 09:54:17",
+          "isMine": false,
+          "content": "老板你好，我来领取询盘有礼券～",
+          "read": true,
+          "kind": "other",
+          "messageId": "4345712320606.PNM"
+        },
+        {
+          "sender": "宝建洪源头厂家",
+          "time": "2026-10-17 09:54:17",
+          "isMine": false,
+          "content": "优惠券已自动领取，快去采购吧",
+          "read": false,
+          "kind": "other",
+          "messageId": "4345712320620.PNM"
+        },
+        {
+          "sender": "宝建洪源头厂家",
+          "time": "2026-10-17 09:54:17",
+          "isMine": false,
+          "content": "[卡片消息]",
+          "read": true,
+          "kind": "other",
+          "messageId": "4345704358130.PNM"
+        },
+        {
+          "sender": "宝建洪源头厂家",
+          "time": "2026-10-17 09:56:24",
+          "isMine": false,
+          "content": "亲爱的客户，当前时间客服不在，您可以简单描述您的需求留言给我们，客服上线后一定会快马加鞭回复处理哦\n",
+          "read": false,
+          "kind": "other",
+          "messageId": "4357657704774.PNM"
+        },
+        {
+          "sender": "宝建洪源头厂家",
+          "time": "2026-10-17 09:57:24",
+          "isMine": false,
+          "content": "商家长时间没有回复，平台已通知商家，请耐心等待",
+          "read": false,
+          "kind": "text",
+          "messageId": "4349368959864.PNM"
+        },
+        {
+          "sender": "宝建洪源头厂家",
+          "time": "2026-10-17 10:12:34",
+          "isMine": false,
+          "content": "logo/加图加字 1000个起订 ，镭雕（只能灰色）需要排单\n",
+          "read": false,
+          "kind": "text",
+          "messageId": "4355363011207.PNM"
+        }
+      ],
+      "all_messages": [
+        {
+          "sender": "abm_buyer_demo",
+          "time": "2026-10-17 09:54:17",
+          "isMine": true,
+          "content": "老板你好，我来领取询盘有礼券～",
+          "read": true,
+          "kind": "text",
+          "messageId": "4349368858573.PNM"
+        },
+        {
+          "sender": "宝建洪源头厂家",
+          "time": "2026-10-17 09:54:17",
+          "isMine": false,
+          "content": "老板你好，我来领取询盘有礼券～",
+          "read": true,
+          "kind": "other",
+          "messageId": "4345712320606.PNM"
+        },
+        {
+          "sender": "宝建洪源头厂家",
+          "time": "2026-10-17 09:54:17",
+          "isMine": false,
+          "content": "优惠券已自动领取，快去采购吧",
+          "read": false,
+          "kind": "other",
+          "messageId": "4345712320620.PNM"
+        },
+        {
+          "sender": "宝建洪源头厂家",
+          "time": "2026-10-17 09:54:17",
+          "isMine": false,
+          "content": "[卡片消息]",
+          "read": true,
+          "kind": "other",
+          "messageId": "4345704358130.PNM"
+        },
+        {
+          "sender": "abm_buyer_demo",
+          "time": "2026-10-17 09:54:23",
+          "isMine": true,
+          "content": "https://detail.1688.com/offer/695481230805.html",
+          "read": true,
+          "kind": "offerCard",
+          "card": {
+            "title": "护眼led笔筒台灯学生学习专用充电阅读灯宿舍折叠桌面床头灯够亮",
+            "price": "¥18.9",
+            "image": "https://cbu01.alicdn.com/img/ibank/O1CN01lfAPGE1l902rnUOLI_!!2215140294775-0-cib.jpg",
+            "url": "https://detail.1688.com/offer/695481230805.html"
+          },
+          "messageId": "4357657625464.PNM"
+        },
+        {
+          "sender": "abm_buyer_demo",
+          "time": "2026-10-17 09:54:32",
+          "isMine": true,
+          "content": "老板你好，请问这款护眼台灯有现货吗？单件带包装的实际重量和外箱尺寸是多少？我们先拿2个样品测质量，后续首批订购100个，请问大货最优惠底价是多少？支持定制Logo吗？",
+          "read": true,
+          "kind": "text",
+          "messageId": "4357659557348.PNM"
+        },
+        {
+          "sender": "宝建洪源头厂家",
+          "time": "2026-10-17 09:56:24",
+          "isMine": false,
+          "content": "亲爱的客户，当前时间客服不在，您可以简单描述您的需求留言给我们，客服上线后一定会快马加鞭回复处理哦\n",
+          "read": false,
+          "kind": "other",
+          "messageId": "4357657704774.PNM"
+        },
+        {
+          "sender": "宝建洪源头厂家",
+          "time": "2026-10-17 09:57:24",
+          "isMine": false,
+          "content": "商家长时间没有回复，平台已通知商家，请耐心等待",
+          "read": false,
+          "kind": "text",
+          "messageId": "4349368959864.PNM"
+        },
+        {
+          "sender": "宝建洪源头厂家",
+          "time": "2026-10-17 10:12:34",
+          "isMine": false,
+          "content": "logo/加图加字 1000个起订 ，镭雕（只能灰色）需要排单\n",
+          "read": false,
+          "kind": "text",
+          "messageId": "4355363011207.PNM"
+        }
+      ]
+    },
+    {
+      "rank": 5,
+      "offer_id": "858955223080",
+      "supplier": "佛山市云贝思照明有限公司",
+      "seller_login_id": "云贝思灯具",
+      "ok": true,
+      "total_messages": 5,
+      "seller_replies_count": 2,
+      "seller_replies": [
+        {
+          "sender": "云贝思灯具",
+          "time": "2026-10-17 09:54:54",
+          "isMine": false,
+          "content": "您好",
+          "read": false,
+          "kind": "text",
+          "messageId": "4355329230968.PNM"
+        },
+        {
+          "sender": "云贝思灯具",
+          "time": "2026-10-17 09:55:03",
+          "isMine": false,
+          "content": "可以的",
+          "read": false,
+          "kind": "text",
+          "messageId": "4349366832549.PNM"
+        }
+      ],
+      "all_messages": [
+        {
+          "sender": "abm_buyer_demo",
+          "time": "2026-10-17 09:54:42",
+          "isMine": true,
+          "content": "https://detail.1688.com/offer/858955223080.html",
+          "read": true,
+          "kind": "offerCard",
+          "card": {
+            "title": "led可换灯泡护眼阅读台灯插电式学生宿舍书桌学习老式床头写字灯",
+            "price": "¥11.9",
+            "image": "https://cbu01.alicdn.com/img/ibank/O1CN01FSlP0T1ks3ZmudDtw_!!2217148974738-0-cib.jpg",
+            "url": "https://detail.1688.com/offer/858955223080.html"
+          },
+          "messageId": "4357659561496.PNM"
+        },
+        {
+          "sender": "abm_buyer_demo",
+          "time": "2026-10-17 09:54:51",
+          "isMine": true,
+          "content": "老板你好，请问这款护眼台灯有现货吗？单件带包装的实际重量和外箱尺寸是多少？我们先拿2个样品测质量，后续首批订购100个，请问大货最优惠底价是多少？支持定制Logo吗？",
+          "read": true,
+          "kind": "text",
+          "messageId": "4349376500636.PNM"
+        },
+        {
+          "sender": "云贝思灯具",
+          "time": "2026-10-17 09:54:54",
+          "isMine": false,
+          "content": "您好",
+          "read": false,
+          "kind": "text",
+          "messageId": "4355329230968.PNM"
+        },
+        {
+          "sender": "云贝思灯具",
+          "time": "2026-10-17 09:55:03",
+          "isMine": false,
+          "content": "可以的",
+          "read": false,
+          "kind": "text",
+          "messageId": "4349366832549.PNM"
+        },
+        {
+          "sender": "云贝思灯具",
+          "time": "2026-10-17 10:00:03",
+          "isMine": false,
+          "content": "客服评价邀请",
+          "read": false,
+          "kind": "assessment",
+          "messageId": "4355335219077.PNM"
+        }
+      ]
+    }
+  ],
+  "follow_up_question_for_user": "Bạn có cần hỏi thêm thông tin gì với các nhà cung cấp này không (ví dụ: xin video quay thực tế tại xưởng, bảng giá bậc thang cho 500-1.000 chiếc, chứng chỉ CE/RoHS/kiểm định chất lượng, hoặc chốt đặt 2 mẫu về test)?",
+  "support_contact": "https://t.me/dungtq87",
+  "support_note": "Liên hệ https://t.me/dungtq87 để hỗ trợ về vận chuyển, nhập khẩu, đổi tệ CNY (4.000đ/CNY) và OEM sản phẩm."
+}
