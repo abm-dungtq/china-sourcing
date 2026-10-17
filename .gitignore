@@ -2,3 +2,5 @@ __pycache__/
 *.py[cod]
 .DS_Store
 ._*
+video-tiktok-9x16/
+runs/

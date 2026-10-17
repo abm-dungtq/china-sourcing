@@ -16,6 +16,11 @@
       "target_relpath": "dist/commands/seller-messages.js",
       "marker": "opts.offer",
       "sha256": "e2afe7eb91a66570069664c4cc5fe3ef2a0414375ad8c7c6ffcbb37f6871cbb9"
+    },
+    "search-mtop.js": {
+      "target_relpath": "dist/session/search-mtop.js",
+      "marker": "trendSignals",
+      "sha256": "f74d194abd74aa595fc0ec619dacfd46d3337756b85148d0419165d20d6fe573"
     }
   }
 }
