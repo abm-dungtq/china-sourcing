@@ -40,17 +40,27 @@ python3 scripts/china_sourcing.py login --platform 1688 --force
 # Side-by-side offer comparison
 1688 compare <offerId1> <offerId2>
 
-# Pre-sale WangWang inquiry + screenshot proof (never places an order)
-BB1688_SCREENSHOT_PATH="runs/<run_id>/07_wangwang_proof_<offerId>.png" \
-  1688 seller inquire <offerId> "你好，请问这款支持定制Logo吗？拿样怎么算？" --to "<sellerLoginId>" --json
+# Pre-sale WangWang inquiry + SHA-256 idempotency gate + screenshot proof (never places an order)
+python3 scripts/china_sourcing.py inquire-wangwang \
+  --run-id "<run_id>" \
+  --offer-id "<offerId>" \
+  --seller "<sellerLoginId>" \
+  --supplier "<supplierName>" \
+  --rank 1 \
+  --message "你好，请问这款支持定制Logo吗？拿样怎么算？" \
+  --receipt "runs/<run_id>/07_inquiry_receipt.json" \
+  --screenshot "runs/<run_id>/07_wangwang_proof_1_<offerId>.png"
 
-# Check seller replies in WangWang (triggered automatically every 5 minutes via schedule */5 * * * *)
-1688 seller messages "<sellerLoginId>" --offer <offerId> --json
-python3 scripts/china_sourcing.py check-wangwang --receipt runs/<run_id>/07_inquiry_receipt.json --output runs/<run_id>/08_wangwang_poll.json
+# Check seller replies in WangWang with autoReply/card filtering & delta state tracking (triggered every 5m via schedule */5 * * * *)
+python3 scripts/china_sourcing.py check-wangwang \
+  --receipt "runs/<run_id>/07_inquiry_receipt.json" \
+  --state-file "runs/<run_id>/08_wangwang_state.json" \
+  --only-new \
+  --output "runs/<run_id>/08_wangwang_poll.json"
 ```
 
 #### Automatic 5-Minute WangWang Polling & Logistics Pricing Rules
-- **5-Minute WangWang Polling Rule:** Whenever the user asks to chat on WangWang (`1688 seller inquire` / `1688 seller chat`), the agent must automatically schedule a recurring 5-minute job (`CronExpression="*/5 * * * *"`) to check incoming messages in WangWang (`china_sourcing.py check-wangwang`), report new replies to the user, and ask the user what additional information they want to ask the supplier.
+- **5-Minute WangWang Polling Rule:** Whenever the user asks to chat on WangWang (`inquire-wangwang` / `1688 seller inquire`), the agent must automatically schedule a recurring 5-minute job (`CronExpression="*/5 * * * *"`) to check incoming messages in WangWang (`china_sourcing.py check-wangwang --state-file ... --only-new`), report new human replies to the user, and ask the user what additional information they want to ask the supplier.
 - **Standard Exchange Rate & Shipping Formula:**
   - **CNY Exchange Rate:** `4,000 VNĐ / 1 CNY` *(Liên hệ [https://t.me/dungtq87](https://t.me/dungtq87) nếu cần)*
   - **E-Commerce Shipping (Hàng đi TMĐT):** `30,000 VNĐ / 1 kg`
@@ -76,7 +86,7 @@ npx skills add nexscope-ai/nexscope-ecommerce-skills --skill ecommerce-1688-sear
 3. **Browser Fallback (`chrome-profile` / Chrome DevTools)**: Opens `https://s.taobao.com/search?q=<encoded_keyword>` in the user's logged-in Chrome profile.
 
 ### Share-Text & Link Parsing
-Use `python3 scripts/china_sourcing.py parse-link "<share_text_or_url>"` to extract canonical URLs and item IDs from mobile share strings such as:
+Use `python3 scripts/china_sourcing.py parse-link --resolve "<share_text_or_url>"` to follow short-link redirects and extract canonical URLs and item IDs from mobile share strings such as:
 `【淘宝】假一赔四 https://e.tb.cn/h.StvCjJlWxkNatsx?tk=xxx MF937 「商品名称」`
 
 ---
@@ -84,7 +94,7 @@ Use `python3 scripts/china_sourcing.py parse-link "<share_text_or_url>"` to extr
 ## 3. Alibaba.com (International B2B Export Benchmark)
 
 ### Primary Engines
-1. **Built-in CLI Scraper (`scripts/china_sourcing.py alibaba`)**: Fetches and parses Alibaba.com public search listings (price range in USD, MOQ, supplier country, years active, review score) directly into structured JSON.
+1. **Built-in CLI Search Helper (`scripts/china_sourcing.py alibaba --query "<en_keyword>"`)**: Generates verified-manufacturer search URLs and structured B2B metadata (`--output runs/<run_id>/03_alibaba.json`).
 2. **Local REST API (`omkarcloud/alibaba-scraper`)**:
    ```bash
    git clone https://github.com/omkarcloud/alibaba-scraper.git ~/.local/share/alibaba-scraper
