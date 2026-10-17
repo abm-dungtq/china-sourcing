@@ -11,6 +11,7 @@ import argparse
 import csv
 import hashlib
 import json
+import math
 import os
 import re
 import shutil
@@ -110,13 +111,17 @@ def verify_and_patch_1688_cli(
     if not target_dist or not target_dist.is_dir():
         return {"patched": False, "error": "1688-cli dist directory not found"}
 
-    commands_dir = target_dist / "commands"
     files_meta: dict[str, Any] = meta.get("files", {})
     file_statuses: dict[str, Any] = {}
     applied_files: list[str] = []
 
     for fname, fmeta in files_meta.items():
-        target_file = commands_dir / fname
+        raw_rel = str(fmeta.get("target_relpath") or f"dist/commands/{fname}")
+        rel_subpath = raw_rel[5:] if raw_rel.startswith("dist/") else raw_rel
+        # Backward compatibility for unit tests that create flat commands_dir without session/
+        target_file = target_dist / rel_subpath
+        if not target_file.parent.exists() and (target_dist / "commands").exists() and dist_dir is not None:
+            target_file.parent.mkdir(parents=True, exist_ok=True)
         vendor_file = repo_patches_dir / fname
         marker = str(fmeta.get("marker") or "")
         expected_sha = str(fmeta.get("sha256") or "")
@@ -129,8 +134,8 @@ def verify_and_patch_1688_cli(
             is_valid = (actual_sha == expected_sha) or has_marker
 
         if not is_valid and apply_patch and vendor_file.exists():
-            commands_dir.mkdir(parents=True, exist_ok=True)
-            tmp_target = commands_dir / f".{fname}.tmp"
+            target_file.parent.mkdir(parents=True, exist_ok=True)
+            tmp_target = target_file.parent / f".{fname}.tmp"
             tmp_target.write_bytes(vendor_file.read_bytes())
             os.replace(tmp_target, target_file)
             applied_files.append(fname)
@@ -140,6 +145,20 @@ def verify_and_patch_1688_cli(
             is_valid = (actual_sha == expected_sha) or has_marker
 
         file_statuses[fname] = {"ok": is_valid, "path": str(target_file)}
+
+    if applied_files and dist_dir is None:
+        binary = shutil.which("1688")
+        if binary:
+            try:
+                subprocess.run(
+                    [binary, "daemon", "reload"],
+                    capture_output=True,
+                    text=True,
+                    timeout=15,
+                    check=False,
+                )
+            except Exception:
+                pass
 
     all_patched = bool(files_meta) and all(v.get("ok") for v in file_statuses.values())
     return {
@@ -222,6 +241,8 @@ def build_onboarding_guide(identity: dict[str, Any] | None = None) -> dict[str, 
             '   - *Ví dụ câu lệnh:* `"Gửi tin hỏi giá sỉ các xưởng trên qua WangWang kèm chụp ảnh bằng chứng."` *(Hệ thống sẽ tự động đặt lịch 5 phút/lần kiểm tra tin nhắn phản hồi trên WangWang, báo cáo lại và hỏi bạn cần hỏi thêm thông tin gì với nhà cung cấp).*',
             "5. **Săn Hàng Hot Trend & Bóc Kịch Bản Video Bán Hàng Douyin:**",
             '   - *Ví dụ câu lệnh:* `"Tải video không logo và trích xuất toàn bộ kịch bản lời thoại bán hàng từ link Douyin này để phân tích USP sản phẩm."`',
+            "6. **Quét Sản Phẩm Mới Đang Hot, Lượt Bán Tăng Nhanh & Bắt Trend Ngách 1688 (`trends`):**",
+            '   - *Ví dụ câu lệnh:* `"Quét giúp tôi các mẫu đèn bàn chống cận mới ra đang hot, lượt bán tăng nhanh nhất trên 1688 và các ngách xu hướng đang lên kèm giá vốn về Việt Nam cho lô 100 chiếc."`',
             "",
             "---",
             "### Biểu Phí Tham Chiếu Mặc Định & Hỗ Trợ Nhập Khẩu / OEM",
@@ -240,6 +261,7 @@ def build_onboarding_guide(identity: dict[str, Any] | None = None) -> dict[str, 
             "Cross-Platform Share Link Parsing (Taobao/Pinduoduo/Douyin -> 1688 wholesale match)",
             "WangWang Supplier Inquiry + Automatic 5-Minute Reply Polling Schedule",
             "Douyin Viral Video Download & AI Transcript Extraction",
+            "1688 Hot New Products, Fast-Rising Sales Velocity & Niche Trend Radar (trends)",
         ],
         "markdown_guide": guide_md,
     }
@@ -860,15 +882,17 @@ def generate_sourcing_report(
         weight_kg = metrics["weight_kg"]
         volume_cbm = metrics["volume_cbm"]
 
+        demand_obj = item.get("demand") if isinstance(item.get("demand"), dict) else {}
         repurchase = (
             item.get("repurchaseRate")
             or item.get("rePurchaseRate")
-            or (f"Đã bán: {item['saledCount']}" if item.get("saledCount") else None)
             or (
-                f"Đã bán: {item['demand']['orderCountText']}"
-                if isinstance(item.get("demand"), dict) and item["demand"].get("orderCountText")
-                else None
+                f"{demand_obj['repurchaseRateText']} (30d: {demand_obj['orderCountText']})"
+                if demand_obj.get("repurchaseRateText") and demand_obj.get("orderCountText")
+                else demand_obj.get("repurchaseRateText")
             )
+            or (f"Đã bán: {item['saledCount']}" if item.get("saledCount") else None)
+            or (f"Đã bán: {demand_obj['orderCountText']}" if demand_obj.get("orderCountText") else None)
             or "[Chưa công bố]"
         )
 
@@ -1360,6 +1384,584 @@ def check_wangwang_replies(
     return result
 
 
+def parse_cn_count(text: Any) -> int | None:
+    """Parse Chinese sales/order count strings such as '已售3.4万+件', '1.2w', '500+件', '小于10件' into an integer."""
+    if text is None or isinstance(text, bool):
+        return None
+    if isinstance(text, (int, float)):
+        return max(0, round(float(text))) if math.isfinite(float(text)) else None
+    raw = str(text).strip()
+    if not raw:
+        return None
+    if any(k in raw for k in ("小于", "不足", "未售", "暂无")):
+        return 0
+    compact = raw.replace(",", "").replace(" ", "")
+    m = re.search(r"(\d+(?:\.\d+)?)\s*(亿|万|w|W|千|k|K)?", compact)
+    if not m:
+        return None
+    val = float(m.group(1))
+    unit = m.group(2) or ""
+    mult = (
+        100_000_000
+        if unit == "亿"
+        else 10_000
+        if unit in ("万", "w", "W")
+        else 1_000
+        if unit in ("千", "k", "K")
+        else 1
+    )
+    return max(0, round(val * mult))
+
+
+def _parse_percent_float(val: Any) -> float | None:
+    if val is None or isinstance(val, bool):
+        return None
+    if isinstance(val, (int, float)):
+        return float(val) if math.isfinite(float(val)) else None
+    m = re.search(r"(\d+(?:\.\d+)?)\s*%?", str(val))
+    return float(m.group(1)) if m else None
+
+
+def build_1688_rank_urls(rank_badge: dict[str, Any]) -> dict[str, str]:
+    """Generate direct 1688 Leaderboard URLs for Best-Selling (rankType=1), Fast-Rising (rankType=2), and Hot-New (rankType=3)."""
+    raw_url = str(rank_badge.get("url") or "").strip()
+    if not raw_url:
+        return {}
+    try:
+        parsed = urllib.parse.urlsplit(raw_url)
+        qs = urllib.parse.parse_qs(parsed.query, keep_blank_values=True)
+        out: dict[str, str] = {"base_url": raw_url}
+        for key_name, rtype in (("hot_selling_url", "1"), ("fast_rising_url", "2"), ("hot_new_url", "3")):
+            qs_copy = dict(qs)
+            qs_copy["rankType"] = [rtype]
+            new_query = urllib.parse.urlencode(qs_copy, doseq=True)
+            out[key_name] = urllib.parse.urlunsplit((parsed.scheme, parsed.netloc, parsed.path, new_query, parsed.fragment))
+        return out
+    except Exception:
+        return {"base_url": raw_url}
+
+
+def compute_offer_trend_metrics(
+    offer: dict[str, Any],
+    prev_snapshot_entry: dict[str, Any] | None = None,
+    elapsed_hours: float | None = None,
+) -> dict[str, Any]:
+    """Compute log-damped VelocityIndex, HotNewScore (0-100), FastRisingScore (0-100), and snapshot delta."""
+    demand = offer.get("demand") if isinstance(offer.get("demand"), dict) else {}
+    ts = offer.get("trendSignals") if isinstance(offer.get("trendSignals"), dict) else {}
+
+    booked_30d = (
+        parse_cn_count(
+            demand.get("orderCount")
+            if demand.get("orderCount") is not None
+            else (demand.get("orderCountText") or offer.get("turnover") or offer.get("saledCount"))
+        )
+        or 0
+    )
+    sold_total_raw = parse_cn_count(
+        ts.get("soldCountTotal") if ts.get("soldCountTotal") is not None else ts.get("soldCountText")
+    )
+    sold_total = sold_total_raw if (sold_total_raw is not None and sold_total_raw > 0) else booked_30d
+
+    repurchase_rate = _parse_percent_float(
+        demand.get("repurchaseRate")
+        if demand.get("repurchaseRate") is not None
+        else (demand.get("repurchaseRateText") or offer.get("repurchaseRate"))
+    )
+
+    # Log-damped VelocityIndex formula (Kongming checkpoint approved):
+    # Prevents small-denominator illusion (5/5 = 100%) and bucket truncation (>1.0)
+    denom = max(sold_total, booked_30d, 50)
+    recency_share = min(1.0, max(0.0, booked_30d / denom)) if booked_30d > 0 else 0.0
+    velocity_index = round(math.log10(booked_30d + 1) * (0.5 + 0.5 * recency_share), 4)
+
+    new_sell_points = [str(x) for x in (ts.get("newProductSellPoints") or []) if x]
+    rank_badges = [x for x in (ts.get("rankBadges") or []) if isinstance(x, dict)]
+    business_topics = [x for x in (ts.get("businessOppoTopics") or []) if isinstance(x, dict)]
+    price_badges = [str(x) for x in (ts.get("priceCompetitiveBadges") or []) if x]
+    fenxiao_new = bool(ts.get("fenxiaoNewOffer"))
+    kuajing_hot = bool(ts.get("kuaJingPuHuo"))
+    trade_score = _parse_cny_float(ts.get("tradeScore"))
+
+    delta_orders: int | None = None
+    delta_orders_per_day: float | None = None
+    if isinstance(prev_snapshot_entry, dict) and prev_snapshot_entry.get("booked_30d") is not None:
+        try:
+            prev_b = int(prev_snapshot_entry["booked_30d"])
+            delta_orders = booked_30d - prev_b
+            eff_hours = max(float(elapsed_hours) if elapsed_hours else 24.0, 0.1)
+            delta_orders_per_day = round((delta_orders / eff_hours) * 24.0, 2)
+        except (TypeError, ValueError):
+            pass
+
+    # Fast-Rising Score (0-100)
+    vel_base = min(60.0, velocity_index * 13.5)
+    vel_bonus = 0.0
+    if rank_badges:
+        vel_bonus += 15.0
+    if price_badges:
+        vel_bonus += 10.0
+    if (repurchase_rate or 0.0) >= 20.0:
+        vel_bonus += 10.0
+    elif (repurchase_rate or 0.0) >= 10.0:
+        vel_bonus += 5.0
+    if (delta_orders_per_day or 0.0) > 0:
+        vel_bonus += min(15.0, 5.0 + math.log10((delta_orders_per_day or 1.0) + 1.0) * 5.0)
+    fast_rising_score = min(100, round(vel_base + vel_bonus))
+
+    # Hot-New Score (0-100)
+    hot_new_pts = 0.0
+    if new_sell_points:
+        hot_new_pts += 45.0
+    if fenxiao_new:
+        hot_new_pts += 15.0
+    if business_topics:
+        has_recent_topic = any(str(t.get("topicDate") or "").startswith("2026") for t in business_topics)
+        hot_new_pts += 22.0 if has_recent_topic else 15.0
+    if price_badges:
+        hot_new_pts += 8.0
+    hot_new_pts += min(25.0, math.log10(booked_30d + 1) * 5.5)
+    hot_new_score = min(100, round(hot_new_pts))
+    is_hot_new = bool(new_sell_points or fenxiao_new or hot_new_score >= 45)
+
+    return {
+        "booked_30d": booked_30d,
+        "sold_total": sold_total,
+        "sold_count_text": ts.get("soldCountText") or (f"30d:{booked_30d}" if booked_30d else None),
+        "recency_share": round(recency_share, 4),
+        "velocity_index": velocity_index,
+        "fast_rising_score": fast_rising_score,
+        "hot_new_score": hot_new_score,
+        "is_hot_new": is_hot_new,
+        "repurchase_rate": repurchase_rate,
+        "new_product_sell_points": new_sell_points,
+        "rank_badges": rank_badges,
+        "business_oppo_topics": business_topics,
+        "price_competitive_badges": price_badges,
+        "fenxiao_new_offer": fenxiao_new,
+        "kuajing_puhuo": kuajing_hot,
+        "trade_score": trade_score,
+        "delta_orders": delta_orders,
+        "delta_orders_per_day": delta_orders_per_day,
+    }
+
+
+def analyze_1688_trends(
+    offers: list[dict[str, Any]],
+    keyword: str,
+    mode: str = "all",
+    target_qty: int = 100,
+    exchange_rate_vnd: float = DEFAULT_EXCHANGE_RATE_VND,
+    vn_shipping_per_kg_vnd: float = DEFAULT_VN_SHIPPING_PER_KG_VND,
+    state_file_path: str | None = None,
+    top_limit: int = 10,
+) -> dict[str, Any]:
+    """Analyze a list of 1688 offers for Hot New Arrivals, Fast-Rising Sales Velocity, and Niche Trends."""
+    now_iso = utc_now_iso()
+    now_dt = datetime.now(timezone.utc)
+    state_path = Path(state_file_path) if state_file_path else None
+    prev_offers_map: dict[str, dict[str, Any]] = {}
+    elapsed_hours: float | None = None
+
+    if state_path and state_path.exists():
+        try:
+            prev_doc = json.loads(state_path.read_text(encoding="utf-8"))
+            if isinstance(prev_doc, dict):
+                prev_offers_map = prev_doc.get("offers") if isinstance(prev_doc.get("offers"), dict) else {}
+                prev_ts = str(prev_doc.get("updated_at") or "")
+                if prev_ts:
+                    prev_dt = datetime.fromisoformat(prev_ts.replace("Z", "+00:00"))
+                    elapsed_hours = max(0.01, (now_dt - prev_dt).total_seconds() / 3600.0)
+        except Exception:
+            prev_offers_map = {}
+
+    enriched_offers: list[dict[str, Any]] = []
+    topic_clusters: dict[str, dict[str, Any]] = {}
+    leaderboards_map: dict[str, dict[str, Any]] = {}
+    new_snapshot_map: dict[str, dict[str, Any]] = dict(prev_offers_map)
+
+    for item in offers:
+        if not isinstance(item, dict):
+            continue
+        offer_id = str(item.get("offerId") or item.get("id") or "").strip()
+        if not offer_id:
+            continue
+        title = str(item.get("title") or "").strip()
+        supplier_obj = item.get("supplier") if isinstance(item.get("supplier"), dict) else {}
+        supplier_name = (
+            item.get("supplierName")
+            or supplier_obj.get("name")
+            or item.get("companyName")
+            or "[Chưa công bố]"
+        )
+        price_cny = resolve_tier_price_cny(item, target_qty=target_qty)
+        pkg_metrics = extract_package_metrics(item)
+        est_weight = pkg_metrics["weight_kg"] if pkg_metrics["weight_kg"] is not None else 0.25
+        est_vol = pkg_metrics["volume_cbm"] if pkg_metrics["volume_cbm"] is not None else 0.002
+
+        landed_tmdt_vnd: int | None = None
+        landed_official_vnd: int | None = None
+        if price_cny is not None and price_cny > 0:
+            cost = calculate_landed_cost(
+                exw_price_cny=price_cny,
+                quantity=target_qty,
+                weight_kg_per_unit=est_weight,
+                volume_cbm_per_unit=est_vol,
+                exchange_rate_vnd=exchange_rate_vnd,
+                vn_shipping_per_kg_vnd=vn_shipping_per_kg_vnd,
+            )
+            landed_tmdt_vnd = cost["unit_landed_cost_vnd"]
+            landed_official_vnd = cost["official_import_over_1cbm"]["unit_base_landed_before_vat_and_service_vnd"]
+
+        prev_entry = prev_offers_map.get(offer_id)
+        t_metrics = compute_offer_trend_metrics(item, prev_snapshot_entry=prev_entry, elapsed_hours=elapsed_hours)
+
+        new_snapshot_map[offer_id] = {
+            "offer_id": offer_id,
+            "title": title,
+            "price_cny": price_cny,
+            "booked_30d": t_metrics["booked_30d"],
+            "sold_total": t_metrics["sold_total"],
+            "updated_at": now_iso,
+        }
+
+        verified_obj = item.get("verified") if isinstance(item.get("verified"), dict) else {}
+        is_factory = bool(verified_obj.get("factory") or verified_obj.get("superFactory") or item.get("bizType") == "生产加工")
+
+        row = {
+            "offer_id": offer_id,
+            "title": title,
+            "supplier": supplier_name,
+            "supplier_years": supplier_obj.get("years"),
+            "is_factory": is_factory,
+            "price_cny": price_cny,
+            "landed_cost_tmdt_vnd": landed_tmdt_vnd,
+            "landed_cost_official_base_vnd": landed_official_vnd,
+            "url": item.get("url") or f"https://detail.1688.com/offer/{offer_id}.html",
+            "image": item.get("image"),
+            **t_metrics,
+        }
+        enriched_offers.append(row)
+
+        for b_topic in t_metrics["business_oppo_topics"]:
+            topic_name = str(b_topic.get("topic") or b_topic.get("text") or "").strip()
+            if not topic_name:
+                continue
+            cluster = topic_clusters.setdefault(
+                topic_name,
+                {
+                    "topic": topic_name,
+                    "topic_id": b_topic.get("topicId"),
+                    "topic_date": b_topic.get("topicDate"),
+                    "category_id": b_topic.get("categoryId"),
+                    "url": b_topic.get("url"),
+                    "offer_count": 0,
+                    "total_booked_30d": 0,
+                    "sample_offers": [],
+                },
+            )
+            cluster["offer_count"] += 1
+            cluster["total_booked_30d"] += t_metrics["booked_30d"]
+            if len(cluster["sample_offers"]) < 3:
+                cluster["sample_offers"].append(
+                    {
+                        "offer_id": offer_id,
+                        "title": title,
+                        "price_cny": price_cny,
+                        "booked_30d": t_metrics["booked_30d"],
+                    }
+                )
+
+        for r_badge in t_metrics["rank_badges"]:
+            r_name = str(r_badge.get("rankName") or r_badge.get("text") or "").strip()
+            if not r_name:
+                continue
+            if r_name not in leaderboards_map:
+                urls = build_1688_rank_urls(r_badge)
+                leaderboards_map[r_name] = {
+                    "rank_name": r_name,
+                    "badge_text": r_badge.get("text"),
+                    "category_id": r_badge.get("categoryId"),
+                    "rank_full_name_id": r_badge.get("rankFullNameId"),
+                    "featured_offer_id": offer_id,
+                    "urls": urls,
+                }
+
+    if state_path:
+        _atomic_write_json(
+            state_path,
+            {
+                "updated_at": now_iso,
+                "keyword": keyword,
+                "offers": new_snapshot_map,
+            },
+        )
+
+    hot_new_offers = sorted(
+        [o for o in enriched_offers if o["is_hot_new"]],
+        key=lambda x: (x["hot_new_score"], x["velocity_index"], x["booked_30d"]),
+        reverse=True,
+    )[:top_limit]
+    if not hot_new_offers:
+        hot_new_offers = sorted(
+            enriched_offers,
+            key=lambda x: (x["hot_new_score"], x["velocity_index"]),
+            reverse=True,
+        )[:top_limit]
+
+    fast_rising_offers = sorted(
+        enriched_offers,
+        key=lambda x: (
+            x["delta_orders_per_day"] if x["delta_orders_per_day"] is not None else -1e9,
+            x["fast_rising_score"],
+            x["velocity_index"],
+            x["booked_30d"],
+        ),
+        reverse=True,
+    )[:top_limit]
+
+    niche_trend_clusters = sorted(
+        topic_clusters.values(),
+        key=lambda c: (c["offer_count"], c["total_booked_30d"]),
+        reverse=True,
+    )
+
+    return {
+        "ok": True,
+        "timestamp": now_iso,
+        "keyword": keyword,
+        "mode": mode,
+        "target_qty": target_qty,
+        "total_scanned": len(enriched_offers),
+        "snapshot_tracking": {
+            "enabled": bool(state_path),
+            "state_file": str(state_path) if state_path else None,
+            "previous_snapshot_found": elapsed_hours is not None,
+            "elapsed_hours": round(elapsed_hours, 2) if elapsed_hours is not None else None,
+        },
+        "summary_counts": {
+            "hot_new_candidates": sum(1 for o in enriched_offers if o["is_hot_new"]),
+            "offers_with_new_sell_point": sum(1 for o in enriched_offers if o["new_product_sell_points"]),
+            "niche_trend_clusters": len(niche_trend_clusters),
+            "category_leaderboards": len(leaderboards_map),
+        },
+        "hot_new_offers": hot_new_offers,
+        "fast_rising_offers": fast_rising_offers,
+        "niche_trend_clusters": niche_trend_clusters,
+        "category_leaderboards": list(leaderboards_map.values()),
+        "support_contact": SUPPORT_CONTACT_URL,
+        "support_note": SUPPORT_CONTACT_NOTE,
+    }
+
+
+def format_trends_markdown(report: dict[str, Any]) -> str:
+    """Format the 1688 Trend & Velocity Radar output into a comprehensive Vietnamese Markdown report."""
+    kw = report.get("keyword") or "N/A"
+    qty = report.get("target_qty") or 100
+    counts = report.get("summary_counts") or {}
+    snap = report.get("snapshot_tracking") or {}
+    mode = str(report.get("mode") or "all")
+
+    lines = [
+        f"# Báo Cáo Radar Bắt Trend, Sản Phẩm Mới & Tốc Độ Bán 1688 (`{kw}`)",
+        "",
+        f"- **Thời gian quét:** `{report.get('timestamp')}`",
+        f"- **Tổng số mẫu phân tích:** `{report.get('total_scanned', 0)}` sản phẩm (`{counts.get('offers_with_new_sell_point', 0)}` mẫu mới lên kệ `上新`, `{counts.get('niche_trend_clusters', 0)}` cụm xu hướng ngách `商机组货`, `{counts.get('category_leaderboards', 0)}` bảng xếp hạng `排行榜`)",
+        f"- **Lô tính giá vốn dự kiến về Việt Nam:** `{qty} chiếc` *(Tỷ giá `4.000đ/CNY`, TMĐT `30.000đ/kg`, Chính ngạch `>1m³`: `1.600.000đ/m³` hoặc `6.000đ/kg`)*",
+        f"- **Hỗ trợ Vận chuyển, Nhập khẩu & Đặt xưởng OEM:** **[https://t.me/dungtq87]({SUPPORT_CONTACT_URL})**",
+    ]
+    if snap.get("enabled"):
+        status_txt = (
+            f"Đã đối chiếu snapshot trước (cách đây `{snap.get('elapsed_hours')} giờ`)"
+            if snap.get("previous_snapshot_found")
+            else "Đã lưu snapshot mốc T0 (chạy lại sau để đo tốc độ tăng đơn tuyệt đối Δ đơn/ngày)"
+        )
+        lines.append(f"- **Theo dõi chênh lệch thời gian thực (`--state-file`):** {status_txt}")
+    lines.append("")
+
+    if mode in ("all", "new-hot"):
+        lines.extend(
+            [
+                "## 1. Sản Phẩm Mới Đang Hot (`上新热销 / Hot New Arrivals`)",
+                "",
+                "| # | Mã Offer | Tên Sản Phẩm & Xưởng | Điểm Nâng Cấp Mới (`上新`) / Nhãn Trend | Giá EXW | Đơn 30 Ngày | Điểm Hot New | Giá Vốn TMĐT (30k/kg) |",
+                "|---|---|---|---|---|---|---|---|",
+            ]
+        )
+        for idx, o in enumerate(report.get("hot_new_offers") or [], start=1):
+            badges = list(o.get("new_product_sell_points") or [])
+            for bt in o.get("business_oppo_topics") or []:
+                if bt.get("topic"):
+                    badges.append(f"Trend: {bt['topic']}")
+            if o.get("fenxiao_new_offer"):
+                badges.append("Phân phối mới")
+            badge_str = " · ".join(badges) if badges else "Mẫu mới tiềm năng"
+            price_str = f"¥{o['price_cny']:.2f}" if o.get("price_cny") is not None else "N/A"
+            landed_str = f"{o['landed_cost_tmdt_vnd']:,}đ" if o.get("landed_cost_tmdt_vnd") else "N/A"
+            fac_tag = " *(Xưởng)*" if o.get("is_factory") else ""
+            lines.append(
+                f"| {idx} | [{o['offer_id']}]({o['url']}) | **{o['supplier']}**{fac_tag}<br>{o['title'][:45]} | {badge_str} | {price_str} | {o['booked_30d']:,} | **{o['hot_new_score']}/100** | {landed_str} |"
+            )
+        lines.append("")
+
+    if mode in ("all", "fast-rising"):
+        lines.extend(
+            [
+                "## 2. Sản Phẩm Có Lượt Bán Tăng Tốc Nhanh Nhất (`飙升 / Fast-Rising Velocity`)",
+                "",
+                "| # | Mã Offer | Nhà Cung Cấp | Giá EXW | Đơn 30 Ngày / Tổng Bán | Tỷ Lệ Mua Lại | Chỉ Số Tăng Tốc (`Velocity`) | Δ Đơn/Ngày | Giá Vốn TMĐT |",
+                "|---|---|---|---|---|---|---|---|---|",
+            ]
+        )
+        for idx, o in enumerate(report.get("fast_rising_offers") or [], start=1):
+            price_str = f"¥{o['price_cny']:.2f}" if o.get("price_cny") is not None else "N/A"
+            sold_str = f"{o['booked_30d']:,} / {o.get('sold_count_text') or o['sold_total']}"
+            rep_str = f"{o['repurchase_rate']:g}%" if o.get("repurchase_rate") is not None else "N/A"
+            delta_str = (
+                f"{o['delta_orders_per_day']:+g}/ngày ({o['delta_orders']:+d})"
+                if o.get("delta_orders_per_day") is not None
+                else "Mốc T0"
+            )
+            landed_str = f"{o['landed_cost_tmdt_vnd']:,}đ" if o.get("landed_cost_tmdt_vnd") else "N/A"
+            extra_badges = []
+            for rb in o.get("rank_badges") or []:
+                if rb.get("text"):
+                    extra_badges.append(str(rb["text"]))
+            for pb in o.get("price_competitive_badges") or []:
+                extra_badges.append(str(pb))
+            vel_cell = f"**{o['fast_rising_score']}/100** (`{o['velocity_index']:.2f}`)"
+            if extra_badges:
+                vel_cell += "<br>" + " · ".join(extra_badges[:2])
+            lines.append(
+                f"| {idx} | [{o['offer_id']}]({o['url']}) | {o['supplier']} | {price_str} | {sold_str} | {rep_str} | {vel_cell} | {delta_str} | {landed_str} |"
+            )
+        lines.append("")
+
+    if mode in ("all", "niche-trends"):
+        lines.extend(
+            [
+                "## 3. Cụm Xu Hướng Ngách Đang Lên (`1688 商机组货 / Emerging Niche Clusters`)",
+                "",
+                "| # | Chủ Đề Ngách Đang Hot (`商机组货`) | Ngày Phát Hiện | Số Mẫu Trong Top | Tổng Đơn 30 Ngày | Sản Phẩm Tiêu Biểu |",
+                "|---|---|---|---|---|---|",
+            ]
+        )
+        clusters = report.get("niche_trend_clusters") or []
+        if clusters:
+            for idx, c in enumerate(clusters, start=1):
+                samples = ", ".join(
+                    f"`{s['offer_id']}` (¥{s['price_cny']})" if s.get("price_cny") else f"`{s['offer_id']}`"
+                    for s in (c.get("sample_offers") or [])
+                )
+                lines.append(
+                    f"| {idx} | **{c['topic']}** | `{c.get('topic_date') or 'Mới'}` | {c['offer_count']} | {c['total_booked_30d']:,} | {samples} |"
+                )
+        else:
+            lines.append("| - | *(Chưa có nhãn cụm 商机组货 cho từ khóa này)* | - | 0 | 0 | - |")
+        lines.append("")
+
+        leaderboards = report.get("category_leaderboards") or []
+        if leaderboards:
+            lines.extend(
+                [
+                    "## 4. Bảng Xếp Hạng Ngành Hàng Chính Thức 1688 (`1688 排行榜`)",
+                    "",
+                    "| Tên Bảng Xếp Hạng | Mã Danh Mục | Link Bảng Bán Chạy (`热销榜`) | Link Bảng Tăng Tốc (`飙升榜`) | Link Bảng Hàng Mới (`新品榜`) |",
+                    "|---|---|---|---|---|",
+                ]
+            )
+            for lb in leaderboards:
+                urls = lb.get("urls") or {}
+                u_hot = f"[Mở 热销榜]({urls['hot_selling_url']})" if urls.get("hot_selling_url") else "-"
+                u_rise = f"[Mở 飙升榜]({urls['fast_rising_url']})" if urls.get("fast_rising_url") else "-"
+                u_new = f"[Mở 新品榜]({urls['hot_new_url']})" if urls.get("hot_new_url") else "-"
+                lines.append(
+                    f"| **{lb['rank_name']}** ({lb.get('badge_text')}) | `{lb.get('category_id') or 'N/A'}` | {u_hot} | {u_rise} | {u_new} |"
+                )
+            lines.append("")
+
+    lines.extend(
+        [
+            "---",
+            f"> **Bước tiếp theo:** Bạn có thể chọn bất kỳ mã sản phẩm nào ở trên để yêu cầu Agent **nhắn WangWang hỏi giá sỉ / xin mẫu test (`inquire-wangwang`)** hoặc liên hệ **[https://t.me/dungtq87]({SUPPORT_CONTACT_URL})** để được hỗ trợ vận chuyển và làm hàng OEM.",
+        ]
+    )
+    return "\n".join(lines) + "\n"
+
+
+def run_1688_trends(
+    keywords: list[str] | None = None,
+    input_json_path: str | None = None,
+    mode: str = "all",
+    max_per_keyword: int = 40,
+    target_qty: int = 100,
+    price_max_cny: float | None = None,
+    factory_only: bool = False,
+    state_file_path: str | None = None,
+    output_json_path: str | None = None,
+    output_md_path: str | None = None,
+    top_limit: int = 10,
+) -> dict[str, Any]:
+    """Run live 1688 search (or load saved JSON) and analyze Hot New Products, Fast-Rising Sales, and Niche Trends."""
+    collected_offers: list[dict[str, Any]] = []
+    seen_offer_ids: set[str] = set()
+    kw_label = ", ".join(keywords) if keywords else (Path(input_json_path).stem if input_json_path else "1688")
+
+    if input_json_path:
+        raw = json.loads(Path(input_json_path).read_text(encoding="utf-8"))
+        if isinstance(raw, dict) and isinstance(raw.get("data"), dict):
+            raw = raw["data"]
+        items = raw if isinstance(raw, list) else (raw.get("offers") or raw.get("items") or [])
+        for it in items:
+            if not isinstance(it, dict):
+                continue
+            cand = it.get("offer") if isinstance(it.get("offer"), dict) else it
+            oid = str(cand.get("offerId") or cand.get("id") or "")
+            if oid and oid not in seen_offer_ids:
+                seen_offer_ids.add(oid)
+                collected_offers.append(cand)
+    else:
+        verify_and_patch_1688_cli(apply_patch=True)
+        kw_list = [k.strip() for k in (keywords or []) if k.strip()]
+        if not kw_list:
+            raise ValueError("Provide at least one --keyword or --input JSON path.")
+        for kw in kw_list:
+            for sort_mode in ("best-selling", "relevance"):
+                cmd_args = ["search", kw, "--sort", sort_mode, "--exclude-ads", "--max", str(max_per_keyword), "--json"]
+                if price_max_cny is not None:
+                    cmd_args.extend(["--price-max", f"{price_max_cny:g}"])
+                if factory_only:
+                    cmd_args.extend(["--verified", "factory"])
+                res = run_1688_command(cmd_args, output_path=None, auto_login=True)
+                data = res.get("data") if isinstance(res.get("data"), dict) else {}
+                for cand in data.get("offers") or []:
+                    if not isinstance(cand, dict):
+                        continue
+                    oid = str(cand.get("offerId") or "")
+                    if oid and oid not in seen_offer_ids:
+                        seen_offer_ids.add(oid)
+                        collected_offers.append(cand)
+
+    report = analyze_1688_trends(
+        offers=collected_offers,
+        keyword=kw_label,
+        mode=mode,
+        target_qty=target_qty,
+        state_file_path=state_file_path,
+        top_limit=top_limit,
+    )
+    if output_md_path:
+        md_text = format_trends_markdown(report)
+        out_md = Path(output_md_path)
+        out_md.parent.mkdir(parents=True, exist_ok=True)
+        out_md.write_text(md_text, encoding="utf-8")
+        report["markdown_report"] = str(out_md)
+    if output_json_path:
+        _atomic_write_json(Path(output_json_path), report)
+        report["json_report"] = str(output_json_path)
+    return report
+
+
 def build_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(
         prog="china_sourcing.py",
@@ -1422,6 +2024,38 @@ def build_parser() -> argparse.ArgumentParser:
     p_1688.add_argument("--output", help="Path to write JSON output artifact.")
     p_1688.add_argument("--no-auto-login", action="store_true", help="Disable automatic browser login popup.")
     p_1688.add_argument("args", nargs=argparse.REMAINDER, help="Arguments passed directly to 1688-cli.")
+
+    p_trends = sub.add_parser(
+        "trends",
+        help="Scan 1688 for hot new products (上新), fast-rising sales velocity (飙升), and emerging niche trends (商机组货 / 排行榜).",
+    )
+    p_trends.add_argument(
+        "--keyword",
+        "-k",
+        nargs="+",
+        help="One or more Simplified Chinese keywords to scan on 1688.",
+    )
+    p_trends.add_argument(
+        "--input",
+        help="Optional path to existing 1688 search JSON file (offline/replay mode).",
+    )
+    p_trends.add_argument(
+        "--mode",
+        default="all",
+        choices=["all", "new-hot", "fast-rising", "niche-trends"],
+        help="Filter report focus: all, new-hot (上新), fast-rising (飙升), or niche-trends (商机组货/排行榜).",
+    )
+    p_trends.add_argument("--max", type=int, default=40, help="Max offers per search pass (default: 40).")
+    p_trends.add_argument("--top", type=int, default=10, help="Number of top offers per table (default: 10).")
+    p_trends.add_argument("--qty", type=int, default=100, help="Target batch quantity for Vietnam Landed Cost.")
+    p_trends.add_argument("--price-max", type=float, help="Optional maximum unit price in CNY.")
+    p_trends.add_argument("--factory-only", action="store_true", help="Restrict scan to verified factories (生产厂家).")
+    p_trends.add_argument(
+        "--state-file",
+        help="Optional path to trends_state.json to track delta orders/day across time intervals.",
+    )
+    p_trends.add_argument("--output-json", help="Optional path to write structured JSON trend report.")
+    p_trends.add_argument("--output-md", help="Optional path to write Vietnamese Markdown trend report.")
 
     p_rep = sub.add_parser("report", help="Generate Markdown/CSV comparison report and WangWang inquiry draft.")
     p_rep.add_argument("--input", required=True, help="Path to JSON file containing offers.")
@@ -1525,6 +2159,23 @@ def main(argv: list[str] | None = None) -> int:
     if ns.subcommand == "1688":
         clean_args = [a for a in ns.args if a != "--"]
         res = run_1688_command(clean_args, ns.output, auto_login=not ns.no_auto_login)
+        print(json.dumps(res, ensure_ascii=False, indent=2))
+        return 0 if res.get("ok") else 1
+
+    if ns.subcommand == "trends":
+        res = run_1688_trends(
+            keywords=ns.keyword,
+            input_json_path=ns.input,
+            mode=ns.mode,
+            max_per_keyword=ns.max,
+            target_qty=ns.qty,
+            price_max_cny=ns.price_max,
+            factory_only=ns.factory_only,
+            state_file_path=ns.state_file,
+            output_json_path=ns.output_json,
+            output_md_path=ns.output_md,
+            top_limit=ns.top,
+        )
         print(json.dumps(res, ensure_ascii=False, indent=2))
         return 0 if res.get("ok") else 1
 

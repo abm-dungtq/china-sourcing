@@ -112,7 +112,7 @@ class TestChinaSourcing(unittest.TestCase):
         self.assertEqual(guide["confirmed_account"]["nick"], "tdhwhosales")
         self.assertEqual(guide["confirmed_account"]["memberId"], "3609685251")
         self.assertEqual(guide["support_contact"], "https://t.me/dungtq87")
-        self.assertEqual(len(guide["scenarios"]), 5)
+        self.assertEqual(len(guide["scenarios"]), 6)
         self.assertIn("tdhwhosales", guide["markdown_guide"])
         self.assertIn("https://t.me/dungtq87", guide["markdown_guide"])
 
@@ -332,16 +332,20 @@ class TestChinaSourcing(unittest.TestCase):
         with tempfile.TemporaryDirectory() as tmpdir:
             fake_dist = Path(tmpdir) / "dist"
             fake_cmds = fake_dist / "commands"
+            fake_sess = fake_dist / "session"
             fake_cmds.mkdir(parents=True)
+            fake_sess.mkdir(parents=True)
             for fname in ("seller-chat.js", "seller-inquire.js", "seller-messages.js"):
                 (fake_cmds / fname).write_text("// unpatched upstream file\n", encoding="utf-8")
+            (fake_sess / "search-mtop.js").write_text("// unpatched search-mtop\n", encoding="utf-8")
 
             check_before = cs.verify_and_patch_1688_cli(apply_patch=False, dist_dir=fake_dist)
             self.assertFalse(check_before["patched"])
 
-            check_after = cs.verify_and_patch_1688_cli(apply_patch=True, dist_dir=fake_dist)
+            with patch("subprocess.run"):
+                check_after = cs.verify_and_patch_1688_cli(apply_patch=True, dist_dir=fake_dist)
             self.assertTrue(check_after["patched"])
-            self.assertEqual(len(check_after["applied_files"]), 3)
+            self.assertEqual(len(check_after["applied_files"]), 4)
 
     def test_alibaba_subcommand_output(self) -> None:
         res = cs.run_alibaba_search(query="eye protection desk lamp", max_results=5)
@@ -350,6 +354,178 @@ class TestChinaSourcing(unittest.TestCase):
         self.assertIn("SearchText=eye+protection+desk+lamp", res["search_url"])
         self.assertIn("verifiedManufactory=true", res["verified_manufacturer_url"])
 
+    def test_parse_cn_count_variants(self) -> None:
+        self.assertEqual(cs.parse_cn_count("已售3.4万+件"), 34000)
+        self.assertEqual(cs.parse_cn_count("已售9000+件"), 9000)
+        self.assertEqual(cs.parse_cn_count("800+"), 800)
+        self.assertEqual(cs.parse_cn_count("1.2万"), 12000)
+        self.assertEqual(cs.parse_cn_count(250), 250)
+        self.assertIsNone(cs.parse_cn_count(None))
+        self.assertIsNone(cs.parse_cn_count(""))
+        self.assertEqual(cs.parse_cn_count("小于10件"), 0)
+
+    def test_velocity_index_log_damped_prevents_small_sample_bias(self) -> None:
+        # Offer A: 50 booked in 30d out of 55 total (90.9% recency share, small volume)
+        offer_small = {
+            "offerId": "1001",
+            "title": "新款小众台灯",
+            "price": 25.0,
+            "demand": {"orderCount": 50, "repurchaseRate": 10.0},
+            "trendSignals": {
+                "soldCountTotal": 55,
+                "soldCountText": "已售55件",
+            },
+        }
+        # Offer B: 9000 booked in 30d out of 25000 total (36% recency share, high volume + rank badge)
+        offer_viral = {
+            "offerId": "1002",
+            "title": "爆款护眼台灯",
+            "price": 25.0,
+            "demand": {"orderCount": 9000, "repurchaseRate": 25.0},
+            "trendSignals": {
+                "soldCountTotal": 25000,
+                "soldCountText": "已售2.5万+件",
+                "rankBadges": [{"text": "学习桌灯热销第2名", "rankName": "学习桌灯热销榜"}],
+            },
+        }
+        m_small = cs.compute_offer_trend_metrics(offer_small)
+        m_viral = cs.compute_offer_trend_metrics(offer_viral)
+        self.assertGreater(m_small["recency_share"], m_viral["recency_share"])
+        self.assertGreater(m_viral["velocity_index"], m_small["velocity_index"])
+        self.assertGreater(m_viral["fast_rising_score"], m_small["fast_rising_score"])
+
+    def test_analyze_1688_trends_clusters_and_leaderboards(self) -> None:
+        offers = [
+            {
+                "offerId": "2001",
+                "title": "2026新款全光谱护眼台灯",
+                "price": 32.0,
+                "url": "https://detail.1688.com/offer/2001.html",
+                "supplier": {"name": "中山光源厂"},
+                "verified": {"superFactory": True},
+                "demand": {"orderCount": 1200, "repurchaseRate": 22.0, "repurchaseRateText": "复购率22%"},
+                "trendSignals": {
+                    "soldCountTotal": 1500,
+                    "soldCountText": "已售1500件",
+                    "newProductSellPoints": ["今年3月上新", "7天内新发"],
+                    "rankBadges": [
+                        {
+                            "text": "桌面台灯热销第1名",
+                            "rankName": "桌面台灯热销榜",
+                            "url": "https://rank.1688.com/wap/rank/detail?rankId=101&rankType=1",
+                        }
+                    ],
+                    "businessOppoTopics": [
+                        {"topic": "跨境热销护眼灯", "topicDate": "2026-09"},
+                        {"topic": "学生宿舍好物", "topicDate": "2026-08"},
+                    ],
+                    "priceCompetitiveBadges": ["全网热销同款低价"],
+                },
+            },
+            {
+                "offerId": "2002",
+                "title": "磁吸充电宿舍阅读灯",
+                "price": 15.0,
+                "url": "https://detail.1688.com/offer/2002.html",
+                "supplier": {"name": "深圳电子厂"},
+                "verified": {"factory": True},
+                "demand": {"orderCount": 5000, "repurchaseRate": 18.0, "repurchaseRateText": "复购率18%"},
+                "trendSignals": {
+                    "soldCountTotal": 8000,
+                    "soldCountText": "已售8000件",
+                    "newProductSellPoints": [],
+                    "rankBadges": [],
+                    "businessOppoTopics": [{"topic": "跨境热销护眼灯", "topicDate": "2026-09"}],
+                    "priceCompetitiveBadges": [],
+                },
+            },
+        ]
+        res = cs.analyze_1688_trends(offers, keyword="护眼台灯", target_qty=100)
+        self.assertTrue(res["ok"])
+        self.assertEqual(res["total_scanned"], 2)
+        self.assertEqual(res["summary_counts"]["offers_with_new_sell_point"], 1)
+        self.assertEqual(res["hot_new_offers"][0]["offer_id"], "2001")
+        self.assertEqual(res["category_leaderboards"][0]["featured_offer_id"], "2001")
+        self.assertEqual(res["niche_trend_clusters"][0]["topic"], "跨境热销护眼灯")
+        self.assertEqual(res["niche_trend_clusters"][0]["offer_count"], 2)
+
+    def test_analyze_1688_trends_stateful_snapshot_delta(self) -> None:
+        offers_t1 = [
+            {
+                "offerId": "3001",
+                "title": "爆款无线台灯",
+                "price": 19.0,
+                "demand": {"orderCount": 1000, "repurchaseRate": 15.0},
+                "trendSignals": {"soldCountTotal": 2000},
+            }
+        ]
+        offers_t2 = [
+            {
+                "offerId": "3001",
+                "title": "爆款无线台灯",
+                "price": 19.0,
+                "demand": {"orderCount": 1450, "repurchaseRate": 18.0},
+                "trendSignals": {"soldCountTotal": 2450},
+            }
+        ]
+        with tempfile.TemporaryDirectory() as tmpdir:
+            snap_file = Path(tmpdir) / "trend_snapshot.json"
+            r1 = cs.analyze_1688_trends(offers_t1, keyword="无线台灯", state_file_path=str(snap_file))
+            self.assertFalse(r1["snapshot_tracking"]["previous_snapshot_found"])
+            self.assertIsNone(r1["fast_rising_offers"][0]["delta_orders"])
+
+            r2 = cs.analyze_1688_trends(offers_t2, keyword="无线台灯", state_file_path=str(snap_file))
+            self.assertTrue(r2["snapshot_tracking"]["previous_snapshot_found"])
+            self.assertEqual(r2["fast_rising_offers"][0]["delta_orders"], 450)
+            self.assertIsNotNone(r2["fast_rising_offers"][0]["delta_orders_per_day"])
+
+    def test_format_trends_markdown_sections(self) -> None:
+        offers = [
+            {
+                "offerId": "4001",
+                "title": "新款国AA护眼灯",
+                "price": 39.0,
+                "url": "https://detail.1688.com/offer/4001.html",
+                "supplier": {"name": "佛山照明厂"},
+                "demand": {"orderCount": 800, "repurchaseRate": 20.0, "repurchaseRateText": "复购率20%"},
+                "trendSignals": {
+                    "soldCountTotal": 1000,
+                    "newProductSellPoints": ["今年2月上新"],
+                    "rankBadges": [
+                        {
+                            "text": "书写台灯热销第3名",
+                            "rankName": "书写台灯热销榜",
+                            "url": "https://rank.1688.com/wap/rank/detail?rankId=202&rankType=1",
+                        }
+                    ],
+                    "businessOppoTopics": [{"topic": "开学季热销台灯", "topicDate": "2026-09"}],
+                },
+            }
+        ]
+        analysis = cs.analyze_1688_trends(offers, keyword="护眼台灯", target_qty=100)
+        md = cs.format_trends_markdown(analysis)
+        self.assertIn("Báo Cáo Radar Bắt Trend, Sản Phẩm Mới & Tốc Độ Bán 1688", md)
+        self.assertIn("1. Sản Phẩm Mới Đang Hot", md)
+        self.assertIn("2. Sản Phẩm Có Lượt Bán Tăng Tốc Nhanh Nhất", md)
+        self.assertIn("3. Cụm Xu Hướng Ngách Đang Lên", md)
+        self.assertIn("https://t.me/dungtq87", md)
+
+    def test_build_1688_rank_urls_generates_three_tabs(self) -> None:
+        urls = cs.build_1688_rank_urls(
+            {
+                "text": "桌面台灯热销第1名",
+                "rankName": "桌面台灯热销榜",
+                "url": "https://rank.1688.com/wap/rank/detail?rankId=101&rankType=1",
+            }
+        )
+        self.assertIn("hot_selling_url", urls)
+        self.assertIn("fast_rising_url", urls)
+        self.assertIn("hot_new_url", urls)
+        self.assertIn("rankType=1", urls["hot_selling_url"])
+        self.assertIn("rankType=2", urls["fast_rising_url"])
+        self.assertIn("rankType=3", urls["hot_new_url"])
+
 
 if __name__ == "__main__":
     unittest.main()
+
