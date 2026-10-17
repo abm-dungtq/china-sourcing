@@ -23,13 +23,27 @@ TARGETS=(
 
 for dest in "${TARGETS[@]}"; do
   mkdir -p "$dest"
-  rsync -a --delete --exclude '.git' "$SRC_DIR/" "$dest/"
+  rsync -a --delete \
+    --exclude '.git' \
+    --exclude 'examples' \
+    --exclude 'docs' \
+    --exclude 'assets' \
+    --exclude 'plans' \
+    --exclude 'runs' \
+    --exclude 'scripts/tests' \
+    "$SRC_DIR/" "$dest/"
+  rm -rf "$dest/examples" "$dest/docs" "$dest/assets" "$dest/plans" "$dest/runs" "$dest/scripts/tests"
   echo "  ✓ Đã cài đặt vào: $dest"
 done
 
 if command -v npm >/dev/null 2>&1 && ! command -v 1688 >/dev/null 2>&1; then
-  echo "📦 Đang cài đặt 1688-cli..."
-  npm install -g 1688-cli || true
+  echo "📦 Đang cài đặt 1688-cli@0.1.47..."
+  npm install -g 1688-cli@0.1.47 || true
+fi
+
+if command -v python3 >/dev/null 2>&1; then
+  echo "🔧 Đang kiểm tra & áp dụng bản vá 1688-cli (WangWang screenshot & offer filter)..."
+  python3 "$SRC_DIR/scripts/china_sourcing.py" doctor --fix >/dev/null || true
 fi
 
 if command -v uv >/dev/null 2>&1 && ! command -v douyin-mcp-server >/dev/null 2>&1; then

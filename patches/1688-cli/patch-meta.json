@@ -1,0 +1,21 @@
+{
+  "package": "1688-cli",
+  "tested_version": "0.1.47",
+  "files": {
+    "seller-chat.js": {
+      "target_relpath": "dist/commands/seller-chat.js",
+      "marker": "args.screenshotPath",
+      "sha256": "ac6f33d6e3fb6eae4667d0c385dab145c9aef6f53d8176f04d6a8f0ac2b54c90"
+    },
+    "seller-inquire.js": {
+      "target_relpath": "dist/commands/seller-inquire.js",
+      "marker": "BB1688_SCREENSHOT_PATH",
+      "sha256": "426eb4b9303e6ff1a11778cd6426c9930ce1b4f6d364163f7eab82f7e2c2ad2c"
+    },
+    "seller-messages.js": {
+      "target_relpath": "dist/commands/seller-messages.js",
+      "marker": "opts.offer",
+      "sha256": "e2afe7eb91a66570069664c4cc5fe3ef2a0414375ad8c7c6ffcbb37f6871cbb9"
+    }
+  }
+}
