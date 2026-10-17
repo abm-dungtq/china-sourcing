@@ -66,12 +66,105 @@ def read_1688_state_identity() -> dict[str, Any] | None:
     return None
 
 
-def inspect_1688_status() -> dict[str, Any]:
+def resolve_1688_dist_dir() -> Path | None:
+    binary = shutil.which("1688")
+    if binary:
+        try:
+            resolved_cli = Path(binary).resolve()
+            if resolved_cli.name == "cli.js" and resolved_cli.parent.name == "dist":
+                return resolved_cli.parent
+        except Exception:
+            pass
+    npm_bin = shutil.which("npm")
+    if npm_bin:
+        try:
+            proc = subprocess.run(
+                [npm_bin, "root", "-g"],
+                capture_output=True,
+                text=True,
+                timeout=10,
+                check=False,
+            )
+            if proc.returncode == 0 and proc.stdout.strip():
+                candidate = Path(proc.stdout.strip()) / "1688-cli" / "dist"
+                if candidate.is_dir():
+                    return candidate
+        except Exception:
+            pass
+    return None
+
+
+def verify_and_patch_1688_cli(
+    apply_patch: bool = False,
+    dist_dir: Path | None = None,
+    patches_dir: Path | None = None,
+) -> dict[str, Any]:
+    """Verify (and optionally apply) the vendored 1688-cli WangWang screenshot & --offer patches."""
+    repo_patches_dir = patches_dir or (Path(__file__).resolve().parent.parent / "patches" / "1688-cli")
+    meta_path = repo_patches_dir / "patch-meta.json"
+    if not meta_path.exists():
+        return {"patched": False, "error": f"patch-meta.json not found at {meta_path}"}
+
+    meta = json.loads(meta_path.read_text(encoding="utf-8"))
+    target_dist = dist_dir or resolve_1688_dist_dir()
+    if not target_dist or not target_dist.is_dir():
+        return {"patched": False, "error": "1688-cli dist directory not found"}
+
+    commands_dir = target_dist / "commands"
+    files_meta: dict[str, Any] = meta.get("files", {})
+    file_statuses: dict[str, Any] = {}
+    applied_files: list[str] = []
+
+    for fname, fmeta in files_meta.items():
+        target_file = commands_dir / fname
+        vendor_file = repo_patches_dir / fname
+        marker = str(fmeta.get("marker") or "")
+        expected_sha = str(fmeta.get("sha256") or "")
+
+        is_valid = False
+        if target_file.exists():
+            raw_bytes = target_file.read_bytes()
+            actual_sha = hashlib.sha256(raw_bytes).hexdigest()
+            has_marker = marker.encode("utf-8") in raw_bytes if marker else True
+            is_valid = (actual_sha == expected_sha) or has_marker
+
+        if not is_valid and apply_patch and vendor_file.exists():
+            commands_dir.mkdir(parents=True, exist_ok=True)
+            tmp_target = commands_dir / f".{fname}.tmp"
+            tmp_target.write_bytes(vendor_file.read_bytes())
+            os.replace(tmp_target, target_file)
+            applied_files.append(fname)
+            raw_bytes = target_file.read_bytes()
+            actual_sha = hashlib.sha256(raw_bytes).hexdigest()
+            has_marker = marker.encode("utf-8") in raw_bytes if marker else True
+            is_valid = (actual_sha == expected_sha) or has_marker
+
+        file_statuses[fname] = {"ok": is_valid, "path": str(target_file)}
+
+    all_patched = bool(files_meta) and all(v.get("ok") for v in file_statuses.values())
+    return {
+        "patched": all_patched,
+        "tested_version": meta.get("tested_version"),
+        "dist_dir": str(target_dist),
+        "applied_files": applied_files,
+        "files": file_statuses,
+    }
+
+
+def inspect_1688_status(apply_patch: bool = False) -> dict[str, Any]:
     binary = shutil.which("1688")
     if not binary:
-        return {"installed": False, "logged_in": False, "detail": "1688-cli not installed"}
+        return {
+            "installed": False,
+            "logged_in": False,
+            "patched": False,
+            "patched_1688_cli": False,
+            "detail": "1688-cli not installed",
+        }
     state_file = Path.home() / ".1688" / "state.json"
     identity = read_1688_state_identity()
+    patch_info = verify_and_patch_1688_cli(apply_patch=apply_patch)
+    is_patched = bool(patch_info.get("patched"))
     try:
         proc = subprocess.run(
             [binary, "doctor"],
@@ -86,6 +179,9 @@ def inspect_1688_status() -> dict[str, Any]:
             "installed": True,
             "path": binary,
             "logged_in": logged_in,
+            "patched": is_patched,
+            "patched_1688_cli": is_patched,
+            "patch_detail": patch_info,
             "identity": identity,
             "state_file": str(state_file) if state_file.exists() else None,
             "summary": (
@@ -95,7 +191,16 @@ def inspect_1688_status() -> dict[str, Any]:
             ),
         }
     except Exception as exc:
-        return {"installed": True, "path": binary, "logged_in": False, "identity": identity, "detail": str(exc)}
+        return {
+            "installed": True,
+            "path": binary,
+            "logged_in": False,
+            "patched": is_patched,
+            "patched_1688_cli": is_patched,
+            "patch_detail": patch_info,
+            "identity": identity,
+            "detail": str(exc),
+        }
 
 
 def build_onboarding_guide(identity: dict[str, Any] | None = None) -> dict[str, Any]:
@@ -140,11 +245,11 @@ def build_onboarding_guide(identity: dict[str, Any] | None = None) -> dict[str, 
     }
 
 
-def run_doctor(output_path: str | None = None) -> dict[str, Any]:
+def run_doctor(output_path: str | None = None, fix: bool = False) -> dict[str, Any]:
     report: dict[str, Any] = {
         "timestamp": utc_now_iso(),
         "tools": {
-            "1688_cli": inspect_1688_status(),
+            "1688_cli": inspect_1688_status(apply_patch=fix),
             "douyin_mcp_server": check_binary("douyin-mcp-server"),
             "chrome_profile": check_binary("chrome-profile"),
             "uvx": check_binary("uvx"),
@@ -170,54 +275,110 @@ def run_doctor(output_path: str | None = None) -> dict[str, Any]:
     return report
 
 
-def parse_share_link(text: str) -> dict[str, Any]:
+SHORT_LINK_DOMAINS = (
+    "e.tb.cn",
+    "m.tb.cn",
+    "s.click.taobao.com",
+    "v.douyin.com",
+    "iesdouyin.com",
+    "qr.1688.com",
+    "m.1688.com",
+)
+
+
+def _extract_platform_and_id(url_or_text: str, raw_text: str = "") -> tuple[str, str | None]:
+    lowered = url_or_text.lower()
+    combined = f"{url_or_text} {raw_text}"
+    if "1688.com" in lowered:
+        m = re.search(r"/offer/(\d+)\.html", combined) or re.search(r"\b(\d{11,13})\b", combined)
+        return "1688", (m.group(1) if m else None)
+    if any(k in lowered for k in ("taobao.com", "tmall.com", "e.tb.cn", "m.tb.cn")):
+        plat = "tmall" if "tmall.com" in lowered else "taobao"
+        m = (
+            re.search(r"[?&]id=(\d+)", combined)
+            or re.search(r"a\.m\.taobao\.com/i(\d+)\.htm", combined)
+            or re.search(r"itemId=(\d+)", combined)
+        )
+        return plat, (m.group(1) if m else None)
+    if any(k in lowered for k in ("yangkeduo.com", "pinduoduo.com")):
+        m = re.search(r"goods_id=(\d+)", combined)
+        return "pinduoduo", (m.group(1) if m else None)
+    if "douyin.com" in lowered or "iesdouyin.com" in lowered:
+        m = re.search(r"/video/(\d+)", combined) or re.search(r"modal_id=(\d+)", combined)
+        return "douyin", (m.group(1) if m else None)
+    if "alibaba.com" in lowered:
+        m = re.search(r"_(\d{9,16})\.html", combined)
+        return "alibaba", (m.group(1) if m else None)
+    if re.fullmatch(r"\d{11,13}", url_or_text.strip()):
+        return "1688_or_taobao_id", url_or_text.strip()
+    return "unknown", None
+
+
+def resolve_short_url(url: str, timeout: float = 5.0) -> tuple[str, str | None]:
+    """Follow HTTP redirects (and embedded JS var url redirects on e.tb.cn) to reveal canonical item URL."""
+    headers = {
+        "User-Agent": (
+            "Mozilla/5.0 (iPhone; CPU iPhone OS 16_6 like Mac OS X) "
+            "AppleWebKit/605.1.15 (KHTML, like Gecko) Version/16.6 Mobile/15E148 Safari/604.1"
+        ),
+        "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
+    }
+    try:
+        req = urllib.request.Request(url, headers=headers)
+        with urllib.request.urlopen(req, timeout=timeout) as resp:
+            final_url = resp.geturl() or url
+            body_bytes = resp.read(32768)
+            html_snippet = body_bytes.decode("utf-8", errors="ignore") if body_bytes else ""
+        _, item_id = _extract_platform_and_id(final_url)
+        if not item_id and html_snippet:
+            js_url_match = re.search(r"var\s+url\s*=\s*['\"](https?://[^'\"]+)['\"]", html_snippet)
+            if not js_url_match:
+                js_url_match = re.search(
+                    r"(https?://(?:item\.taobao\.com|detail\.tmall\.com|a\.m\.taobao\.com|detail\.1688\.com|m\.1688\.com|www\.douyin\.com)[^\s\"'<>]+)",
+                    html_snippet,
+                )
+            if js_url_match:
+                final_url = js_url_match.group(1)
+        return final_url, (html_snippet or None)
+    except Exception:
+        return url, None
+
+
+def parse_share_link(text: str, resolve_redirects: bool = False) -> dict[str, Any]:
     """Extract platform, clean URL, and product/offer/video ID from Chinese share strings."""
     url_match = re.search(r"https?://[^\s「」【】\"'<>]+", text)
     url = url_match.group(0).rstrip(".,;)") if url_match else None
 
-    platform = "unknown"
-    item_id = None
+    platform, item_id = _extract_platform_and_id(url or text, text)
+    resolved_url: str | None = None
 
-    lowered = (url or text).lower()
-    if "1688.com" in lowered:
-        platform = "1688"
-        m = re.search(r"/offer/(\d+)\.html", url or text) or re.search(r"\b(\d{11,13})\b", text)
-        if m:
-            item_id = m.group(1)
-    elif any(k in lowered for k in ("taobao.com", "tmall.com", "e.tb.cn", "m.tb.cn")):
-        platform = "tmall" if "tmall.com" in lowered else "taobao"
-        m = re.search(r"[?&]id=(\d+)", url or text)
-        if m:
-            item_id = m.group(1)
-    elif any(k in lowered for k in ("yangkeduo.com", "pinduoduo.com")):
-        platform = "pinduoduo"
-        m = re.search(r"goods_id=(\d+)", url or text)
-        if m:
-            item_id = m.group(1)
-    elif "douyin.com" in lowered or "iesdouyin.com" in lowered:
-        platform = "douyin"
-        m = re.search(r"/video/(\d+)", url or text)
-        if m:
-            item_id = m.group(1)
-    elif "alibaba.com" in lowered:
-        platform = "alibaba"
-        m = re.search(r"_(\d{9,16})\.html", url or text)
-        if m:
-            item_id = m.group(1)
-    elif re.fullmatch(r"\d{11,13}", text.strip()):
-        platform = "1688_or_taobao_id"
-        item_id = text.strip()
+    if resolve_redirects and url and item_id is None:
+        final_url, html_snippet = resolve_short_url(url)
+        if final_url and final_url != url:
+            resolved_url = final_url
+            r_plat, r_id = _extract_platform_and_id(final_url, html_snippet or "")
+            if r_plat != "unknown":
+                platform = r_plat
+            if r_id:
+                item_id = r_id
+        elif html_snippet:
+            r_plat, r_id = _extract_platform_and_id(url, html_snippet)
+            if r_id:
+                item_id = r_id
 
     title_match = re.search(r"「([^」]+)」", text)
     extracted_title = title_match.group(1) if title_match else None
 
-    return {
+    result: dict[str, Any] = {
         "raw_input": text,
         "platform": platform,
         "url": url,
         "item_id": item_id,
         "extracted_title": extracted_title,
     }
+    if resolved_url is not None or resolve_redirects:
+        result["resolved_url"] = resolved_url
+    return result
 
 
 def build_search_matrix(
@@ -259,6 +420,32 @@ def build_search_matrix(
         "alibaba_search_url": f"https://www.alibaba.com/trade/search?SearchText={en_encoded}",
         "keywords": entries,
     }
+
+
+def run_alibaba_search(
+    query: str,
+    max_results: int = 10,
+    output_path: str | None = None,
+) -> dict[str, Any]:
+    """Generate structured Alibaba.com B2B verified manufacturer search URLs and metadata."""
+    q_clean = query.strip()
+    encoded = urllib.parse.quote_plus(q_clean)
+    search_url = f"https://www.alibaba.com/trade/search?SearchText={encoded}"
+    verified_url = f"{search_url}&IndexArea=company_en&verifiedManufactory=true"
+    res: dict[str, Any] = {
+        "ok": True,
+        "timestamp": utc_now_iso(),
+        "platform": "alibaba",
+        "query": q_clean,
+        "max_results": max_results,
+        "search_url": search_url,
+        "verified_manufacturer_url": verified_url,
+        "recommended_filters": ["Verified Supplier", "Trade Assurance", "ISO 9001 / CE / RoHS"],
+        "support_contact": SUPPORT_CONTACT_URL,
+    }
+    if output_path:
+        write_json(Path(output_path), res)
+    return res
 
 
 def calculate_landed_cost(
@@ -479,6 +666,155 @@ def run_1688_command(
     return result
 
 
+def _parse_cny_float(val: Any) -> float | None:
+    if val is None:
+        return None
+    if isinstance(val, dict):
+        val = val.get("min") or val.get("value")
+    if val is None:
+        return None
+    try:
+        return float(str(val).replace("¥", "").replace("￥", "").replace("$", "").strip())
+    except (TypeError, ValueError):
+        return None
+
+
+def resolve_tier_price_cny(item: dict[str, Any], target_qty: int = 50) -> float | None:
+    """Resolve EXW unit price in CNY for target_qty using priceTiers when quantity breaks exist."""
+    base_price = _parse_cny_float(item.get("price") if item.get("price") is not None else item.get("priceMin"))
+    tiers = item.get("priceTiers")
+    valid_tiers: list[tuple[int, float]] = []
+    if isinstance(tiers, list):
+        for t in tiers:
+            if not isinstance(t, dict):
+                continue
+            p = _parse_cny_float(t.get("price"))
+            if p is None:
+                continue
+            try:
+                mq = int(t.get("minQty") or t.get("beginAmount") or 1)
+            except (TypeError, ValueError):
+                mq = 1
+            valid_tiers.append((mq, p))
+
+    if valid_tiers:
+        distinct_min_qtys = {mq for mq, _ in valid_tiers}
+        max_min_qty = max(distinct_min_qtys)
+        # Apply tier matching when genuine quantity breaks exist (max_min_qty > 1 or multiple distinct minQty values)
+        # or when base_price is missing. Preserve base_price when all entries are SKU variants at minQty==1.
+        if max_min_qty > 1 or len(distinct_min_qtys) > 1 or base_price is None:
+            eligible = [(mq, p) for mq, p in valid_tiers if mq <= target_qty]
+            if eligible:
+                max_eligible_mq = max(mq for mq, _ in eligible)
+                matching_prices = [p for mq, p in eligible if mq == max_eligible_mq]
+                return min(matching_prices)
+            lowest_mq = min(mq for mq, _ in valid_tiers)
+            lowest_prices = [p for mq, p in valid_tiers if mq == lowest_mq]
+            return min(lowest_prices)
+
+    return base_price
+
+
+def extract_package_metrics(item: dict[str, Any]) -> dict[str, Any]:
+    """Extract unit weight (kg) and unit volume (m³) with 3-tier gram/kg disambiguation."""
+    volume_cbm: float | None = None
+    vol_weight_kg: float = 0.0
+
+    if item.get("volume_cbm") is not None:
+        try:
+            v_val = float(item["volume_cbm"])
+            if v_val > 0:
+                volume_cbm = v_val
+        except (TypeError, ValueError):
+            pass
+
+    pkg: dict[str, Any] | None = None
+    if isinstance(item.get("packageInfo"), list) and item["packageInfo"]:
+        first_pkg = item["packageInfo"][0]
+        if isinstance(first_pkg, dict):
+            pkg = first_pkg
+
+    if pkg is not None:
+        try:
+            length_cm = float(pkg.get("length") or 0.0)
+            width_cm = float(pkg.get("width") or 0.0)
+            height_cm = float(pkg.get("height") or 0.0)
+        except (TypeError, ValueError):
+            length_cm = width_cm = height_cm = 0.0
+
+        dim_cm3 = length_cm * width_cm * height_cm if (length_cm > 0 and width_cm > 0 and height_cm > 0) else 0.0
+        if dim_cm3 > 0:
+            vol_weight_kg = dim_cm3 / 6000.0
+
+        vol_cm3 = 0.0
+        if pkg.get("volume") is not None:
+            try:
+                vol_cm3 = float(pkg["volume"])
+            except (TypeError, ValueError):
+                vol_cm3 = 0.0
+        if vol_cm3 <= 0 and dim_cm3 > 0:
+            vol_cm3 = dim_cm3
+        if volume_cbm is None and vol_cm3 > 0:
+            volume_cbm = round(vol_cm3 / 1_000_000.0, 6)
+
+    def _parse_weight_field(raw_val: Any, from_1688_pkg: bool = False) -> tuple[float | None, str | None]:
+        if raw_val is None:
+            return None, None
+        raw_str = str(raw_val).strip().lower()
+        if not raw_str:
+            return None, None
+        num_match = re.search(r"(\d+(?:\.\d+)?)", raw_str)
+        if not num_match:
+            return None, None
+        w_float = float(num_match.group(1))
+        if w_float <= 0:
+            return None, None
+
+        if any(u in raw_str for u in ("kg", "千克", "公斤")):
+            return round(w_float, 6), "kg_suffix"
+        if any(u in raw_str for u in ("g", "克")):
+            return round(w_float / 1000.0, 6), "g_suffix->kg"
+
+        if from_1688_pkg:
+            # 1688 packageInfo[].weight is denominated in grams (e.g. 161 -> 0.161 kg, 5 -> 0.005 kg)
+            if w_float > 10 or (vol_weight_kg > 0 and w_float > 20.0 * vol_weight_kg) or w_float >= 1.0:
+                return round(w_float / 1000.0, 6), "g->kg"
+            return round(w_float, 6), "sub1_kg"
+
+        return round(w_float, 6), "explicit_kg"
+
+    # Priority 1: explicit weight_kg, unitWeight, or freight.unitWeight
+    explicit_candidates = [
+        item.get("weight_kg"),
+        item.get("unitWeight"),
+        (item.get("freight") or {}).get("unitWeight") if isinstance(item.get("freight"), dict) else None,
+    ]
+    for cand in explicit_candidates:
+        w_kg, w_unit = _parse_weight_field(cand, from_1688_pkg=False)
+        if w_kg is not None:
+            return {
+                "weight_kg": w_kg,
+                "volume_cbm": volume_cbm,
+                "weight_unit_inferred": w_unit,
+            }
+
+    # Priority 2: packageInfo[0]["weight"]
+    if pkg is not None and pkg.get("weight") is not None:
+        w_kg, w_unit = _parse_weight_field(pkg.get("weight"), from_1688_pkg=True)
+        if w_kg is not None:
+            return {
+                "weight_kg": w_kg,
+                "volume_cbm": volume_cbm,
+                "weight_unit_inferred": w_unit,
+            }
+
+    return {
+        "weight_kg": None,
+        "volume_cbm": volume_cbm,
+        "weight_unit_inferred": None,
+    }
+
+
 def generate_sourcing_report(
     offers_json_path: str,
     output_md_path: str,
@@ -513,38 +849,16 @@ def generate_sourcing_report(
             or (f"https://detail.1688.com/offer/{offer_id}.html" if offer_id.isdigit() else "[Chưa công bố]")
         )
 
-        price_val = item.get("price") or item.get("priceMin")
-        if isinstance(price_val, dict):
-            price_val = price_val.get("min") or price_val.get("value")
-        if price_val is None and isinstance(item.get("priceTiers"), list) and item["priceTiers"]:
-            price_val = item["priceTiers"][0].get("price")
-        try:
-            price_cny = float(str(price_val).replace("¥", "").replace("￥", "").replace("$", "").strip())
-        except (TypeError, ValueError):
-            price_cny = None
+        price_cny = resolve_tier_price_cny(item, target_qty=target_qty)
 
         moq_val = item.get("moq") if item.get("moq") is not None else item.get("minOrderQty")
         if isinstance(moq_val, dict):
             moq_val = moq_val.get("quantity")
         moq_str = str(moq_val) if moq_val is not None else "[Chưa công bố - Cần hỏi xưởng]"
 
-        weight_val = item.get("weight_kg") or item.get("unitWeight")
-        if weight_val is None and isinstance(item.get("packageInfo"), list) and item["packageInfo"]:
-            pkg_w = item["packageInfo"][0].get("weight")
-            if pkg_w is not None:
-                try:
-                    w_float = float(pkg_w)
-                    weight_val = w_float / 1000.0 if w_float > 10 else w_float
-                except (TypeError, ValueError):
-                    pass
-        if weight_val is None and isinstance(item.get("freight"), dict):
-            fw = item["freight"].get("unitWeight")
-            if fw:
-                weight_val = fw
-        try:
-            weight_kg = float(weight_val) if weight_val is not None else None
-        except (TypeError, ValueError):
-            weight_kg = None
+        metrics = extract_package_metrics(item)
+        weight_kg = metrics["weight_kg"]
+        volume_cbm = metrics["volume_cbm"]
 
         repurchase = (
             item.get("repurchaseRate")
@@ -560,10 +874,12 @@ def generate_sourcing_report(
 
         if price_cny is not None:
             est_weight = weight_kg if weight_kg is not None else 0.25
+            est_volume = volume_cbm if volume_cbm is not None else 0.002
             cost = calculate_landed_cost(
                 exw_price_cny=price_cny,
                 quantity=target_qty,
                 weight_kg_per_unit=est_weight,
+                volume_cbm_per_unit=est_volume,
                 exchange_rate_vnd=exchange_rate_vnd,
                 vn_shipping_per_kg_vnd=vn_shipping_per_kg_vnd,
             )
@@ -697,18 +1013,198 @@ def generate_sourcing_report(
     }
 
 
+SYSTEM_NOTICE_PATTERNS = (
+    r"^\[卡片消息\]$",
+    r"^\[contentType=",
+    r"商家长时间没有回复",
+    r"由于当前是节假日期间",
+    r"客服现在比较繁忙",
+    r"系统消息",
+)
+
+
+def is_human_seller_reply(msg: dict[str, Any]) -> bool:
+    """Return True only when msg is a genuine human reply from the seller (not mine, not autoReply/card/system notice)."""
+    if not isinstance(msg, dict) or bool(msg.get("isMine")):
+        return False
+    kind = str(msg.get("kind") or "text").strip()
+    if kind in ("assessment", "autoReply", "other", "offerCard", "orderCard", "system", "notice"):
+        return False
+    content = str(msg.get("content") or "").strip()
+    if not content:
+        return False
+    for pat in SYSTEM_NOTICE_PATTERNS:
+        if re.search(pat, content):
+            return False
+    return True
+
+
+def message_signature(msg: dict[str, Any], conv_key: str = "", idx: int = 0) -> str:
+    """Build a deterministic signature for a WangWang message scoped to its conversation slot."""
+    msg_id = str(msg.get("id") or msg.get("msgId") or msg.get("time") or msg.get("timestamp") or idx)
+    sender = str(msg.get("sender") or "")
+    content = str(msg.get("content") or "").strip()
+    raw = f"{conv_key}|{msg_id}|{sender}|{content}"
+    return hashlib.sha256(raw.encode("utf-8")).hexdigest()[:24]
+
+
+def compute_inquiry_idempotency_key(run_id: str, offer_id: str, inquiry_text: str) -> str:
+    """Compute sha256(run_id + offer_id + inquiry_text_hash) idempotency key per ABM Step B7."""
+    text_hash = hashlib.sha256(inquiry_text.strip().encode("utf-8")).hexdigest()
+    payload = f"{run_id.strip()}:{offer_id.strip()}:{text_hash}"
+    return hashlib.sha256(payload.encode("utf-8")).hexdigest()
+
+
+def _atomic_write_json(path: Path, payload: Any) -> None:
+    path.parent.mkdir(parents=True, exist_ok=True)
+    tmp_path = path.parent / f".{path.name}.tmp.{os.getpid()}"
+    tmp_path.write_text(json.dumps(payload, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+    os.replace(tmp_path, path)
+
+
+def inquire_wangwang(
+    offer_id: str,
+    message: str,
+    run_id: str = "default",
+    seller_login_id: str | None = None,
+    supplier: str | None = None,
+    rank: int = 1,
+    receipt_json_path: str | None = None,
+    screenshot_path: str | None = None,
+    force: bool = False,
+) -> dict[str, Any]:
+    """Send a WangWang inquiry with SHA-256 idempotency protection and BB1688_SCREENSHOT_PATH proof capture."""
+    idem_key = compute_inquiry_idempotency_key(run_id=run_id, offer_id=str(offer_id), inquiry_text=message)
+    receipt_path = Path(receipt_json_path) if receipt_json_path else None
+    receipt_doc: dict[str, Any] = {"run_id": run_id, "updated_at": utc_now_iso(), "receipts": []}
+
+    if receipt_path and receipt_path.exists():
+        try:
+            loaded = json.loads(receipt_path.read_text(encoding="utf-8"))
+            if isinstance(loaded, dict):
+                receipt_doc = loaded
+                if "receipts" not in receipt_doc:
+                    receipt_doc["receipts"] = (
+                        receipt_doc.get("inquiries") or receipt_doc.get("results") or []
+                    )
+            elif isinstance(loaded, list):
+                receipt_doc["receipts"] = loaded
+        except Exception:
+            pass
+
+    existing_receipts: list[dict[str, Any]] = receipt_doc.get("receipts", [])
+    if not force:
+        for entry in existing_receipts:
+            if not isinstance(entry, dict):
+                continue
+            entry_key = entry.get("idempotency_key")
+            same_offer_sent = (
+                str(entry.get("offer_id") or "") == str(offer_id)
+                and (entry.get("ok") is True or entry.get("status") in ("sent", "ok"))
+                and entry_key in (idem_key, None)
+            )
+            if entry_key == idem_key or same_offer_sent:
+                return {
+                    "ok": True,
+                    "status": "skipped_duplicate",
+                    "skipped_duplicate": True,
+                    "idempotency_key": idem_key,
+                    "run_id": run_id,
+                    "offer_id": str(offer_id),
+                    "existing_receipt": entry,
+                }
+
+    binary = shutil.which("1688")
+    if not binary:
+        return {
+            "ok": False,
+            "status": "error",
+            "idempotency_key": idem_key,
+            "error": "1688-cli not installed",
+        }
+
+    cmd_args = [binary, "seller", "inquire", str(offer_id), message]
+    if seller_login_id:
+        cmd_args.extend(["--to", seller_login_id])
+    cmd_args.append("--json")
+
+    env = dict(os.environ)
+    if screenshot_path:
+        Path(screenshot_path).parent.mkdir(parents=True, exist_ok=True)
+        env["BB1688_SCREENSHOT_PATH"] = str(screenshot_path)
+
+    proc = subprocess.run(
+        cmd_args,
+        capture_output=True,
+        text=True,
+        timeout=90,
+        env=env,
+        check=False,
+    )
+    stdout = (proc.stdout or "").strip()
+    stderr = (proc.stderr or "").strip()
+    parsed: dict[str, Any] = {}
+    if stdout:
+        try:
+            parsed = json.loads(stdout)
+        except json.JSONDecodeError:
+            parsed = {"raw": stdout}
+
+    ok = proc.returncode == 0 and bool(parsed.get("ok", proc.returncode == 0))
+    resolved_seller = (
+        seller_login_id
+        or parsed.get("sentTo")
+        or parsed.get("sellerLoginId")
+        or supplier
+        or str(offer_id)
+    )
+    entry_record: dict[str, Any] = {
+        "rank": rank,
+        "offer_id": str(offer_id),
+        "supplier": supplier or resolved_seller,
+        "seller_login_id": resolved_seller,
+        "idempotency_key": idem_key,
+        "run_id": run_id,
+        "inquiry_text": message,
+        "screenshot": str(screenshot_path) if screenshot_path else parsed.get("screenshotPath"),
+        "ok": ok,
+        "status": "sent" if ok else "failed",
+        "sent_at": utc_now_iso(),
+        "response": parsed,
+        "stderr": stderr or None,
+    }
+
+    if receipt_path:
+        existing_receipts.append(entry_record)
+        receipt_doc["updated_at"] = utc_now_iso()
+        receipt_doc["receipts"] = existing_receipts
+        _atomic_write_json(receipt_path, receipt_doc)
+
+    return entry_record
+
+
 def check_wangwang_replies(
     receipt_json_path: str | None = None,
     seller_login_id: str | None = None,
     offer_id: str | None = None,
     limit: int = 20,
     output_path: str | None = None,
+    state_file_path: str | None = None,
+    only_new: bool = False,
+    mock_conversations: list[dict[str, Any]] | None = None,
 ) -> dict[str, Any]:
-    """Check 1688 WangWang conversations for seller replies and build a user update + follow-up prompt."""
+    """Check 1688 WangWang conversations for human seller replies with optional delta state tracking."""
     targets: list[dict[str, Any]] = []
     if receipt_json_path and Path(receipt_json_path).exists():
         raw_receipt = json.loads(Path(receipt_json_path).read_text(encoding="utf-8"))
-        for item in raw_receipt.get("receipts", []):
+        receipt_items = (
+            raw_receipt
+            if isinstance(raw_receipt, list)
+            else raw_receipt.get("receipts") or raw_receipt.get("inquiries") or raw_receipt.get("results") or []
+        )
+        for item in receipt_items:
+            if not isinstance(item, dict):
+                continue
             targets.append(
                 {
                     "rank": item.get("rank"),
@@ -727,57 +1223,129 @@ def check_wangwang_replies(
             }
         )
 
+    seen_keys: set[str] = set()
+    state_path = Path(state_file_path) if state_file_path else None
+    if state_path and state_path.exists():
+        try:
+            state_data = json.loads(state_path.read_text(encoding="utf-8"))
+            if isinstance(state_data, dict) and isinstance(state_data.get("seen_message_keys"), list):
+                seen_keys = {str(k) for k in state_data["seen_message_keys"]}
+        except Exception:
+            pass
+
     binary = shutil.which("1688")
     conversations: list[dict[str, Any]] = []
-    for t in targets:
-        cmd_args: list[str] = ["seller", "messages"]
-        if t.get("seller_login_id"):
-            cmd_args.append(str(t["seller_login_id"]))
-        if t.get("offer_id"):
-            cmd_args.extend(["--offer", str(t["offer_id"])])
-        cmd_args.extend(["--limit", str(limit), "--json"])
+    total_human_replies = 0
+    total_new_human_replies = 0
 
-        if not binary:
-            conversations.append({**t, "ok": False, "error": "1688-cli not installed"})
-            continue
+    source_items = mock_conversations if mock_conversations is not None else targets
+    for t_idx, t in enumerate(source_items):
+        if mock_conversations is not None:
+            msgs = t.get("all_messages") or t.get("messages") or []
+            proc_ok = bool(t.get("ok", True))
+            base_meta = {
+                k: v
+                for k, v in t.items()
+                if k
+                not in (
+                    "all_messages",
+                    "messages",
+                    "seller_replies",
+                    "seller_replies_count",
+                    "human_replies",
+                    "new_human_replies",
+                    "auto_or_system_messages",
+                )
+            }
+        else:
+            cmd_args: list[str] = ["seller", "messages"]
+            if t.get("seller_login_id"):
+                cmd_args.append(str(t["seller_login_id"]))
+            if t.get("offer_id"):
+                cmd_args.extend(["--offer", str(t["offer_id"])])
+            cmd_args.extend(["--limit", str(limit), "--json"])
 
-        proc = subprocess.run(
-            [binary, *cmd_args],
-            capture_output=True,
-            text=True,
-            timeout=60,
-            check=False,
+            if not binary:
+                conversations.append({**t, "ok": False, "error": "1688-cli not installed"})
+                continue
+
+            proc = subprocess.run(
+                [binary, *cmd_args],
+                capture_output=True,
+                text=True,
+                timeout=60,
+                check=False,
+            )
+            stdout = (proc.stdout or "").strip()
+            parsed: dict[str, Any] = {}
+            if stdout:
+                try:
+                    parsed = json.loads(stdout)
+                except json.JSONDecodeError:
+                    parsed = {"raw": stdout}
+            msgs = parsed.get("messages", []) if isinstance(parsed, dict) else []
+            proc_ok = proc.returncode == 0
+            base_meta = dict(t)
+
+        conv_key = str(
+            base_meta.get("seller_login_id")
+            or base_meta.get("supplier")
+            or base_meta.get("offer_id")
+            or f"conv-{t_idx}"
         )
-        stdout = (proc.stdout or "").strip()
-        parsed: dict[str, Any] = {}
-        if stdout:
-            try:
-                parsed = json.loads(stdout)
-            except json.JSONDecodeError:
-                parsed = {"raw": stdout}
-        msgs = parsed.get("messages", []) if isinstance(parsed, dict) else []
-        seller_replies = [
-            m
-            for m in msgs
-            if isinstance(m, dict)
-            and not m.get("isMine")
-            and m.get("kind") not in ("assessment",)
-        ]
+        human_replies: list[dict[str, Any]] = []
+        new_human_replies: list[dict[str, Any]] = []
+        auto_or_system_messages: list[dict[str, Any]] = []
+
+        for m_idx, m in enumerate(msgs):
+            if not isinstance(m, dict) or bool(m.get("isMine")):
+                continue
+            if is_human_seller_reply(m):
+                human_replies.append(m)
+                sig = message_signature(m, conv_key=conv_key, idx=m_idx)
+                if sig not in seen_keys:
+                    new_human_replies.append(m)
+                    seen_keys.add(sig)
+            else:
+                auto_or_system_messages.append(m)
+
+        active_replies = new_human_replies if only_new else human_replies
+        total_human_replies += len(human_replies)
+        total_new_human_replies += len(new_human_replies)
+
         conversations.append(
             {
-                **t,
-                "ok": proc.returncode == 0,
+                **base_meta,
+                "ok": proc_ok,
                 "total_messages": len(msgs),
-                "seller_replies_count": len(seller_replies),
-                "seller_replies": seller_replies,
+                "seller_replies_count": len(active_replies),
+                "seller_replies": active_replies,
+                "human_replies_count": len(human_replies),
+                "human_replies": human_replies,
+                "new_human_replies_count": len(new_human_replies),
+                "new_human_replies": new_human_replies,
+                "auto_or_system_count": len(auto_or_system_messages),
+                "auto_or_system_messages": auto_or_system_messages,
                 "all_messages": msgs,
             }
+        )
+
+    if state_path:
+        _atomic_write_json(
+            state_path,
+            {
+                "updated_at": utc_now_iso(),
+                "seen_message_keys": sorted(seen_keys),
+            },
         )
 
     result = {
         "timestamp": utc_now_iso(),
         "poll_interval_minutes": 5,
         "checked_count": len(conversations),
+        "total_human_replies": total_human_replies,
+        "total_new_human_replies": total_new_human_replies,
+        "has_new_human_replies": total_new_human_replies > 0,
         "conversations": conversations,
         "follow_up_question_for_user": (
             "Bạn có cần hỏi thêm thông tin gì với các nhà cung cấp này không "
@@ -788,7 +1356,7 @@ def check_wangwang_replies(
         "support_note": SUPPORT_CONTACT_NOTE,
     }
     if output_path:
-        write_json(Path(output_path), result)
+        _atomic_write_json(Path(output_path), result)
     return result
 
 
@@ -801,9 +1369,20 @@ def build_parser() -> argparse.ArgumentParser:
 
     p_doc = sub.add_parser("doctor", help="Check installed tools, sessions, and API credentials.")
     p_doc.add_argument("--output", help="Optional path to write JSON doctor report.")
+    p_doc.add_argument("--fix", action="store_true", help="Apply vendored 1688-cli patches if missing or outdated.")
 
     p_link = sub.add_parser("parse-link", help="Extract platform, URL, and item ID from mobile share text.")
     p_link.add_argument("text", help="Share text or URL from Taobao, 1688, Pinduoduo, Douyin, or Alibaba.")
+    p_link.add_argument(
+        "--resolve",
+        action="store_true",
+        help="Follow HTTP redirects on mobile short links (e.tb.cn, v.douyin.com, qr.1688.com) to extract item_id.",
+    )
+
+    p_ali = sub.add_parser("alibaba", help="Build structured Alibaba.com B2B verified manufacturer search metadata.")
+    p_ali.add_argument("--query", "-q", required=True, help="English product keyword for Alibaba.com.")
+    p_ali.add_argument("--limit", type=int, default=10, help="Target supplier count.")
+    p_ali.add_argument("--output", help="Optional path to write JSON output.")
 
     p_kw = sub.add_parser("translate-keywords", help="Build cross-platform search URLs and CLI commands.")
     p_kw.add_argument("--product", required=True, help="Product name in Vietnamese or English.")
@@ -853,6 +1432,20 @@ def build_parser() -> argparse.ArgumentParser:
     p_rep.add_argument("--exchange-rate", type=float, default=DEFAULT_EXCHANGE_RATE_VND)
     p_rep.add_argument("--vn-shipping-per-kg", type=float, default=DEFAULT_VN_SHIPPING_PER_KG_VND)
 
+    p_inq = sub.add_parser(
+        "inquire-wangwang",
+        help="Send a 1688 WangWang inquiry with SHA-256 idempotency gate and screenshot proof capture.",
+    )
+    p_inq.add_argument("--offer-id", "--offer", dest="offer_id", required=True, help="1688 offer ID.")
+    p_inq.add_argument("--message", "-m", required=True, help="Chinese inquiry message to send.")
+    p_inq.add_argument("--run-id", default="default", help="Run identifier for idempotency hashing.")
+    p_inq.add_argument("--seller", help="Optional seller loginId or shop name.")
+    p_inq.add_argument("--supplier", help="Optional supplier display name.")
+    p_inq.add_argument("--rank", type=int, default=1, help="Supplier rank in sourcing report.")
+    p_inq.add_argument("--receipt", help="Path to 07_inquiry_receipt.json for idempotency check and logging.")
+    p_inq.add_argument("--screenshot", help="Path to save PNG proof via BB1688_SCREENSHOT_PATH.")
+    p_inq.add_argument("--force", action="store_true", help="Bypass idempotency check and re-send.")
+
     p_ww = sub.add_parser(
         "check-wangwang",
         help="Check 1688 WangWang replies for contacted suppliers (used by the 5-minute auto-polling schedule).",
@@ -861,6 +1454,8 @@ def build_parser() -> argparse.ArgumentParser:
     p_ww.add_argument("--seller", help="Single seller loginId to check.")
     p_ww.add_argument("--offer", help="Offer ID to scope the WangWang check.")
     p_ww.add_argument("--limit", type=int, default=20, help="Max messages per conversation.")
+    p_ww.add_argument("--state-file", help="Optional path to 08_wangwang_state.json for delta message tracking.")
+    p_ww.add_argument("--only-new", action="store_true", help="Only return unseen human replies in seller_replies.")
     p_ww.add_argument("--output", help="Optional path to write JSON poll report.")
 
     return parser
@@ -871,12 +1466,17 @@ def main(argv: list[str] | None = None) -> int:
     ns = parser.parse_args(argv)
 
     if ns.subcommand == "doctor":
-        res = run_doctor(ns.output)
+        res = run_doctor(ns.output, fix=ns.fix)
         print(json.dumps(res, ensure_ascii=False, indent=2))
         return 0
 
     if ns.subcommand == "parse-link":
-        res = parse_share_link(ns.text)
+        res = parse_share_link(ns.text, resolve_redirects=ns.resolve)
+        print(json.dumps(res, ensure_ascii=False, indent=2))
+        return 0
+
+    if ns.subcommand == "alibaba":
+        res = run_alibaba_search(query=ns.query, max_results=ns.limit, output_path=ns.output)
         print(json.dumps(res, ensure_ascii=False, indent=2))
         return 0
 
@@ -941,6 +1541,21 @@ def main(argv: list[str] | None = None) -> int:
         print(json.dumps(res, ensure_ascii=False, indent=2))
         return 0
 
+    if ns.subcommand == "inquire-wangwang":
+        res = inquire_wangwang(
+            offer_id=ns.offer_id,
+            message=ns.message,
+            run_id=ns.run_id,
+            seller_login_id=ns.seller,
+            supplier=ns.supplier,
+            rank=ns.rank,
+            receipt_json_path=ns.receipt,
+            screenshot_path=ns.screenshot,
+            force=ns.force,
+        )
+        print(json.dumps(res, ensure_ascii=False, indent=2))
+        return 0 if res.get("ok") else 1
+
     if ns.subcommand == "check-wangwang":
         res = check_wangwang_replies(
             receipt_json_path=ns.receipt,
@@ -948,6 +1563,8 @@ def main(argv: list[str] | None = None) -> int:
             offer_id=ns.offer,
             limit=ns.limit,
             output_path=ns.output,
+            state_file_path=ns.state_file,
+            only_new=ns.only_new,
         )
         print(json.dumps(res, ensure_ascii=False, indent=2))
         return 0
